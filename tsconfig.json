@@ -1,0 +1,55 @@
+{
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts",
+    "Build/",
+    ".idea",
+    ".dockerignore",
+    ".eslintignore",
+    ".eslintrc",
+    ".nvmrc",
+    "Dockerfile",
+    "esbuild.config.js",
+    "jest.config.json",
+    "package.json",
+    "pnpm-lock.yaml",
+    "serverInfo.ascii",
+    "serviceInfo.ascii",
+    "wait-and-watch.js"
+  ],
+  "compilerOptions": {
+    "declaration": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./*"]
+    },
+    "experimentalDecorators": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "target": "ESNext",
+    "outDir": "Build/",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true,
+    "allowUmdGlobalAccess": true
+  },
+  "lib": [
+    "esnext",
+    "dom"
+  ]
+}

@@ -9,7 +9,6 @@ async function run() {
         outfile: './Build/App.js',
         bundle: true,
         platform: 'node',
-        external: Object.keys(require('./package.json').dependencies),
         loader: { '.ts': 'ts' },
         tsconfig: './tsconfig.json',
         color: true,
@@ -19,6 +18,10 @@ async function run() {
             })
         ]
     };
+    const deps = require('./package.json').dependencies;
+    if (deps && deps.length > 0) {
+        options.external = Object?.keys(deps);
+    }
 
     const env = process.env.ESBUILD_ENV || 'dev';
 

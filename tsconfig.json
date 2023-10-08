@@ -4,7 +4,6 @@
     "**/*.spec.ts",
     "Build/",
     ".idea",
-    ".dockerignore",
     ".eslintignore",
     ".eslintrc",
     ".nvmrc",
@@ -13,13 +12,11 @@
     "jest.config.json",
     "package.json",
     "pnpm-lock.yaml",
-    "serverInfo.ascii",
-    "serviceInfo.ascii",
     "wait-and-watch.js"
   ],
   "compilerOptions": {
     "declaration": true,
-    "baseUrl": "./",
+    "baseUrl": "./Sources",
     "paths": {
       "@/*": ["./*"]
     },

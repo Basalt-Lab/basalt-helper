@@ -150,14 +150,14 @@ export class DataFilter {
         if ((!['camel', 'pascal', 'snake', 'kebab'].includes(caseType)))
             throw new Error('The case type must be one of the following: camel, pascal, snake, kebab.');
         switch (caseType) {
-            case 'camel':
-                return DataFilter.transformKeys(data, DataFilter.toCamelCase);
-            case 'pascal':
-                return DataFilter.transformKeys(data, DataFilter.toPascalCase);
-            case 'snake':
-                return DataFilter.transformKeys(data, DataFilter.toSnakeCase);
-            case 'kebab':
-                return DataFilter.transformKeys(data, DataFilter.toKebabCase);
+        case 'camel':
+            return DataFilter.transformKeys(data, DataFilter.toCamelCase);
+        case 'pascal':
+            return DataFilter.transformKeys(data, DataFilter.toPascalCase);
+        case 'snake':
+            return DataFilter.transformKeys(data, DataFilter.toSnakeCase);
+        case 'kebab':
+            return DataFilter.transformKeys(data, DataFilter.toKebabCase);
         }
     }
 
@@ -197,21 +197,24 @@ export class DataFilter {
             throw new Error('The provided data object is either null or undefined.');
 
         if (data instanceof Date)
-            return new Date(data.getTime()) as any;
+            return new Date(data.getTime()) as T;
 
         if (data instanceof RegExp)
-            return new RegExp(data) as any;
+            return new RegExp(data) as T;
 
         if (data instanceof Array)
-            return data.map(item => this.deepClone(item)) as any;
+            return data.map(item => this.deepClone(item)) as T;
 
         if (typeof data === 'object') {
-            const clonedObject: any = {};
-            for (const key in data)
-                if (data.hasOwnProperty(key))
-                    clonedObject[key] = this.deepClone((data as any)[key]);
-            return clonedObject;
+            const clonedObject: Partial<T> = {} as Partial<T>;
+            for (const key in data) {
+                if (Object.hasOwnProperty.call(data, key)) {
+                    clonedObject[key as keyof T] = this.deepClone(data[key]);
+                }
+            }
+            return clonedObject as T;
         }
-        return data as any;
+
+        return data as T;
     }
 }

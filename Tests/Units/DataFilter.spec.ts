@@ -6,25 +6,25 @@ describe('HelperDataFilter', (): void => {
         it('should throw an error for null data', (): void => {
             expect((): void => {
                 DataFilter.filterByKeys(null as any, ['a', 'b', 'c']);
-            }).toThrowError("The provided data object is either null or undefined.");
+            }).toThrowError('The provided data object is either null or undefined.');
         });
 
         it('should throw an error for undefined data', (): void => {
             expect((): void => {
                 DataFilter.filterByKeys(undefined as any, ['a', 'b', 'c']);
-            }).toThrowError("The provided data object is either null or undefined.");
+            }).toThrowError('The provided data object is either null or undefined.');
         });
 
         it('should throw an error if the data is not an object', (): void => {
             expect((): void => {
                 DataFilter.filterByKeys('string' as any, ['a', 'b', 'c']);
-            }).toThrowError("The provided data object must be an object.");
+            }).toThrowError('The provided data object must be an object.');
         });
 
         it('should throw an error if the keys are not an array', (): void => {
             expect((): void => {
                 DataFilter.filterByKeys({}, 'string' as any);
-            }).toThrowError("The provided keys must be an array.");
+            }).toThrowError('The provided keys must be an array.');
         });
 
         it('should throw an error if the options are not an object', (): void => {
@@ -63,25 +63,25 @@ describe('HelperDataFilter', (): void => {
         it('should throw an error for null data', (): void => {
             expect((): void => {
                 DataFilter.excludeByKeys(null as any, ['a', 'b', 'c']);
-            }).toThrowError("The provided data object is either null or undefined.");
+            }).toThrowError('The provided data object is either null or undefined.');
         });
 
         it('should throw an error for undefined data', (): void => {
             expect((): void => {
                 DataFilter.excludeByKeys(undefined as any, ['a', 'b', 'c']);
-            }).toThrowError("The provided data object is either null or undefined.");
+            }).toThrowError('The provided data object is either null or undefined.');
         });
 
         it('should throw an error if the data is not an object', (): void => {
             expect((): void => {
                 DataFilter.excludeByKeys('string' as any, ['a', 'b', 'c']);
-            }).toThrowError("The provided data object must be an object.");
+            }).toThrowError('The provided data object must be an object.');
         });
 
         it('should throw an error if the keys are not an array', (): void => {
             expect((): void => {
                 DataFilter.excludeByKeys({}, 'string' as any);
-            }).toThrowError("The provided keys must be an array.");
+            }).toThrowError('The provided keys must be an array.');
         });
 
         it('should return an object without the excluded keys', (): void => {
@@ -102,37 +102,37 @@ describe('HelperDataFilter', (): void => {
         it('should throw an error for null data', (): void => {
             expect((): void => {
                 DataFilter.transformKeyToAnotherCase(null as any, 'camel');
-            }).toThrowError("The data object is required.");
+            }).toThrowError('The data object is required.');
         });
 
         it('should throw an error for undefined data', (): void => {
             expect((): void => {
                 DataFilter.transformKeyToAnotherCase(undefined as any, 'camel');
-            }).toThrowError("The data object is required.");
+            }).toThrowError('The data object is required.');
         });
 
         it('should throw an error if the data is not an object', (): void => {
             expect((): void => {
                 DataFilter.transformKeyToAnotherCase('string' as any, 'camel');
-            }).toThrowError("The data object must be an object.");
+            }).toThrowError('The data object must be an object.');
         });
 
         it('should throw an error for invalid caseType', (): void => {
             const data: { exampleKey: string } = { exampleKey: 'value' };
             expect((): void => {
                 DataFilter.transformKeyToAnotherCase(data, 'invalidCase' as any);
-            }).toThrowError("The case type must be one of the following: camel, pascal, snake, kebab.");
+            }).toThrowError('The case type must be one of the following: camel, pascal, snake, kebab.');
         });
 
         it('should transform keys to camelCase', (): void => {
-            const data: { "ZIP-CODE": string; last_name: string; "first-name": string } = { 'first-name': 'John', last_name: 'Doe', 'ZIP-CODE': '12345' };
-            const result: { "ZIP-CODE": string; last_name: string; "first-name": string } = DataFilter.transformKeyToAnotherCase(data, 'camel');
+            const data: { 'ZIP-CODE': string; last_name: string; 'first-name': string } = { 'first-name': 'John', last_name: 'Doe', 'ZIP-CODE': '12345' };
+            const result: { 'ZIP-CODE': string; last_name: string; 'first-name': string } = DataFilter.transformKeyToAnotherCase(data, 'camel');
             expect(result).toEqual({ 'firstName': 'John', 'lastName': 'Doe', 'ZIPCODE': '12345' });
         });
 
         it('should transform keys to pascalCase', (): void => {
-            const data: { "ZIP-CODE": string; last_name: string; "first-name": string } = { 'first-name': 'John', last_name: 'Doe', 'ZIP-CODE': '12345' };
-            const result: { "ZIP-CODE": string; last_name: string; "first-name": string } = DataFilter.transformKeyToAnotherCase(data, 'pascal');
+            const data: { 'ZIP-CODE': string; last_name: string; 'first-name': string } = { 'first-name': 'John', last_name: 'Doe', 'ZIP-CODE': '12345' };
+            const result: { 'ZIP-CODE': string; last_name: string; 'first-name': string } = DataFilter.transformKeyToAnotherCase(data, 'pascal');
             expect(result).toEqual({ 'FirstName': 'John', 'LastName': 'Doe', 'ZIPCODE': '12345' });
         });
 
@@ -154,20 +154,20 @@ describe('HelperDataFilter', (): void => {
         it('should throw an error for null data', (): void => {
             expect((): void => {
                 DataFilter.filterByValue(null as any, (): boolean => true);
-            }).toThrowError("The provided data object is either null or undefined.");
+            }).toThrowError('The provided data object is either null or undefined.');
         });
 
         it('should throw an error for undefined data', (): void => {
             expect((): void => {
                 DataFilter.filterByValue(undefined as any, (): boolean => true);
-            }).toThrowError("The provided data object is either null or undefined.");
+            }).toThrowError('The provided data object is either null or undefined.');
         });
 
         it('should throw an error if the callback is not a function', (): void => {
             const data: { name: string } = { name: 'John' };
             expect((): void => {
                 DataFilter.filterByValue(data, 'notAFunction' as any);
-            }).toThrowError("The provided callback is not a function.");
+            }).toThrowError('The provided callback is not a function.');
         });
 
         it('should filter object properties based on value', (): void => {
@@ -197,13 +197,13 @@ describe('HelperDataFilter', (): void => {
         it('should throw an error for null data', (): void => {
             expect((): void => {
                 DataFilter.deepClone(null as any);
-            }).toThrow("The provided data object is either null or undefined.");
+            }).toThrow('The provided data object is either null or undefined.');
         });
 
         it('should throw an error for undefined data', (): void => {
             expect((): void => {
                 DataFilter.deepClone(undefined as any);
-            }).toThrow("The provided data object is either null or undefined.");
+            }).toThrow('The provided data object is either null or undefined.');
         });
 
         it('should clone primitive values', (): void => {

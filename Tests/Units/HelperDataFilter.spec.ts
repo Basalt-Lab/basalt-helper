@@ -29,7 +29,7 @@ describe('HelperDataFilter', (): void => {
 
         it('should throw an error if the options are not an object', (): void => {
             expect((): void => {
-                HelperDataFilter.filterByKeys<{a: string}>({a: 'hello'}, ['a'], 'string' as any);
+                HelperDataFilter.filterByKeys<{a: string}>({ a: 'hello' }, ['a'], 'string' as any);
             }).toThrowError("The provided options must be an object.");
         });
 
@@ -164,7 +164,7 @@ describe('HelperDataFilter', (): void => {
         });
 
         it('should throw an error if the callback is not a function', (): void => {
-            const data: { name: string } = {name: 'John'};
+            const data: { name: string } = { name: 'John' };
             expect((): void => {
                 HelperDataFilter.filterByValue(data, 'notAFunction' as any);
             }).toThrowError("The provided callback is not a function.");
@@ -227,7 +227,7 @@ describe('HelperDataFilter', (): void => {
         });
 
         it('should clone arrays', (): void => {
-            const data: (number | { a: string })[] = [1, 2, 3, {a: 'b'}];
+            const data: (number | { a: string })[] = [1, 2, 3, { a: 'b' }];
             const result: (number | { a: string })[] = HelperDataFilter.deepClone(data);
             expect(result).toEqual(data);
             expect(result).not.toBe(data);

@@ -207,11 +207,11 @@ export class DataFilter {
 
         if (typeof data === 'object') {
             const clonedObject: Partial<T> = {} as Partial<T>;
-            for (const key in data) {
-                if (Object.hasOwnProperty.call(data, key)) {
+            for (const key in data) 
+                if (Object.hasOwnProperty.call(data, key)) 
                     clonedObject[key as keyof T] = this.deepClone(data[key]);
-                }
-            }
+                
+            
             return clonedObject as T;
         }
 

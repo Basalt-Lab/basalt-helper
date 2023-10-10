@@ -2,7 +2,7 @@ export interface FilterOptions {
     excludeNullUndefined?: boolean;
 }
 
-export class HelperDataFilter {
+export class DataFilter {
     /**
      * Filters the data by the specified keys.
      *
@@ -100,7 +100,7 @@ export class HelperDataFilter {
      * @returns The transformed key.
      */
     private static toPascalCase(key: string): string {
-        const camelKey: string = HelperDataFilter.toCamelCase(key);
+        const camelKey: string = DataFilter.toCamelCase(key);
         return camelKey.charAt(0).toUpperCase() + camelKey.slice(1);
     }
 
@@ -151,13 +151,13 @@ export class HelperDataFilter {
             throw new Error('The case type must be one of the following: camel, pascal, snake, kebab.');
         switch (caseType) {
             case 'camel':
-                return HelperDataFilter.transformKeys(data, HelperDataFilter.toCamelCase);
+                return DataFilter.transformKeys(data, DataFilter.toCamelCase);
             case 'pascal':
-                return HelperDataFilter.transformKeys(data, HelperDataFilter.toPascalCase);
+                return DataFilter.transformKeys(data, DataFilter.toPascalCase);
             case 'snake':
-                return HelperDataFilter.transformKeys(data, HelperDataFilter.toSnakeCase);
+                return DataFilter.transformKeys(data, DataFilter.toSnakeCase);
             case 'kebab':
-                return HelperDataFilter.transformKeys(data, HelperDataFilter.toKebabCase);
+                return DataFilter.transformKeys(data, DataFilter.toKebabCase);
         }
     }
 

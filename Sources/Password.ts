@@ -1,5 +1,6 @@
 import { hash, verify } from 'argon2';
-import { OS } from '@/Deps/OS';
+
+import { OS } from '@/Deps/Node/OS';
 
 export class Password {
     private static readonly _parallelism: number = OS.availableParallelism();

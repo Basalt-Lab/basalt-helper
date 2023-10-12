@@ -1,4 +1,4 @@
-import { DataFilter } from '../../Sources/DataFilter';
+import { DataFilter } from '@/DataFilter';
 
 describe('HelperDataFilter', (): void => {
     describe('filterByKeys', (): void => {

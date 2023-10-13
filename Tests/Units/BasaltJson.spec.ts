@@ -1,10 +1,10 @@
-import { Json } from '@/Json';
+import { BasaltJson } from '@/BasaltJson';
 
-describe('Json', (): void => {
+describe('BasaltJson', (): void => {
     describe('stringify', (): void => {
         it('should return a stringified object', (): void => {
             const object: object = { test: 'test' };
-            const stringify: string = Json.stringify(object);
+            const stringify: string = BasaltJson.stringify(object);
             expect(stringify).toEqual('{"test":"test"}');
         });
     });
@@ -12,7 +12,7 @@ describe('Json', (): void => {
     describe('parse', (): void => {
         it('should return a parsed object', (): void => {
             const stringify: string = '{"test":"test"}';
-            const object: object = Json.parse(stringify);
+            const object: object = BasaltJson.parse(stringify);
             expect(object).toEqual({ test: 'test' });
         });
     });

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/Basalt-Lab/basalt-core/compare/v1.0.0...v1.0.1) (2023-10-13)
+
+
+### Bug Fixes
+
+* release ([91d14bd](https://github.com/Basalt-Lab/basalt-core/commit/91d14bd00ec7331e374fd7a155e1faac1060a811))
+
 ## 1.0.0 (2023-10-13)
 
 

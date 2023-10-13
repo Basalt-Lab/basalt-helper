@@ -1,0 +1,32 @@
+name: Release and Publish
+run-name: Release and Publish
+on:
+  push:
+    branches:
+      - main
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        if: ${{ steps.release.outputs.release_created }}
+      - name: Release-Please
+        uses: google-github-actions/release-please-action@v3
+        id: release
+        with:
+          release-type: node
+          token: ${{ secrets.BASALT_TOKEN }}
+
+      - name: Publish
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.8
+          registry-url: 'https://registry.npmjs.org'
+        if: ${{ steps.release.outputs.release_created }}
+      - run: npm ci
+        if: ${{ steps.release.outputs.release_created }}
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        if: ${{ steps.release.outputs.release_created }}

@@ -2,7 +2,7 @@ import { hash, verify } from 'argon2';
 
 import { OS } from '@/Deps/Node/OS';
 
-export class Password {
+export class BasaltPassword {
     private static readonly _parallelism: number = OS.availableParallelism();
 
     /**
@@ -15,7 +15,7 @@ export class Password {
             if (password === '')
                 throw new Error('The password cannot be empty.');
             return await hash(password, {
-                parallelism: Password._parallelism,
+                parallelism: BasaltPassword._parallelism,
                 saltLength: 32,
             });
         } catch (error) {

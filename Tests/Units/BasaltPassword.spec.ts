@@ -1,17 +1,16 @@
-import { Password } from '@/Password';
+import { BasaltPassword } from '@/BasaltPassword';
 
-describe('Password', (): void => {
-
+describe('BasaltPassword', (): void => {
     describe('hashPassword', (): void => {
         const plainPassword: string = 'testPassword123!';
 
         it('should return a hashed password', async (): Promise<void> => {
-            const hashedPassword: string = await Password.hashPassword(plainPassword);
+            const hashedPassword: string = await BasaltPassword.hashPassword(plainPassword);
             expect(hashedPassword).not.toEqual(plainPassword);
         });
 
         it('should throw an error for an empty password', async (): Promise<void> => {
-            await expect(Password.hashPassword('')).rejects.toThrow('An error occurred while hashing the password.');
+            await expect(BasaltPassword.hashPassword('')).rejects.toThrow('An error occurred while hashing the password.');
         });
     });
 
@@ -20,21 +19,21 @@ describe('Password', (): void => {
         let hashedPassword: string;
 
         beforeAll(async (): Promise<void> => {
-            hashedPassword = await Password.hashPassword(plainPassword);
+            hashedPassword = await BasaltPassword.hashPassword(plainPassword);
         });
 
         it('should return true for a valid password', async (): Promise<void> => {
-            const isValid: boolean = await Password.verifyPassword(plainPassword, hashedPassword);
+            const isValid: boolean = await BasaltPassword.verifyPassword(plainPassword, hashedPassword);
             expect(isValid).toBe(true);
         });
 
         it('should return false for an invalid password', async (): Promise<void> => {
-            const isValid: boolean = await Password.verifyPassword('wrongPassword!', hashedPassword);
+            const isValid: boolean = await BasaltPassword.verifyPassword('wrongPassword!', hashedPassword);
             expect(isValid).toBe(false);
         });
 
         it('should throw an error for an empty password', async (): Promise<void> => {
-            await expect(Password.verifyPassword('', hashedPassword))
+            await expect(BasaltPassword.verifyPassword('', hashedPassword))
                 .rejects.toThrow('An error occurred while verifying the password.');
         });
     });

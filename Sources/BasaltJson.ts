@@ -1,5 +1,5 @@
 
-export class Json {
+export class BasaltJson {
     /**
      * Stringify an object. (Using Typia)
      * please check the documentation of typia for more information.

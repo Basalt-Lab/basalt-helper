@@ -1,8 +1,6 @@
-export interface FilterOptions {
-    excludeNullUndefined?: boolean;
-}
+import { IBasaltFilterOptions } from '@/Interfaces';
 
-export class DataFilter {
+export class BasaltDataFilter {
     /**
      * Filters the data by the specified keys.
      *
@@ -18,7 +16,7 @@ export class DataFilter {
     public static filterByKeys<T extends object>(
         data: T,
         keys: (keyof T)[],
-        options?: FilterOptions
+        options?: IBasaltFilterOptions
     ): T {
         if (data === null || data === undefined)
             throw new Error('The provided data object is either null or undefined.');
@@ -100,7 +98,7 @@ export class DataFilter {
      * @returns The transformed key.
      */
     private static toPascalCase(key: string): string {
-        const camelKey: string = DataFilter.toCamelCase(key);
+        const camelKey: string = BasaltDataFilter.toCamelCase(key);
         return camelKey.charAt(0).toUpperCase() + camelKey.slice(1);
     }
 
@@ -151,13 +149,13 @@ export class DataFilter {
             throw new Error('The case type must be one of the following: camel, pascal, snake, kebab.');
         switch (caseType) {
         case 'camel':
-            return DataFilter.transformKeys(data, DataFilter.toCamelCase);
+            return BasaltDataFilter.transformKeys(data, BasaltDataFilter.toCamelCase);
         case 'pascal':
-            return DataFilter.transformKeys(data, DataFilter.toPascalCase);
+            return BasaltDataFilter.transformKeys(data, BasaltDataFilter.toPascalCase);
         case 'snake':
-            return DataFilter.transformKeys(data, DataFilter.toSnakeCase);
+            return BasaltDataFilter.transformKeys(data, BasaltDataFilter.toSnakeCase);
         case 'kebab':
-            return DataFilter.transformKeys(data, DataFilter.toKebabCase);
+            return BasaltDataFilter.transformKeys(data, BasaltDataFilter.toKebabCase);
         }
     }
 

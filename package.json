@@ -1,6 +1,6 @@
 {
   "name": "@basalt-lab/basalt-core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Core of Basalt Framework",
   "main": "Build/App.js",
   "types": "Build/App.d.ts",

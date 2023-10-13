@@ -1,6 +1,5 @@
 .idea
-package-lock.json
 Build
-node_modules
 coverage
+node_modules
 ```

@@ -1,9 +1,8 @@
 import { hash, verify } from 'argon2';
-
-import { OS } from '@/Deps/Node/OS';
+import { availableParallelism } from 'os';
 
 export class BasaltPassword {
-    private static readonly _parallelism: number = OS.availableParallelism();
+    private static readonly _parallelism: number = availableParallelism();
 
     /**
      * Hashes a password using Argon2.

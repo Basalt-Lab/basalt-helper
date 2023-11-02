@@ -1,7 +1,7 @@
 {
-  "name": "@basalt-lab/basalt-core",
+  "name": "@basalt-lab/basalt-helper",
   "version": "1.0.1",
-  "description": "Core of Basalt Framework",
+  "description": "Helper of Basalt Framework",
   "main": "Build/App.js",
   "types": "Build/App.d.ts",
   "private": false,
@@ -17,17 +17,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Basalt-Lab/basalt-core.git"
+    "url": "git+https://github.com/Basalt-Lab/basalt-helper.git"
   },
   "keywords": [
-    "basalt-core"
+    "basalt-helper"
   ],
   "author": "Ruby",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Basalt-Lab/basalt-core/issues"
+    "url": "https://github.com/Basalt-Lab/basalt-helper/issues"
   },
-  "homepage": "https://github.com/Basalt-Lab/basalt-core#readme",
+  "homepage": "https://github.com/Basalt-Lab/basalt-helper#readme",
   "devDependencies": {
     "@types/jest": "^29.5.5",
     "@typescript-eslint/eslint-plugin": "^6.7.4",

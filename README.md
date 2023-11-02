@@ -1,8 +1,8 @@
-# 📦 Basalt-core
+# 📦 Basalt-helper
 
 ## 📌 Table of contents
 
-- [📦 Basalt-core](#-basalt-core)
+- [📦 Basalt-helper](#-basalt-helper)
   - [📌 Table of contents](#-table-of-contents)
   - [📝 Description](#-description)
   - [🌟 Features](#-features)
@@ -14,11 +14,11 @@
 
 ## 📝 Description
 
-**Basalt-core** is a package offering Helpers to facilitate development.
+**Basalt-helper** is a package offering Helpers to facilitate development.
 
 ## 🌟 Features
 
-- `BasaltDataFilter` offers a variety of data manipulation capabilities:
+- `OLDBasaltDataFilter` offers a variety of data manipulation capabilities:
 
   - **Filtering by Keys**: Selectively filters an object's entries based on a specified set of keys, allowing for the exclusion of null or undefined values through additional options.
 
@@ -50,7 +50,7 @@
 ## 🔧 Installation
 
 ```
-npm i @basalt-lab/basalt-core
+npm i @basalt-lab/basalt-helper
 ```
 
 ## 👥 Contributing

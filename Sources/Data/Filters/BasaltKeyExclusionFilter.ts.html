@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for Sources/Data/Filters/BasaltKeyFilter.ts</title>
+    <title>Code coverage report for Sources/Data/Filters/BasaltKeyExclusionFilter.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">Sources/Data/Filters</a> BasaltKeyFilter.ts</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">Sources/Data/Filters</a> BasaltKeyExclusionFilter.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>7/7</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>13/13</span>
+                <span class='fraction'>12/12</span>
             </div>
         
             
@@ -105,65 +105,65 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { BasaltDataFilter } from '@/Abstract';
 &nbsp;
 /**
- * Class for filtering data by including only specified keys.
- * @extends BasaltDataFilter
- * @template T - The type of the data to be filtered.
+ * Filter that excludes specified keys from the data object.
+ * This filter creates a new object with all the properties of the original
+ * except for those whose keys are specified in the 'keys' parameter.
+ * @class
+ * @extends {BasaltDataFilter}
  */
-export class BasaltKeyFilter&lt;T extends object&gt; extends BasaltDataFilter&lt;T&gt; {
+export class BasaltKeyExclusionFilter extends BasaltDataFilter {
     /**
-     * Constructs a new key filter with specified keys to include.
-     * @param {(keyof T)[]} _keys - An array of keys to include in the filter.
+     * Filters the provided data by excluding the specified keys. This method will create
+     * a new object that contains all properties from the original data object except for
+     * those keys that are provided to be excluded. Additionally, it can also exclude
+     * properties with values of null or undefined if 'excludeNullUndefined' is set to true.
+     * @template T - The type of the data object to filter, must be an object.
+     * @param {T} data - The data object to be filtered.
+     * @param {(keyof T)[]} keys - The array of keys to exclude from the data object.
+     * @param {boolean} [excludeNullUndefined=false] - Flag to determine if properties with null or undefined values should be excluded.
+     * @returns {T} - The filtered data object with the specified keys excluded.
      */
-    constructor(private _keys: (keyof T)[]) {
-        super();
-        super.validateKeys(_keys);
-        if (_keys.length === 0)
-            throw new Error('The provided array of keys to include is empty.');
-    }
-&nbsp;
-    /**
-     * Filters the provided data by including only the specified keys.
-     * @param {T} data - The data to be filtered.
-     * @param {boolean} excludeNullUndefined - Flag to determine if null or undefined values should be excluded.
-     * @returns {T} - The filtered data.
-     */
-    public filter(data: T, excludeNullUndefined: boolean): T {
+    public filter&lt;T extends object&gt;(data: T, keys: (keyof T)[], excludeNullUndefined: boolean = false): T {
+        super.validateKeys(keys);
+        if (keys.length === 0)
+            throw new Error('The provided array of keys to exclude is empty.');
         super.validateData(data);
         const filteredData: T = {} as T;
-        this._keys.forEach((key: keyof T): void =&gt; {
-            if (key in data &amp;&amp; (!excludeNullUndefined || (data[key] !== null &amp;&amp; data[key] !== undefined)))
-                filteredData[key] = data[key];
+        Object.keys(data).forEach((key: string): void =&gt; {
+            const typedKey: keyof T = key as keyof T;
+            if (!keys.includes(typedKey) &amp;&amp; (!excludeNullUndefined || (data[typedKey] !== null &amp;&amp; data[typedKey] !== undefined)))
+                filteredData[typedKey] = data[typedKey];
         });
         return filteredData;
     }
@@ -175,7 +175,7 @@ export class BasaltKeyFilter&lt;T extends object&gt; extends BasaltDataFilter&lt
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-11-02T10:43:41.016Z
+                at 2023-11-02T16:42:09.416Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

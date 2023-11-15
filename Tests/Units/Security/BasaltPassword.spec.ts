@@ -1,4 +1,4 @@
-import { BasaltPassword } from '@/BasaltPassword';
+import { BasaltPassword } from '@/App';
 
 describe('BasaltPassword', (): void => {
     describe('hashPassword', (): void => {

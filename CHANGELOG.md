@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.1](https://github.com/Basalt-Lab/basalt-helper/compare/v1.1.0...v1.1.1) (2023-11-15)
+
+
+### Build System
+
+* update dependencies and change version of node ([cfebec3](https://github.com/Basalt-Lab/basalt-helper/commit/cfebec35080697ef01c2ddad1cbe70c8a7dee57e))
+
+
+### Continuous Integration
+
+* update release-and-publish github action ([33488d9](https://github.com/Basalt-Lab/basalt-helper/commit/33488d9628fee9b2ee96305555fa953eeab75be6))
+
 ## [1.1.0](https://github.com/Basalt-Lab/basalt-helper/compare/v1.0.1...v1.1.0) (2023-11-15)
 
 

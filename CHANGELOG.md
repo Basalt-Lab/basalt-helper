@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/Basalt-Lab/basalt-helper/compare/v1.0.1...v1.1.0) (2023-11-15)
+
+
+### Features
+
+* improvement basalt-helper more SOLID ([4c28d7b](https://github.com/Basalt-Lab/basalt-helper/commit/4c28d7bd24027f199b79aa4218ea3b4ca6659c3a))
+
 ## [1.0.1](https://github.com/Basalt-Lab/basalt-helper/compare/v1.0.0...v1.0.1) (2023-10-13)
 
 

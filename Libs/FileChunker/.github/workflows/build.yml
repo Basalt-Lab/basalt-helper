@@ -1,0 +1,57 @@
+name: Build and Release
+run-name: Build and Release
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup CMake and Make (Linux)
+        if: matrix.os == 'ubuntu-latest'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake make
+
+      - name: Setup CMake and Tools (macOS)
+        if: matrix.os == 'macOS-latest'
+        run: |
+          brew install cmake
+
+      - name: Setup CMake (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          choco install cmake --installargs 'ADD_CMAKE_TO_PATH=System'
+
+      - name: Build
+        run: |
+          mkdir build
+          cd build
+          cmake .. -DCMAKE_BUILD_TYPE=Release
+          cmake --build . --config Release
+
+      - name: Set Executable Path
+        id: executable-path
+        shell: bash
+        run: |
+          if [[ "${{ runner.os }}" == "Windows" ]]; then
+            echo "path=build/Release/WhiteSpaceRemover.exe" >> $GITHUB_ENV
+          else
+            echo "path=build/WhiteSpaceRemover" >> $GITHUB_ENV
+          fi
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: executable-${{ runner.os }}
+          path: ${{ env.path }}

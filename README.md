@@ -44,4 +44,4 @@ Contributions are what make the open-source community such an amazing place to l
 
 Mail - [basalt-lab@proton.me](basalt-lab@proton.me)
 
-[Project link](https://github.com/Basalt-Lab/basalt-socket)
+[Project link](https://github.com/Basalt-Lab/basalt-helper)

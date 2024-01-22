@@ -16,7 +16,7 @@ export abstract class BasaltDataFilter {
     protected validateData<T extends object> (data: T): void {
         if (data === null || data === undefined)
             throw new Error('The provided data object is either null or undefined.');
-        if (data.constructor !== Object)
+        if (typeof data !== 'object')
             throw new Error('The provided data object must be an object.');
     }
 

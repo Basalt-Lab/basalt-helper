@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.2](https://github.com/Basalt-Lab/basalt-helper/compare/v1.1.1...v1.1.2) (2024-01-22)
+
+
+### Bug Fixes
+
+* correction check if data is an object ([37813ae](https://github.com/Basalt-Lab/basalt-helper/commit/37813aeb2d3082af448d7588efcdbe5adea70603))
+
+
+### Documentation
+
+* update project link ([2e51e6b](https://github.com/Basalt-Lab/basalt-helper/commit/2e51e6ba3da05cfc764637564dbba763325e81fa))
+
 ## [1.1.1](https://github.com/Basalt-Lab/basalt-helper/compare/v1.1.0...v1.1.1) (2023-11-15)
 
 

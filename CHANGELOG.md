@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.3](https://github.com/Basalt-Lab/basalt-helper/compare/v1.1.2...v1.1.3) (2024-02-19)
+
+
+### Build System
+
+* Update .nvmrc version to v21.6.2 and update packages ([ccc19cb](https://github.com/Basalt-Lab/basalt-helper/commit/ccc19cbc2bfc9b9eb20d2c46d9b9b4e38ff7bf6b))
+
+
+### Continuous Integration
+
+* Update Node version in workflows ([3ffff68](https://github.com/Basalt-Lab/basalt-helper/commit/3ffff68f13a75ab77207c3586e790263ff0b0a1c))
+
 ## [1.1.2](https://github.com/Basalt-Lab/basalt-helper/compare/v1.1.1...v1.1.2) (2024-01-22)
 
 

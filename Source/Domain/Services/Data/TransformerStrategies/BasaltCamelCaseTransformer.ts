@@ -1,4 +1,4 @@
-import { IBasaltKeyTransformer } from '@/Interfaces';
+import { type IBasaltKeyTransformer } from '@/Domain/Services/Data/Interfaces';
 
 /**
  * Transforms string keys into camelCase format.
@@ -9,23 +9,22 @@ export class BasaltCamelCaseTransformer implements IBasaltKeyTransformer {
     /**
      * Transforms a single key from any case to camelCase.
      *
-     * @param {string} key - The key string to transform into camelCase.
-     * @returns {string} - The key string transformed into camelCase.
+     * @param key - The key string to transform into camelCase.
+     * @returns The key string transformed into camelCase.
      *
      * @example
-     * // returns "myKeyName"
+     * Returns "myKeyName"
      * transformKey('MyKeyName');
      * @example
-     * // returns "myKeyName"
+     * Returns "myKeyName"
      * transformKey('my-key-name');
      * @example
-     * // returns "myKeyName"
+     * Returns "myKeyName"
      * transformKey('my_key_name');
      */
     public transformKey(key: string): string {
         return key
-            .replace(/([-_][a-z])/gi, (group: string) => group[1].toUpperCase())
-            .replace(/^[A-Z]/, (firstLetter: string) => firstLetter.toLowerCase());
-
+            .replace(/(?:[-_][a-z])/giu, (group: string) => (group[1] as string).toUpperCase())
+            .replace(/^[A-Z]/u, (firstLetter: string) => firstLetter.toLowerCase());
     }
 }

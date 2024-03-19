@@ -1,42 +1,32 @@
 import {
-    BasaltKeyTransformerUtility,
+    transformKeys,
     BasaltPascalCaseTransformer,
     BasaltCamelCaseTransformer,
     BasaltKebabCaseTransformer,
     BasaltSnakeCaseTransformer
-} from '@/App';
+} from '../../../Source/App';
 
 describe('BasaltKeyTransformerUtility', (): void => {
     describe('transformKeys', (): void => {
         it('should throw an error for a null data object', (): void => {
-            const utility: BasaltKeyTransformerUtility = new BasaltKeyTransformerUtility(new BasaltPascalCaseTransformer());
             expect((): void => {
-                utility.transformKeys(null as any);
-            }).toThrowError('The provided data object is either null or undefined.');
+                transformKeys(null as any, new BasaltPascalCaseTransformer());
+            }).toThrow('BASALT_DATA_NULL');
         });
 
         it('should throw an error for an undefined data object', (): void => {
-            const utility: BasaltKeyTransformerUtility = new BasaltKeyTransformerUtility(new BasaltPascalCaseTransformer());
             expect((): void => {
-                utility.transformKeys(undefined as any);
-            }).toThrowError('The provided data object is either null or undefined.');
+                transformKeys(undefined as any, new BasaltPascalCaseTransformer());
+            }).toThrow('BASALT_DATA_NULL');
         });
 
         it('should throw an error for a non-object data object', (): void => {
-            const utility: BasaltKeyTransformerUtility = new BasaltKeyTransformerUtility(new BasaltPascalCaseTransformer());
             expect((): void => {
-                utility.transformKeys(1 as any);
-            }).toThrowError('The data object must be an object.');
-        });
-
-        it('shoud change transformer strategy', (): void => {
-            const utility: BasaltKeyTransformerUtility = new BasaltKeyTransformerUtility(new BasaltPascalCaseTransformer());
-            utility.transformer = new BasaltCamelCaseTransformer();
-            expect(utility.transformKeys({ 'Foo': 'bar' })).toEqual({ 'foo': 'bar' });
+                transformKeys(1 as any, new BasaltPascalCaseTransformer());
+            }).toThrow('BASALT_DATA_MUST_BE_PLAIN_OBJECT');
         });
 
         it('should transform keys to PascalCase', (): void => {
-            const utility: BasaltKeyTransformerUtility = new BasaltKeyTransformerUtility(new BasaltPascalCaseTransformer());
             const data: any = {
                 'foo': 'bar',
                 'baz': 'qux',
@@ -44,7 +34,7 @@ describe('BasaltKeyTransformerUtility', (): void => {
                 'gra-ult': 'garply',
                 'wal_do': 'fred'
             };
-            const result: any = utility.transformKeys(data);
+            const result: any = transformKeys(data, new BasaltPascalCaseTransformer());
             expect(result).toEqual({
                 'Foo': 'bar',
                 'Baz': 'qux',
@@ -55,7 +45,6 @@ describe('BasaltKeyTransformerUtility', (): void => {
         });
 
         it('should transform keys to camelCase', (): void => {
-            const utility: BasaltKeyTransformerUtility = new BasaltKeyTransformerUtility(new BasaltCamelCaseTransformer());
             const data: any = {
                 'Foo': 'bar',
                 'Baz': 'qux',
@@ -63,7 +52,7 @@ describe('BasaltKeyTransformerUtility', (): void => {
                 'gra-ult': 'garply',
                 'Wa_ldo': 'fred'
             };
-            const result: any = utility.transformKeys(data);
+            const result: any = transformKeys(data, new BasaltCamelCaseTransformer());
             expect(result).toEqual({
                 'foo': 'bar',
                 'baz': 'qux',
@@ -74,7 +63,6 @@ describe('BasaltKeyTransformerUtility', (): void => {
         });
 
         it('should transform keys to kebab-case', (): void => {
-            const utility: BasaltKeyTransformerUtility = new BasaltKeyTransformerUtility(new BasaltKebabCaseTransformer());
             const data: any = {
                 'Foo': 'bar',
                 'bazArd': 'qux',
@@ -82,7 +70,7 @@ describe('BasaltKeyTransformerUtility', (): void => {
                 'gra-ult': 'garply',
                 'Wa_ldo': 'fred'
             };
-            const result: any = utility.transformKeys(data);
+            const result: any = transformKeys(data, new BasaltKebabCaseTransformer());
             expect(result).toEqual({
                 'foo': 'bar',
                 'baz-ard': 'qux',
@@ -93,7 +81,6 @@ describe('BasaltKeyTransformerUtility', (): void => {
         });
 
         it('should transform keys to snake_case', (): void => {
-            const utility: BasaltKeyTransformerUtility = new BasaltKeyTransformerUtility(new BasaltSnakeCaseTransformer());
             const data: any = {
                 'Foo': 'bar',
                 'bazArd': 'qux',
@@ -101,7 +88,7 @@ describe('BasaltKeyTransformerUtility', (): void => {
                 'gra-ult': 'garply',
                 'Wa_ldo': 'fred'
             };
-            const result: any = utility.transformKeys(data);
+            const result: any = transformKeys(data, new BasaltSnakeCaseTransformer());
             expect(result).toEqual({
                 'foo': 'bar',
                 'baz_ard': 'qux',

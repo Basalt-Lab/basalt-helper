@@ -1,43 +1,38 @@
-import { BasaltKeyInclusionFilter } from '@/App';
+import { filterByKeyInclusion } from '../../../Source/App';
 
 describe('BasaltKeyInclusionFilter', (): void => {
     describe('filter', (): void => {
         it('should throw an error for a null array of keys', (): void => {
-            const keyInclusionFilter: BasaltKeyInclusionFilter = new BasaltKeyInclusionFilter();
             expect((): void => {
-                keyInclusionFilter.filter(null as any, null as any);
-            }).toThrow('The provided keys must be an array.');
+                filterByKeyInclusion({}, null as any);
+            }).toThrow('BASALT_DATA_EMPTY_KEYS');
         });
 
-        it('should throw an error for an empty arraay of keys', (): void => {
-            const keyInclusionFilter: BasaltKeyInclusionFilter = new BasaltKeyInclusionFilter();
+        it('should throw an error for an empty array of keys', (): void => {
             expect((): void => {
-                keyInclusionFilter.filter(null as any, []);
-            }).toThrow('The provided array of keys to include is empty.');
+                filterByKeyInclusion({}, []);
+            }).toThrow('BASALT_DATA_EMPTY_KEYS');
         });
+
         it('should throw an error for a null data object', (): void => {
-            const keyInclusionFilter: BasaltKeyInclusionFilter = new BasaltKeyInclusionFilter();
             expect((): void => {
-                keyInclusionFilter.filter(null as any, ['test']);
-            }).toThrow('The provided data object is either null or undefined.');
+                filterByKeyInclusion(null as any, ['test']);
+            }).toThrow('BASALT_DATA_NULL');
         });
 
         it('should throw an error for an undefined data object', (): void => {
-            const keyInclusionFilter: BasaltKeyInclusionFilter = new BasaltKeyInclusionFilter();
             expect((): void => {
-                keyInclusionFilter.filter(undefined as any, ['test']);
-            }).toThrow('The provided data object is either null or undefined.');
+                filterByKeyInclusion(undefined as any, ['test']);
+            }).toThrow('BASALT_DATA_NULL');
         });
 
         it('should throw an error for a non-object data object', (): void => {
-            const keyInclusionFilter: BasaltKeyInclusionFilter = new BasaltKeyInclusionFilter();
             expect((): void => {
-                keyInclusionFilter.filter('test' as any, ['test']);
-            }).toThrow('The provided data object must be an object.');
+                filterByKeyInclusion('test' as any, ['test']);
+            }).toThrow('BASALT_DATA_MUST_BE_PLAIN_OBJECT');
         });
 
         it('should return a filtered object with the specified keys included', (): void => {
-            const keyInclusionFilter: BasaltKeyInclusionFilter = new BasaltKeyInclusionFilter();
             const data: { a: string; b: string; c: string; d: string } = {
                 a: 'a',
                 b: 'b',
@@ -51,12 +46,11 @@ describe('BasaltKeyInclusionFilter', (): void => {
                 c: string;
             };
 
-            const filteredData: WantType = keyInclusionFilter.filter(data, ['a', 'b', 'c']);
+            const filteredData: WantType = filterByKeyInclusion(data, ['a', 'b', 'c']);
             expect(filteredData).toEqual({ a: 'a', b: 'b', c: 'c' });
         });
 
         it('should return a filtered object with the specified keys included and null values excluded', (): void => {
-            const keyInclusionFilter: BasaltKeyInclusionFilter = new BasaltKeyInclusionFilter();
 
             const data: { a: string; b: null; c: string; d: string } = {
                 a: 'a',
@@ -65,13 +59,12 @@ describe('BasaltKeyInclusionFilter', (): void => {
                 d: 'd',
             };
 
-            const filteredData = keyInclusionFilter.filter(data, ['a', 'b', 'c'], true);
+            const filteredData = filterByKeyInclusion(data, ['a', 'b', 'c'], true);
             expect(filteredData).toEqual({ a: 'a', c: 'c' });
 
         });
 
         it('should return a filtered object with the specified keys included and undefined values excluded', (): void => {
-            const keyInclusionFilter: BasaltKeyInclusionFilter = new BasaltKeyInclusionFilter();
 
             const data: { a: string; b: undefined; c: string; d: string } = {
                 a: 'a',
@@ -80,7 +73,7 @@ describe('BasaltKeyInclusionFilter', (): void => {
                 d: 'd',
             };
 
-            const filteredData = keyInclusionFilter.filter(data, ['a', 'b', 'c'], true);
+            const filteredData = filterByKeyInclusion(data, ['a', 'b', 'c'], true);
             expect(filteredData).toEqual({ a: 'a', c: 'c' });
         });
     });

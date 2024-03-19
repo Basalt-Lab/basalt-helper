@@ -1,50 +1,52 @@
-import { BasaltDeepCloneUtility } from '@/App';
+import { deepClone } from '../../../Source/App';
 
 describe('BasaltDeepCloneUtility', (): void => {
     describe('deepClone', (): void => {
         it('should throw an error for a null object', (): void => {
             expect((): void => {
-                BasaltDeepCloneUtility.deepClone(null);
-            }).toThrow('The provided data object is either null or undefined.');
+                deepClone(null);
+            }).toThrow('BASALT_DATA_NULL');
         });
 
         it('should throw an error for an undefined object', (): void => {
             expect((): void => {
-                BasaltDeepCloneUtility.deepClone(undefined);
-            }).toThrow('The provided data object is either null or undefined.');
+                deepClone(undefined);
+            }).toThrow('BASALT_DATA_NULL');
         });
 
         it('should return a deep clone of a date object', (): void => {
             const date: Date = new Date();
-            const clonedDate: Date = BasaltDeepCloneUtility.deepClone(date);
+            const clonedDate: Date = deepClone(date);
             expect(clonedDate).toEqual(date);
             expect(clonedDate).not.toBe(date);
         });
 
         it('should return a deep clone of a regex object', (): void => {
-            const regex: RegExp = new RegExp('test');
-            const clonedRegex: RegExp = BasaltDeepCloneUtility.deepClone(regex);
-            expect(clonedRegex).toEqual(regex);
-            expect(clonedRegex).not.toBe(regex);
+            const regex = /abc/g;
+            const clone = deepClone(regex);
+            expect(clone).not.toBe(regex);
+            expect(clone).toEqual(regex);
+            expect(clone.test('abc')).toBe(true);
+            expect(clone.test('def')).toBe(false);
         });
 
         it('should return a deep clone of an array', (): void => {
             const array: number[] = [1, 2, 3];
-            const clonedArray: number[] = BasaltDeepCloneUtility.deepClone(array);
+            const clonedArray: number[] = deepClone(array);
             expect(clonedArray).toEqual(array);
             expect(clonedArray).not.toBe(array);
         });
 
         it('should return a deep clone of an object', (): void => {
             const object: { [key: string]: any } = { test: 'test' };
-            const clonedObject: { [key: string]: any } = BasaltDeepCloneUtility.deepClone(object);
+            const clonedObject: { [key: string]: any } = deepClone(object);
             expect(clonedObject).toEqual(object);
             expect(clonedObject).not.toBe(object);
         });
 
         it('should return a deep clone of a nested object', (): void => {
             const object: { [key: string]: any } = { test: { test: 'test' } };
-            const clonedObject: { [key: string]: unknown } = BasaltDeepCloneUtility.deepClone(object);
+            const clonedObject: { [key: string]: unknown } = deepClone(object);
             expect(clonedObject).toEqual(object);
             expect(clonedObject).not.toBe(object);
             expect(clonedObject.test).toEqual(object.test);
@@ -53,7 +55,7 @@ describe('BasaltDeepCloneUtility', (): void => {
 
         it('should return a deep clone of a nested array', (): void => {
             const array: number[][] = [[1, 2, 3], [4, 5, 6]];
-            const clonedArray: number[][] = BasaltDeepCloneUtility.deepClone(array);
+            const clonedArray: number[][] = deepClone(array);
             expect(clonedArray).toEqual(array);
             expect(clonedArray).not.toBe(array);
             expect(clonedArray[0]).toEqual(array[0]);
@@ -62,7 +64,7 @@ describe('BasaltDeepCloneUtility', (): void => {
 
         it('should return a deep clone of a nested object and array', (): void => {
             const object: { [key: string]: any } = { test: { test: [1, 2, 3] } };
-            const clonedObject: { [key: string]: any } = BasaltDeepCloneUtility.deepClone(object);
+            const clonedObject: { [key: string]: any } = deepClone(object);
             expect(clonedObject).toEqual(object);
             expect(clonedObject).not.toBe(object);
             expect(clonedObject.test).toEqual(object.test);
@@ -73,13 +75,13 @@ describe('BasaltDeepCloneUtility', (): void => {
 
         it('should return a deep clone of a nested array and object', (): void => {
             const array: { [key: string]: any }[] = [{ test: [1, 2, 3] }, { test: [4, 5, 6] }];
-            const clonedArray: { [key: string]: any }[] = BasaltDeepCloneUtility.deepClone(array);
+            const clonedArray: { [key: string]: any }[] = deepClone(array);
             expect(clonedArray).toEqual(array);
             expect(clonedArray).not.toBe(array);
             expect(clonedArray[0]).toEqual(array[0]);
             expect(clonedArray[0]).not.toBe(array[0]);
-            expect(clonedArray[0].test).toEqual(array[0].test);
-            expect(clonedArray[0].test).not.toBe(array[0].test);
+            expect(clonedArray[0]?.test).toEqual(array[0]?.test);
+            expect(clonedArray[0]?.test).not.toBe(array[0]?.test);
         });
     });
 });

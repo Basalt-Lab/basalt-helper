@@ -5,36 +5,34 @@
 - [📦 Basalt-helper](#-basalt-helper)
   - [📌 Table of contents](#-table-of-contents)
   - [📝 Description](#-description)
-  - [🌟 Features](#-features)
+  - [🌟 Documentation](#-Documentation)
   - [🔧 Installation](#-installation)
-  - [📋 Future Plans](#-future-plans)
-  - [👥 Contributing](#-contributing)
   - [⚖️ License](#-license)
   - [📧 Contact](#-contact)
 
 ## 📝 Description
 
-**Basalt-helper** is a package offering Helpers to facilitate development.
+**Basalt-helper** aims to provide tools to facilitate development.
+This can range from object transformation to password hashing.
 
-## 🌟 Features
+Other tools will be added over time.
 
-You can find the list of features in the [documentation](https://basalt-lab.github.io/basalt-doc/index.html).
+## 🌟 Documentation
+
+- [Documentation](https://basalt-lab.github.io/basalt-doc/index.html).
+- [References](https://basalt-lab.github.io/basalt-helper/index.html).
 
 ## 🔧 Installation
 
-```
+NPM:
+```bash
 npm i @basalt-lab/basalt-helper
 ```
 
-## 👥 Contributing
-
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are greatly appreciated.
-
-1. Fork the Project 
-2. Create your Feature Branch (git checkout -b feature/AmazingFeature)
-3. Commit your Changes (git commit -m 'Add some AmazingFeature')
-4. Push to the Branch (git push origin feature/AmazingFeature)
-5. Open a Pull Reques to stage
+PNPM:
+```bash
+pnpm i @basalt-lab/basalt-helper
+```
 
 ## ⚖️ License
 

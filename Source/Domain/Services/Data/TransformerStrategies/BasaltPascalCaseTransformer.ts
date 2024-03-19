@@ -1,4 +1,4 @@
-import { IBasaltKeyTransformer } from '@/Interfaces';
+import { type IBasaltKeyTransformer } from '@/Domain/Services/Data/Interfaces';
 
 /**
  * Transforms string keys into PascalCase format.
@@ -9,22 +9,22 @@ export class BasaltPascalCaseTransformer implements IBasaltKeyTransformer {
     /**
      * Transforms a single key from any case to PascalCase.
      *
-     * @param {string} key - The key string to transform into PascalCase.
-     * @returns {string} - The key string transformed into PascalCase, with the first letter of each word capitalized.
+     * @param key - The key string to transform into PascalCase.
+     * @returns The key string transformed into PascalCase, with the first letter of each word capitalized.
      *
      * @example
-     * // returns "MyKeyName"
+     * Returns "MyKeyName"
      * transformKey('my_key_name');
      * @example
-     * // returns "MyKeyName"
+     * Returns "MyKeyName"
      * transformKey('my-key-name');
      * @example
-     * // returns "MyLongKeyName"
+     * Returns "MyLongKeyName"
      * transformKey('myLongKeyName');
      */
     public transformKey(key: string): string {
-        const camelCaseKey: string = key.replace(/([-_][a-z])/gi, (group: string) =>
-            group[1].toUpperCase()
+        const camelCaseKey: string = key.replace(/(?:[-_][a-z])/giu, (group: string) =>
+            (group[1] as string).toUpperCase()
         );
         return camelCaseKey.charAt(0).toUpperCase() + camelCaseKey.slice(1);
     }

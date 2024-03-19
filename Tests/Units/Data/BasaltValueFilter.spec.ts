@@ -1,6 +1,25 @@
-import { BasaltValueFilter } from '@/App';
+import { filterByValue } from '../../../Source/App';
 
 describe('BasaltValueFilter', (): void => {
+
+    it('should throw an error for a null data object', (): void => {
+        expect((): void => {
+            filterByValue(null as any, (): boolean => true);
+        }).toThrow('BASALT_DATA_NULL');
+    });
+
+    it('should throw an error for an undefined data object', (): void => {
+        expect((): void => {
+            filterByValue(undefined as any, (): boolean => true);
+        }).toThrow('BASALT_DATA_NULL');
+    });
+
+    it('should throw an error for a non-object data object', (): void => {
+        expect((): void => {
+            filterByValue('test' as any, (): boolean => true);
+        }).toThrow('BASALT_DATA_MUST_BE_PLAIN_OBJECT');
+    });
+
     it('should filter data by value using a predicate', (): void => {
         const data: { a: number; b: number; c: number } = {
             a: 1,
@@ -8,8 +27,7 @@ describe('BasaltValueFilter', (): void => {
             c: 3,
         };
         const predicate = (value: number): boolean => value > 1;
-        const valueFilter: BasaltValueFilter = new BasaltValueFilter();
-        const filteredData: Object = valueFilter.filter(data, predicate);
+        const filteredData: Object = filterByValue(data, predicate);
         expect(filteredData).toEqual({ b: 2, c: 3 });
     });
 
@@ -19,8 +37,7 @@ describe('BasaltValueFilter', (): void => {
             y: 'include too',
         };
         const alwaysTruePredicate = (): boolean => true;
-        const valueFilter: BasaltValueFilter = new BasaltValueFilter();
-        const filteredData: Object = valueFilter.filter(data, alwaysTruePredicate);
+        const filteredData: Object = filterByValue(data, alwaysTruePredicate);
         expect(filteredData).toEqual(data);
     });
 
@@ -30,8 +47,7 @@ describe('BasaltValueFilter', (): void => {
             b: 'exclude too',
         };
         const alwaysFalsePredicate = (): boolean => false;
-        const valueFilter: BasaltValueFilter = new BasaltValueFilter();
-        const filteredData: Object = valueFilter.filter(data, alwaysFalsePredicate);
+        const filteredData: Object = filterByValue(data, alwaysFalsePredicate);
         expect(filteredData).toEqual({});
     });
 
@@ -43,8 +59,7 @@ describe('BasaltValueFilter', (): void => {
             d: undefined,
         };
         const alwaysTruePredicate = (): boolean => true;
-        const valueFilter: BasaltValueFilter = new BasaltValueFilter();
-        const filteredData: Object = valueFilter.filter(data, alwaysTruePredicate, true);
+        const filteredData: Object = filterByValue(data, alwaysTruePredicate, true);
         expect(filteredData).toEqual({ a: 'include', b: 'include too' });
     });
 

@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.2.0](https://github.com/Basalt-Lab/basalt-helper/compare/v1.1.3...v1.2.0) (2024-03-19)
+
+
+### Features
+
+* multiparadigme to simplify code + change architecture ([f3da103](https://github.com/Basalt-Lab/basalt-helper/commit/f3da103622ad6740629b2a6138c3b7bf8b1a68e3))
+
+
+### Build System
+
+* Update npmignore, jest.config.json etc... ([a5ce246](https://github.com/Basalt-Lab/basalt-helper/commit/a5ce2464fc3c0b8d5efaa67041c1a32c6cfbc137))
+* update packages + node ([4db3ecf](https://github.com/Basalt-Lab/basalt-helper/commit/4db3ecfbffb30ac0fe2bbe68eac146b0a57c5a9b))
+
+
+### Tests
+
+* Add tests for ErrorEntity  + update other tests ([5cedd4c](https://github.com/Basalt-Lab/basalt-helper/commit/5cedd4c5c110454b6694c7438c5d2a8ea122d870))
+
+
+### Continuous Integration
+
+* add new workflow files and edit coverage (TEMP) ([99f5089](https://github.com/Basalt-Lab/basalt-helper/commit/99f5089e3f7f19c52e9f1196e5488c875b6a1bf5))
+* correction publish workflow ([990c2d7](https://github.com/Basalt-Lab/basalt-helper/commit/990c2d735987e7112f681aad25092b8a79595978))
+
 ## [1.1.3](https://github.com/Basalt-Lab/basalt-helper/compare/v1.1.2...v1.1.3) (2024-02-19)
 
 

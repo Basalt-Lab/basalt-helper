@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/Basalt-Lab/basalt-helper/compare/v1.2.0...v1.2.1) (2024-03-19)
+
+
+### Documentation
+
+* update readme ([f2b1e97](https://github.com/Basalt-Lab/basalt-helper/commit/f2b1e9791bc3d3281ae106560f448d664f877786))
+
 ## [1.2.0](https://github.com/Basalt-Lab/basalt-helper/compare/v1.1.3...v1.2.0) (2024-03-19)
 
 

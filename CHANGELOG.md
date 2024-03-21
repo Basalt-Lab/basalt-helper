@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/Basalt-Lab/basalt-helper/compare/v1.2.1...v1.2.2) (2024-03-21)
+
+
+### Tests
+
+* change archi of test ([e3d2001](https://github.com/Basalt-Lab/basalt-helper/commit/e3d2001d6e3d4644dc572052402701e226675bb8))
+
 ## [1.2.1](https://github.com/Basalt-Lab/basalt-helper/compare/v1.2.0...v1.2.1) (2024-03-19)
 
 

@@ -1,4 +1,4 @@
-import { filterByValue } from '../../../Source/App';
+import { filterByValue } from '@/App';
 
 describe('BasaltValueFilter', (): void => {
 

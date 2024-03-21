@@ -1,4 +1,4 @@
-import { filterByKeyExclusion } from '../../../Source/App';
+import { filterByKeyExclusion } from '@/App';
 
 describe('BasaltKeyExclusionFilter', (): void => {
     describe('filter', (): void => {

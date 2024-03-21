@@ -1,6 +1,7 @@
-import { hashPassword, verifyPassword } from '../../../Source/App';
+import { hashPassword, verifyPassword } from '@/App';
 
 describe('BasaltPassword', (): void => {
+
     describe('hashPassword', (): void => {
         const plainPassword: string = 'testPassword123!';
 
@@ -37,5 +38,4 @@ describe('BasaltPassword', (): void => {
                 .rejects.toThrow('BASALT_PASSWORD_EMPTY');
         });
     });
-
 });

@@ -19,7 +19,7 @@ function hashPassword(password: string): Promise<string> {
             type: argon2id,
         });
     } catch (error) {
-        return Promise.reject(new ErrorBasaltSecurity(BasaltSecurityErrorCodes.BASALT_PASSWORD_HASHING_FAILED));
+        throw new ErrorBasaltSecurity(BasaltSecurityErrorCodes.BASALT_PASSWORD_HASHING_FAILED);
     }
 }
 
@@ -44,7 +44,7 @@ function verifyPassword(password: string, hashedPassword: string): Promise<boole
             }
         );
     } catch (error) {
-        return Promise.reject(new ErrorBasaltSecurity(BasaltSecurityErrorCodes.BASALT_PASSWORD_VERIFICATION_FAILED));
+        throw new ErrorBasaltSecurity(BasaltSecurityErrorCodes.BASALT_PASSWORD_VERIFICATION_FAILED);
     }
 }
 

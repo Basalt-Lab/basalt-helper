@@ -4,7 +4,7 @@ import {
     BasaltCamelCaseTransformer,
     BasaltKebabCaseTransformer,
     BasaltSnakeCaseTransformer
-} from '../../../Source/App';
+} from '@/App';
 
 describe('BasaltKeyTransformerUtility', (): void => {
     describe('transformKeys', (): void => {

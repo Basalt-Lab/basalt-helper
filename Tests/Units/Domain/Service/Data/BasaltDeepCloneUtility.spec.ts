@@ -1,4 +1,4 @@
-import { deepClone } from '../../../Source/App';
+import { deepClone } from '@/App';
 
 describe('BasaltDeepCloneUtility', (): void => {
     describe('deepClone', (): void => {

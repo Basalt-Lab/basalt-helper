@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.4](https://github.com/Basalt-Lab/basalt-helper/compare/v1.2.3...v1.2.4) (2024-03-26)
+
+
+### Bug Fixes
+
+* remove useless code ... ([8a952a3](https://github.com/Basalt-Lab/basalt-helper/commit/8a952a34b97dfc9aea76b0220ee02f14f01b5f16))
+
 ## [1.2.3](https://github.com/Basalt-Lab/basalt-helper/compare/v1.2.2...v1.2.3) (2024-03-26)
 
 

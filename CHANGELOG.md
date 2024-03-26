@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.3](https://github.com/Basalt-Lab/basalt-helper/compare/v1.2.2...v1.2.3) (2024-03-26)
+
+
+### Bug Fixes
+
+* argon parameter ([48aa4af](https://github.com/Basalt-Lab/basalt-helper/commit/48aa4af46d5c1bc64c0ae0dbc8bcdebebb7c4f69))
+
+
+### Documentation
+
+* add comment to bundle + improvement comment ([2cd2468](https://github.com/Basalt-Lab/basalt-helper/commit/2cd2468b08579037a8ef44a18665d2d7efcecda5))
+
 ## [1.2.2](https://github.com/Basalt-Lab/basalt-helper/compare/v1.2.1...v1.2.2) (2024-03-21)
 
 

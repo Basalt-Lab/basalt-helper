@@ -8,8 +8,8 @@ import { ErrorBasaltData, BasaltDataErrorCodes } from '@/Common/Errors';
  * @param transformer - The key transformation strategy to use.
  * 
  * @returns A new object with transformed keys.
- * @throws {@link ErrorBasaltData} - If the provided data object is null or undefined.
- * @throws {@link ErrorBasaltData} - If the provided data object is not a plain object.
+ * @throws {@link ErrorBasaltData} - If the provided data object is null or undefined. {@link BasaltDataErrorCodes.BASALT_DATA_NULL}
+ * @throws {@link ErrorBasaltData} - If the provided data object is not a plain object. {@link BasaltDataErrorCodes.BASALT_DATA_MUST_BE_PLAIN_OBJECT}
  *
  * @example
  * Returns \{ myKey: "value" \}

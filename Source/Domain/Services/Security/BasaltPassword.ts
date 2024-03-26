@@ -1,5 +1,4 @@
 import { hash, verify, argon2id } from 'argon2';
-import { availableParallelism } from 'os';
 
 import { ErrorBasaltSecurity, BasaltSecurityErrorCodes } from '@/Common/Errors';
 
@@ -14,11 +13,7 @@ function hashPassword(password: string): Promise<string> {
     if (password === '')
         return Promise.reject(new ErrorBasaltSecurity(BasaltSecurityErrorCodes.BASALT_PASSWORD_EMPTY));
     try {
-        return hash(password, {
-            parallelism: availableParallelism(),
-            saltLength: 32,
-            type: argon2id,
-        });
+        return hash(password, { type: argon2id });
     } catch (error) {
         throw new ErrorBasaltSecurity(BasaltSecurityErrorCodes.BASALT_PASSWORD_HASHING_FAILED);
     }
@@ -35,16 +30,9 @@ function hashPassword(password: string): Promise<string> {
  */
 function verifyPassword(password: string, hashedPassword: string): Promise<boolean> {
     if (password === '')
-        return Promise.reject(new ErrorBasaltSecurity(BasaltSecurityErrorCodes.BASALT_PASSWORD_EMPTY));
+        throw new ErrorBasaltSecurity(BasaltSecurityErrorCodes.BASALT_PASSWORD_EMPTY);
     try {
-        return verify(
-            hashedPassword,
-            password, {
-                parallelism: availableParallelism(),
-                saltLength: 32,
-                type: argon2id,
-            }
-        );
+        return verify(hashedPassword, password);
     } catch (error) {
         throw new ErrorBasaltSecurity(BasaltSecurityErrorCodes.BASALT_PASSWORD_VERIFICATION_FAILED);
     }

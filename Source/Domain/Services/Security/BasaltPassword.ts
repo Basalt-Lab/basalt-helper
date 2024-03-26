@@ -4,10 +4,11 @@ import { availableParallelism } from 'os';
 import { ErrorBasaltSecurity, BasaltSecurityErrorCodes } from '@/Common/Errors';
 
 /**
- * Hashes a password using Argon2id algorithm with optimal parallelism for the system.
+ * Hashes a password using Argon2id algorithm.
  * @param password - The plain text password to hash.
  * @returns A promise that resolves with the hashed password.
- * @throws {@link ErrorBasaltSecurity} - Throws an error if the password is empty or if hashing fails.
+ * @throws {@link ErrorBasaltSecurity} - Throws an error if the password is empty or if hashing fails. {@link BasaltSecurityErrorCodes.BASALT_PASSWORD_EMPTY}
+ * @throws {@link ErrorBasaltSecurity} - Throws an error if the password is empty or if hashing fails. {@link BasaltSecurityErrorCodes.BASALT_PASSWORD_HASHING_FAILED}
  */
 function hashPassword(password: string): Promise<string> {
     if (password === '')
@@ -25,11 +26,12 @@ function hashPassword(password: string): Promise<string> {
 
 
 /**
- * Verifies a password against a given hash using Argon2id algorithm with optimal parallelism for the system.
+ * Verifies a password against a given hash using Argon2id algorithm.
  * @param password - The plain text password to verify.
  * @param hashedPassword - The hashed password to verify against.
  * @returns A promise that resolves with a boolean indicating if the password is correct.
- * @throws {@link Error} - Throws an error if the password is empty or if verification fails.
+ * @throws {@link ErrorBasaltSecurity} - Throws an error if the password is empty. {@link BasaltSecurityErrorCodes.BASALT_PASSWORD_EMPTY}
+ * @throws {@link ErrorBasaltSecurity} - Throws an error if the password verification fails. {@link BasaltSecurityErrorCodes.BASALT_PASSWORD_VERIFICATION_FAILED}
  */
 function verifyPassword(password: string, hashedPassword: string): Promise<boolean> {
     if (password === '')

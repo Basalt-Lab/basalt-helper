@@ -5,7 +5,7 @@ import { ErrorBasaltData, BasaltDataErrorCodes } from '@/Common/Errors';
  * @typeParam T - The type of the data to be cloned.
  * @param data - The data object to be cloned.
  * @returns The deep cloned object.
- * @throws {@link Error} If the data is null or undefined.
+ * @throws {@link ErrorBasaltData} - Throws an error if the data is null or undefined. {@link BasaltDataErrorCodes.BASALT_DATA_NULL}
  */
 function deepClone<T>(data: T): T {
     if (data === null || data === undefined)

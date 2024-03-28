@@ -4,9 +4,18 @@ import { ErrorEntity } from './ErrorEntity';
  * Represents the error codes for the Basalt Data.
  */
 export enum BasaltDataErrorCodes {
-    BASALT_DATA_NULL = 'BASALT_DATA_NULL',
-    BASALT_DATA_MUST_BE_PLAIN_OBJECT = 'BASALT_DATA_MUST_BE_PLAIN_OBJECT',
-    BASALT_DATA_EMPTY_KEYS = 'BASALT_DATA_EMPTY_KEYS'
+    /**
+     * When the data is null.
+     */
+    DATA_NULL = 'DATA_NULL',
+    /**
+     * When the data is not a plain object.
+     */
+    DATA_MUST_BE_PLAIN_OBJECT = 'DATA_MUST_BE_PLAIN_OBJECT',
+    /**
+     * When the data is empty.
+     */
+    DATA_EMPTY_KEYS = 'DATA_EMPTY_KEYS'
 }
 
 /**

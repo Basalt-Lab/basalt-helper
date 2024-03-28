@@ -9,17 +9,17 @@ import { ErrorBasaltData, BasaltDataErrorCodes } from '@/Common/Errors';
  * @param keys - The array of keys to include in the resulting data object.
  * @param excludeNullUndefined - Flag to determine if properties with null or undefined values should be excluded.
  * @returns The filtered data object with only the specified keys included.
- * @throws {@link ErrorBasaltData} - Throws an error if the data is null or undefined. {@link BasaltDataErrorCodes.BASALT_DATA_NULL}
- * @throws {@link ErrorBasaltData} - Throws an error if the data is not a plain object. {@link BasaltDataErrorCodes.BASALT_DATA_MUST_BE_PLAIN_OBJECT}
- * @throws {@link ErrorBasaltData} - Throws an error if the keys array is empty. {@link BasaltDataErrorCodes.BASALT_DATA_EMPTY_KEYS}
+ * @throws {@link ErrorBasaltData} - Throws an error if the data is null or undefined. {@link BasaltDataErrorCodes.DATA_NULL}
+ * @throws {@link ErrorBasaltData} - Throws an error if the data is not a plain object. {@link BasaltDataErrorCodes.DATA_MUST_BE_PLAIN_OBJECT}
+ * @throws {@link ErrorBasaltData} - Throws an error if the keys array is empty. {@link BasaltDataErrorCodes.DATA_EMPTY_KEYS}
  */
 function filterByKeyInclusion<T extends Readonly<object>>(data: Readonly<T>, keys: Readonly<(keyof T)[]>, excludeNullUndefined: boolean = false): T {
     if (data === null || data === undefined)
-        throw new ErrorBasaltData(BasaltDataErrorCodes.BASALT_DATA_NULL);
+        throw new ErrorBasaltData(BasaltDataErrorCodes.DATA_NULL);
     if (typeof data !== 'object')
-        throw new ErrorBasaltData(BasaltDataErrorCodes.BASALT_DATA_MUST_BE_PLAIN_OBJECT);
+        throw new ErrorBasaltData(BasaltDataErrorCodes.DATA_MUST_BE_PLAIN_OBJECT);
     if (!keys || keys.length === 0)
-        throw new ErrorBasaltData(BasaltDataErrorCodes.BASALT_DATA_EMPTY_KEYS);
+        throw new ErrorBasaltData(BasaltDataErrorCodes.DATA_EMPTY_KEYS);
     const filteredData: T = {} as T;
     keys.forEach((key: keyof T): void => {
         if (key in data && (!excludeNullUndefined || (data[key] !== null && data[key] !== undefined)))

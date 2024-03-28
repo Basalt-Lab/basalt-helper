@@ -11,7 +11,7 @@ describe('BasaltPassword', (): void => {
         });
 
         it('should throw an error for an empty password', async (): Promise<void> => {
-            expect(hashPassword('')).rejects.toThrow('BASALT_PASSWORD_EMPTY');
+            expect(hashPassword('')).rejects.toThrow('PASSWORD_EMPTY');
         });
     });
 
@@ -35,7 +35,7 @@ describe('BasaltPassword', (): void => {
 
         it('should throw an error for an empty password', async (): Promise<void> => {
             await expect(verifyPassword('', hashedPassword))
-                .rejects.toThrow('BASALT_PASSWORD_EMPTY');
+                .rejects.toThrow('PASSWORD_EMPTY');
         });
     });
 });

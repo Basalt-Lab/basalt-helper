@@ -5,13 +5,13 @@ describe('BasaltDeepCloneUtility', (): void => {
         it('should throw an error for a null object', (): void => {
             expect((): void => {
                 deepClone(null);
-            }).toThrow('BASALT_DATA_NULL');
+            }).toThrow('DATA_NULL');
         });
 
         it('should throw an error for an undefined object', (): void => {
             expect((): void => {
                 deepClone(undefined);
-            }).toThrow('BASALT_DATA_NULL');
+            }).toThrow('DATA_NULL');
         });
 
         it('should return a deep clone of a date object', (): void => {

@@ -9,14 +9,14 @@ import { ErrorBasaltData, BasaltDataErrorCodes } from '@/Common/Errors';
  * @param predicate - The predicate function to apply to the values.
  * @param excludeNullUndefined - Flag to determine if properties with null or undefined values should be excluded. Default is false.
  * @returns The filtered data object with properties satisfying the predicate.
- * @throws {@link ErrorBasaltData} - Throws an error if the data is null or undefined. {@link BasaltDataErrorCodes.BASALT_DATA_NULL}
- * @throws {@link ErrorBasaltData} - Throws an error if the data is not a plain object. {@link BasaltDataErrorCodes.BASALT_DATA_MUST_BE_PLAIN_OBJECT}
+ * @throws {@link ErrorBasaltData} - Throws an error if the data is null or undefined. {@link BasaltDataErrorCodes.DATA_NULL}
+ * @throws {@link ErrorBasaltData} - Throws an error if the data is not a plain object. {@link BasaltDataErrorCodes.DATA_MUST_BE_PLAIN_OBJECT}
  */
 function filterByValue<T extends Readonly<object>> (data: Readonly<T>, predicate: (value: T[keyof T]) => boolean, excludeNullUndefined: boolean = false): T {
     if (data === null || data === undefined)
-        throw new ErrorBasaltData(BasaltDataErrorCodes.BASALT_DATA_NULL);
+        throw new ErrorBasaltData(BasaltDataErrorCodes.DATA_NULL);
     if (typeof data !== 'object')
-        throw new ErrorBasaltData(BasaltDataErrorCodes.BASALT_DATA_MUST_BE_PLAIN_OBJECT);
+        throw new ErrorBasaltData(BasaltDataErrorCodes.DATA_MUST_BE_PLAIN_OBJECT);
 
     const filteredData: T = {} as T;
     for (const key in data)

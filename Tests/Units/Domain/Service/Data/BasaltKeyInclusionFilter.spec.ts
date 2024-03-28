@@ -5,31 +5,31 @@ describe('BasaltKeyInclusionFilter', (): void => {
         it('should throw an error for a null array of keys', (): void => {
             expect((): void => {
                 filterByKeyInclusion({}, null as any);
-            }).toThrow('BASALT_DATA_EMPTY_KEYS');
+            }).toThrow('DATA_EMPTY_KEYS');
         });
 
         it('should throw an error for an empty array of keys', (): void => {
             expect((): void => {
                 filterByKeyInclusion({}, []);
-            }).toThrow('BASALT_DATA_EMPTY_KEYS');
+            }).toThrow('DATA_EMPTY_KEYS');
         });
 
         it('should throw an error for a null data object', (): void => {
             expect((): void => {
                 filterByKeyInclusion(null as any, ['test']);
-            }).toThrow('BASALT_DATA_NULL');
+            }).toThrow('DATA_NULL');
         });
 
         it('should throw an error for an undefined data object', (): void => {
             expect((): void => {
                 filterByKeyInclusion(undefined as any, ['test']);
-            }).toThrow('BASALT_DATA_NULL');
+            }).toThrow('DATA_NULL');
         });
 
         it('should throw an error for a non-object data object', (): void => {
             expect((): void => {
                 filterByKeyInclusion('test' as any, ['test']);
-            }).toThrow('BASALT_DATA_MUST_BE_PLAIN_OBJECT');
+            }).toThrow('DATA_MUST_BE_PLAIN_OBJECT');
         });
 
         it('should return a filtered object with the specified keys included', (): void => {

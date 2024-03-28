@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.5](https://github.com/Basalt-Lab/basalt-helper/compare/v1.2.4...v1.2.5) (2024-03-28)
+
+
+### Code Refactoring
+
+* remove prefix basalt to enum error ([1d8d2c7](https://github.com/Basalt-Lab/basalt-helper/commit/1d8d2c76023c829794fdef8bf7d1ce37728991ee))
+
 ## [1.2.4](https://github.com/Basalt-Lab/basalt-helper/compare/v1.2.3...v1.2.4) (2024-03-26)
 
 

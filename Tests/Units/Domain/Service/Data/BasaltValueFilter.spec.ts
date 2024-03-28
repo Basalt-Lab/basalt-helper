@@ -5,19 +5,19 @@ describe('BasaltValueFilter', (): void => {
     it('should throw an error for a null data object', (): void => {
         expect((): void => {
             filterByValue(null as any, (): boolean => true);
-        }).toThrow('BASALT_DATA_NULL');
+        }).toThrow('DATA_NULL');
     });
 
     it('should throw an error for an undefined data object', (): void => {
         expect((): void => {
             filterByValue(undefined as any, (): boolean => true);
-        }).toThrow('BASALT_DATA_NULL');
+        }).toThrow('DATA_NULL');
     });
 
     it('should throw an error for a non-object data object', (): void => {
         expect((): void => {
             filterByValue('test' as any, (): boolean => true);
-        }).toThrow('BASALT_DATA_MUST_BE_PLAIN_OBJECT');
+        }).toThrow('DATA_MUST_BE_PLAIN_OBJECT');
     });
 
     it('should filter data by value using a predicate', (): void => {

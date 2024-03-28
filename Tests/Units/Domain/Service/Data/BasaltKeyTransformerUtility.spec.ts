@@ -11,19 +11,19 @@ describe('BasaltKeyTransformerUtility', (): void => {
         it('should throw an error for a null data object', (): void => {
             expect((): void => {
                 transformKeys(null as any, new BasaltPascalCaseTransformer());
-            }).toThrow('BASALT_DATA_NULL');
+            }).toThrow('DATA_NULL');
         });
 
         it('should throw an error for an undefined data object', (): void => {
             expect((): void => {
                 transformKeys(undefined as any, new BasaltPascalCaseTransformer());
-            }).toThrow('BASALT_DATA_NULL');
+            }).toThrow('DATA_NULL');
         });
 
         it('should throw an error for a non-object data object', (): void => {
             expect((): void => {
                 transformKeys(1 as any, new BasaltPascalCaseTransformer());
-            }).toThrow('BASALT_DATA_MUST_BE_PLAIN_OBJECT');
+            }).toThrow('DATA_MUST_BE_PLAIN_OBJECT');
         });
 
         it('should transform keys to PascalCase', (): void => {

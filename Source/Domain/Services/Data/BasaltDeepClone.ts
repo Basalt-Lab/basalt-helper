@@ -5,11 +5,11 @@ import { ErrorBasaltData, BasaltDataErrorCodes } from '@/Common/Errors';
  * @typeParam T - The type of the data to be cloned.
  * @param data - The data object to be cloned.
  * @returns The deep cloned object.
- * @throws {@link ErrorBasaltData} - Throws an error if the data is null or undefined. {@link BasaltDataErrorCodes.BASALT_DATA_NULL}
+ * @throws {@link ErrorBasaltData} - Throws an error if the data is null or undefined. {@link BasaltDataErrorCodes.DATA_NULL}
  */
 function deepClone<T>(data: T): T {
     if (data === null || data === undefined)
-        throw new ErrorBasaltData(BasaltDataErrorCodes.BASALT_DATA_NULL);
+        throw new ErrorBasaltData(BasaltDataErrorCodes.DATA_NULL);
     if (data instanceof Date)
         return new Date(data.getTime()) as T;
     if (data instanceof RegExp)

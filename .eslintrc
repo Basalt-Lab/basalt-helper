@@ -106,7 +106,7 @@
         "@typescript-eslint/no-empty-function": "error", // https://typescript-eslint.io/rules/no-empty-function
         "@typescript-eslint/no-explicit-any": "error", // https://typescript-eslint.io/rules/no-explicit-any
         "@typescript-eslint/no-extra-non-null-assertion": "error", // https://typescript-eslint.io/rules/no-extra-non-null-assertion
-        "@typescript-eslint/no-extraneous-class": "error", // https://typescript-eslint.io/rules/no-extraneous-class
+        "@typescript-eslint/no-extraneous-class": "off", // https://typescript-eslint.io/rules/no-extraneous-class
         "@typescript-eslint/no-floating-promises": "error", // https://typescript-eslint.io/rules/no-floating-promises
         "@typescript-eslint/no-for-in-array": "error", // https://typescript-eslint.io/rules/no-for-in-array
         "no-implied-eval": "off",
@@ -169,6 +169,11 @@
         "@typescript-eslint/unbound-method": "error", // https://typescript-eslint.io/rules/unbound-method
         "@typescript-eslint/unified-signatures": "error", // https://typescript-eslint.io/rules/unified-signatures
         "require-unicode-regexp": "off",
+        "no-undef-init": "off",
+        "max-statements": "off",
+        "no-ternary": "off",
+        "no-plusplus": "off",
+        "id-length": "off",
         "max-lines": "off",
         "no-undefined": "off",
         "no-continue": "off",

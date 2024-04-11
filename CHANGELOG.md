@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.6](https://github.com/Basalt-Lab/basalt-helper/compare/v1.2.5...v1.2.6) (2024-04-11)
+
+
+### Build System
+
+* add gitignore and update rules eslint ([4a40a9a](https://github.com/Basalt-Lab/basalt-helper/commit/4a40a9a385940900c092c41130fe718be1a54b6f))
+
 ## [1.2.5](https://github.com/Basalt-Lab/basalt-helper/compare/v1.2.4...v1.2.5) (2024-03-28)
 
 

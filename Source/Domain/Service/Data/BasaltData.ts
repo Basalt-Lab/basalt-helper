@@ -180,7 +180,7 @@ function filterByValue<T extends Readonly<object>> (data: Readonly<T>, predicate
     return filteredData;
 }
 
-export const BasaltData = {
+export const basaltData = {
     deepClone,
     filterByKeyExclusion,
     filterByKeyInclusion,

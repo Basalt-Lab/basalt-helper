@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/Basalt-Lab/basalt-helper/compare/v1.3.0...v1.3.1) (2024-07-14)
+
+
+### Code Refactoring
+
+* rename BasaltData to basaltData ([e4c63b7](https://github.com/Basalt-Lab/basalt-helper/commit/e4c63b7809fc984f9d33c4c003816c2b14a9ee81))
+
 ## [1.3.0](https://github.com/Basalt-Lab/basalt-helper/compare/v1.2.5...v1.3.0) (2024-07-12)
 
 

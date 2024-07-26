@@ -1,5 +1,22 @@
 # Changelog
 
+## [1.4.0](https://github.com/Basalt-Lab/basalt-helper/compare/v1.3.1...v1.4.0) (2024-07-26)
+
+
+### Features
+
+* add SingletonManager + update errors ([a46e16a](https://github.com/Basalt-Lab/basalt-helper/commit/a46e16af2fa284a91d678f05d8c128bff05e867f))
+
+
+### Build System
+
+* update dependencies ([60c1aab](https://github.com/Basalt-Lab/basalt-helper/commit/60c1aab909e1c12487406b87c3260c2286567f82))
+
+
+### Continuous Integration
+
+* update ci ([b04c182](https://github.com/Basalt-Lab/basalt-helper/commit/b04c182a6dbdf611324858e2306df23a8002156b))
+
 ## [1.3.1](https://github.com/Basalt-Lab/basalt-helper/compare/v1.3.0...v1.3.1) (2024-07-14)
 
 

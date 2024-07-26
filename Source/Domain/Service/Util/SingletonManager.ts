@@ -73,6 +73,22 @@ class SingletonManagerSingleton {
     }
 
     /**
+     * Unregisters a class from the SingletonManagerSingleton.
+     * 
+     * @param name - The name of the class to unregister.
+     * 
+     * @throws ({@link BasaltError}) If the class constructor is not registered, it throws an error. ({@link DomainErrorKeys.ERROR_CLASS_CONSTRUCTOR_NOT_REGISTERED})
+     */
+    public unregister(name: string): void {
+        if (this._classConstructor.has(name))
+            throw new BasaltError({
+                messageKey: DomainErrorKeys.ERROR_CLASS_CONSTRUCTOR_NOT_REGISTERED
+            });
+        this._singletons.delete(name);
+        this._classConstructor.delete(name);
+    }
+
+    /**
      * Gets the singleton instance of the class. If the class is not registered, it throws an error.
      * 
      * @typeParam T - The type of the class.

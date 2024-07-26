@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/Basalt-Lab/basalt-helper/compare/v1.4.0...v1.5.0) (2024-07-26)
+
+
+### Features
+
+* add unregister to singleton manager ([0a37388](https://github.com/Basalt-Lab/basalt-helper/commit/0a37388c17894e4bcc8282b1257276319b078d7a))
+
 ## [1.4.0](https://github.com/Basalt-Lab/basalt-helper/compare/v1.3.1...v1.4.0) (2024-07-26)
 
 

@@ -1,5 +1,5 @@
 /**
- * DomainErrorKeys is an enum that contains the error codes for the Service layer
+ * DomainErrorKeys is an enum that contains the error codes for the Domain layer
  */
 export enum DomainErrorKeys {
     PASSWORD_EMPTY = 'error.domain.service.security.basalt_password.password_empty',

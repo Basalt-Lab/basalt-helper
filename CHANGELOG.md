@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/Basalt-Lab/basalt-helper/compare/v1.5.0...v1.6.0) (2024-07-30)
+
+
+### Features
+
+* add utils ([9ab78f6](https://github.com/Basalt-Lab/basalt-helper/commit/9ab78f64af420d21885b45fb6b25fab0f97dabd5))
+
 ## [1.5.0](https://github.com/Basalt-Lab/basalt-helper/compare/v1.4.0...v1.5.0) (2024-07-26)
 
 

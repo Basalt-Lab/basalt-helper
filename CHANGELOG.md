@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.1](https://github.com/Basalt-Lab/basalt-helper/compare/v1.6.0...v1.6.1) (2024-08-13)
+
+
+### Build System
+
+* update dependencies, and node version ([dd9eaaf](https://github.com/Basalt-Lab/basalt-helper/commit/dd9eaaf736d9184b0ea6f0611062d8448d2b41c5))
+
 ## [1.6.0](https://github.com/Basalt-Lab/basalt-helper/compare/v1.5.0...v1.6.0) (2024-07-30)
 
 

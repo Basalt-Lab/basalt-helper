@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/Basalt-Lab/basalt-helper/compare/v1.6.1...v1.7.0) (2024-08-13)
+
+
+### Features
+
+* add name to BasaltError ([3639e9c](https://github.com/Basalt-Lab/basalt-helper/commit/3639e9c71727cfa98aaea250f7b350122135530e))
+
 ## [1.6.1](https://github.com/Basalt-Lab/basalt-helper/compare/v1.6.0...v1.6.1) (2024-08-13)
 
 

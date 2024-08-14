@@ -1,5 +1,4 @@
-import { DomainErrorKeys } from '@/Common/Error/Enum/index.js';
-import { BasaltError } from '@/Common/Error/index.js';
+import { BasaltError, ErrorKeys } from '@/Common/Error/index.js';
 import type { IBasaltKeyTransformer } from '@/Domain/Service/Data/Interface/index.js';
 
 /**
@@ -9,14 +8,14 @@ import type { IBasaltKeyTransformer } from '@/Domain/Service/Data/Interface/inde
  * 
  * @param data - The data object to be cloned.
  * 
- * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link DomainErrorKeys.DATA_NULL})
+ * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link ErrorKeys.DATA_IS_NULL})
  * 
  * @returns The deep cloned object. ({@link T})
  */
 export function deepClone<T>(data: T): T {
     if (data === null || data === undefined)
         throw new BasaltError({
-            messageKey: DomainErrorKeys.DATA_NULL
+            messageKey: ErrorKeys.DATA_IS_NULL
         });
     if (data instanceof Date)
         return new Date(data.getTime()) as T;
@@ -46,24 +45,24 @@ export function deepClone<T>(data: T): T {
  * @param keys - The array of keys to exclude from the data object.
  * @param excludeNullUndefined - Flag to determine if properties with null or undefined values should be excluded.
  * 
- * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link DomainErrorKeys.DATA_NULL})
- * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link DomainErrorKeys.DATA_MUST_BE_PLAIN_OBJECT})
- * @throws ({@link BasaltError}) - Throws an error if the keys array is empty. ({@link DomainErrorKeys.DATA_EMPTY_KEYS})
+ * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link ErrorKeys.DATA_IS_NULL})
+ * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT})
+ * @throws ({@link BasaltError}) - Throws an error if the keys array is empty. ({@link ErrorKeys.ARRAY_KEYS_EMPTY})
  * 
  * @returns The filtered data object with the specified keys excluded. ({@link T})
  */
 export function filterByKeyExclusion<T extends Readonly<object>>(data: Readonly<T>, keys: Readonly<Array<keyof T>>, excludeNullUndefined: boolean = false): T {
     if (data === null || data === undefined)
         throw new BasaltError({
-            messageKey: DomainErrorKeys.DATA_NULL
+            messageKey: ErrorKeys.DATA_IS_NULL
         });
     if (typeof data !== 'object')
         throw new BasaltError({
-            messageKey: DomainErrorKeys.DATA_MUST_BE_PLAIN_OBJECT
+            messageKey: ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT
         });
     if (!keys || keys.length === 0)
         throw new BasaltError({
-            messageKey: DomainErrorKeys.DATA_EMPTY_KEYS
+            messageKey: ErrorKeys.ARRAY_KEYS_EMPTY
         });
     const filteredData: T = {} as T;
     Object.keys(data).forEach((key: string): void => {
@@ -84,24 +83,24 @@ export function filterByKeyExclusion<T extends Readonly<object>>(data: Readonly<
  * @param keys - The array of keys to include in the resulting data object.
  * @param excludeNullUndefined - Flag to determine if properties with null or undefined values should be excluded.
  * 
- * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link DomainErrorKeys.DATA_NULL})
- * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link DomainErrorKeys.DATA_MUST_BE_PLAIN_OBJECT})
- * @throws ({@link BasaltError}) - Throws an error if the keys array is empty. ({@link DomainErrorKeys.DATA_EMPTY_KEYS})
+ * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link ErrorKeys.DATA_IS_NULL})
+ * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT})
+ * @throws ({@link BasaltError}) - Throws an error if the keys array is empty. ({@link ErrorKeys.ARRAY_KEYS_EMPTY})
  * 
  * @returns The filtered data object with only the specified keys included. ({@link T})
  */
 export function filterByKeyInclusion<T extends Readonly<object>>(data: Readonly<T>, keys: Readonly<Array<keyof T>>, excludeNullUndefined: boolean = false): T {
     if (data === null || data === undefined)
         throw new BasaltError({
-            messageKey: DomainErrorKeys.DATA_NULL
+            messageKey: ErrorKeys.DATA_IS_NULL
         });
     if (typeof data !== 'object')
         throw new BasaltError({
-            messageKey: DomainErrorKeys.DATA_MUST_BE_PLAIN_OBJECT
+            messageKey: ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT
         });
     if (!keys || keys.length === 0)
         throw new BasaltError({
-            messageKey: DomainErrorKeys.DATA_EMPTY_KEYS
+            messageKey: ErrorKeys.ARRAY_KEYS_EMPTY
         });
     const filteredData: T = {} as T;
     keys.forEach((key: keyof T): void => {
@@ -117,8 +116,8 @@ export function filterByKeyInclusion<T extends Readonly<object>>(data: Readonly<
  * @param data - The object whose keys are to be transformed.
  * @param transformer - The key transformation strategy to use.
  * 
- * @throws ({@link BasaltError}) - If the provided data object is null or undefined. ({@link DomainErrorKeys.DATA_NULL})
- * @throws ({@link BasaltError}) - If the provided data object is not a plain object. ({@link DomainErrorKeys.DATA_MUST_BE_PLAIN_OBJECT})
+ * @throws ({@link BasaltError}) - If the provided data object is null or undefined. ({@link ErrorKeys.DATA_IS_NULL})
+ * @throws ({@link BasaltError}) - If the provided data object is not a plain object. ({@link ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT})
  * 
  * @returns A new object with transformed keys. ({@link T})
  *
@@ -129,11 +128,11 @@ export function filterByKeyInclusion<T extends Readonly<object>>(data: Readonly<
 export function transformKeys<T extends Readonly<object>>(data: Readonly<T>, transformer: Readonly<IBasaltKeyTransformer>): T {
     if (data === null || data === undefined)
         throw new BasaltError({
-            messageKey: DomainErrorKeys.DATA_NULL
+            messageKey: ErrorKeys.DATA_IS_NULL
         });
     if (typeof data !== 'object')
         throw new BasaltError({
-            messageKey: DomainErrorKeys.DATA_MUST_BE_PLAIN_OBJECT
+            messageKey: ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT
         });
     const result: T = {} as T;
     
@@ -155,19 +154,19 @@ export function transformKeys<T extends Readonly<object>>(data: Readonly<T>, tra
  * @param predicate - The predicate function to apply to the values.
  * @param excludeNullUndefined - Flag to determine if properties with null or undefined values should be excluded. Default is false.
  * 
- * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link DomainErrorKeys.DATA_NULL})
- * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link DomainErrorKeys.DATA_MUST_BE_PLAIN_OBJECT})
+ * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link ErrorKeys.DATA_IS_NULL})
+ * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT})
  * 
  * @returns The filtered data object with properties satisfying the predicate. ({@link T})
  */
 export function filterByValue<T extends Readonly<object>> (data: Readonly<T>, predicate: (value: T[keyof T]) => boolean, excludeNullUndefined: boolean = false): T {
     if (data === null || data === undefined)
         throw new BasaltError({
-            messageKey: DomainErrorKeys.DATA_NULL
+            messageKey: ErrorKeys.DATA_IS_NULL
         });
     if (typeof data !== 'object')
         throw new BasaltError({
-            messageKey: DomainErrorKeys.DATA_MUST_BE_PLAIN_OBJECT
+            messageKey: ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT
         });
 
     const filteredData: T = {} as T;

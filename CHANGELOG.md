@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.7.1](https://github.com/Basalt-Lab/basalt-helper/compare/v1.7.0...v1.7.1) (2024-08-14)
+
+
+### Code Refactoring
+
+* merge all errorkeys + clean value... ([c348130](https://github.com/Basalt-Lab/basalt-helper/commit/c34813098cb92d8c61a779f2a2d496a18aa3b913))
+
+
+### Build System
+
+* downgrade version for the moment ([85ca98f](https://github.com/Basalt-Lab/basalt-helper/commit/85ca98f95ab57330e571ee8229e1523a8917665e))
+
 ## [1.7.0](https://github.com/Basalt-Lab/basalt-helper/compare/v1.6.1...v1.7.0) (2024-08-13)
 
 

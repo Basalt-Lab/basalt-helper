@@ -1,6 +1,6 @@
 {
   "name": "@basalt-lab/basalt-helper",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "Helper of Basalt Framework",
   "main": "Build/App.js",
   "types": "Build/App.d.ts",
@@ -31,7 +31,7 @@
   "devDependencies": {
     "@types/node": "^22.2.0",
     "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0", 
+    "@typescript-eslint/parser": "^7.18.0",
     "esbuild": "^0.23.0",
     "eslint": "^8.57.0",
     "eslint-plugin-tsdoc": "^0.3.0",

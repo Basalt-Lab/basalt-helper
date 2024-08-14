@@ -7,8 +7,7 @@ import {
     type Stats,
 } from 'fs';
 
-import { CommonErrorKeys } from '@/Common/Error/Enum/index.js';
-import { BasaltError } from '@/Common/Error/index.js';
+import { BasaltError, ErrorKeys } from '@/Common/Error/index.js';
 import { md5, sha256, sha512 } from './Hash.js';
 import { Path } from './Path.js';
 
@@ -30,20 +29,20 @@ export class File extends Path {
      *
      * @param content - The content to write to the file.
      *
-     * @throws ({@link BasaltError}) If the file access is denied. ({@link CommonErrorKeys.ERROR_ACCESS_FILE})
-     * @throws ({@link BasaltError}) If the file write fails. ({@link CommonErrorKeys.ERROR_WRITE_FILE})
+     * @throws ({@link BasaltError}) If the file access is denied. ({@link ErrorKeys.NO_ACCESS_FILE})
+     * @throws ({@link BasaltError}) If the file write fails. ({@link ErrorKeys.ERROR_WRITE_FILE})
      */
     public write(content: string): void {
         if (this.exists() && !this.checkAccess())
             throw new BasaltError({
-                messageKey: CommonErrorKeys.ERROR_ACCESS_FILE,
+                messageKey: ErrorKeys.NO_ACCESS_FILE,
                 detail: this._path
             });
         try {
             writeFileSync(this._path, content);
         } catch (error) {
             throw new BasaltError({
-                messageKey: CommonErrorKeys.ERROR_WRITE_FILE,
+                messageKey: ErrorKeys.ERROR_WRITE_FILE,
                 detail: this._path
             });
         }
@@ -52,22 +51,22 @@ export class File extends Path {
     /**
      * Reads the file.
      *
-     * @throws ({@link BasaltError}) If the file access is denied. ({@link CommonErrorKeys.ERROR_ACCESS_FILE})
-     * @throws ({@link BasaltError}) If the file read fails. ({@link CommonErrorKeys.ERROR_READ_FILE})
+     * @throws ({@link BasaltError}) If the file access is denied. ({@link ErrorKeys.NO_ACCESS_FILE})
+     * @throws ({@link BasaltError}) If the file read fails. ({@link ErrorKeys.ERROR_READ_FILE})
      *
      * @returns The content of the file.
      */
     public read(): string {
         if (!this.checkAccess())
             throw new BasaltError({
-                messageKey: CommonErrorKeys.ERROR_ACCESS_FILE,
+                messageKey: ErrorKeys.NO_ACCESS_FILE,
                 detail: this._path
             });
         try {
             return readFileSync(this._path, 'utf8');
         } catch (error) {
             throw new BasaltError({
-                messageKey: CommonErrorKeys.ERROR_READ_FILE,
+                messageKey: ErrorKeys.ERROR_READ_FILE,
                 detail: this._path
             });
         }
@@ -89,7 +88,7 @@ export class File extends Path {
     /**
      * Calculates the hash with md5 of the file asynchronously with a stream.
      *
-     * @throws ({@link BasaltError}) If the file access is denied. ({@link CommonErrorKeys.ERROR_ACCESS_FILE})
+     * @throws ({@link BasaltError}) If the file access is denied. ({@link ErrorKeys.NO_ACCESS_FILE})
      * 
      * @returns The hash of the file.
      */
@@ -101,8 +100,8 @@ export class File extends Path {
     /**
      * Calculates the hash with md5 of the file.
      *
-     * @throws ({@link BasaltError}) If the file access is denied. ({@link CommonErrorKeys.ERROR_ACCESS_FILE})
-     * @throws ({@link BasaltError}) If the file read fails. ({@link CommonErrorKeys.ERROR_READ_FILE})
+     * @throws ({@link BasaltError}) If the file access is denied. ({@link ErrorKeys.NO_ACCESS_FILE})
+     * @throws ({@link BasaltError}) If the file read fails. ({@link ErrorKeys.ERROR_READ_FILE})
      * 
      * @returns The hash of the file.
      */
@@ -114,7 +113,7 @@ export class File extends Path {
     /**
      * Calculates the hash with sha256 of the file synchronously with a stream.
      *
-     * @throws ({@link BasaltError}) If the file access is denied. ({@link CommonErrorKeys.ERROR_ACCESS_FILE})
+     * @throws ({@link BasaltError}) If the file access is denied. ({@link ErrorKeys.NO_ACCESS_FILE})
      * 
      * @returns The hash of the file.
      */
@@ -126,8 +125,8 @@ export class File extends Path {
     /**
      * Calculates the hash with sha256 of the file.
      *
-     * @throws ({@link BasaltError}) If the file access is denied. ({@link CommonErrorKeys.ERROR_ACCESS_FILE})
-     * @throws ({@link BasaltError}) If the file read fails. ({@link CommonErrorKeys.ERROR_READ_FILE})
+     * @throws ({@link BasaltError}) If the file access is denied. ({@link ErrorKeys.NO_ACCESS_FILE})
+     * @throws ({@link BasaltError}) If the file read fails. ({@link ErrorKeys.ERROR_READ_FILE})
      * 
      * @returns The hash of the file.
      */
@@ -139,7 +138,7 @@ export class File extends Path {
     /**
      * Calculates the hash with sha512 of the file synchronously with a stream.
      * 
-     * @throws ({@link BasaltError}) If the file access is denied. ({@link CommonErrorKeys.ERROR_ACCESS_FILE})
+     * @throws ({@link BasaltError}) If the file access is denied. ({@link ErrorKeys.NO_ACCESS_FILE})
      *
      * @returns The hash of the file.
      */
@@ -151,8 +150,8 @@ export class File extends Path {
     /**
      * Calculates the hash with sha512 of the file.
      *
-     * @throws ({@link BasaltError}) If the file access is denied. ({@link CommonErrorKeys.ERROR_ACCESS_FILE})
-     * @throws ({@link BasaltError}) If the file read fails. ({@link CommonErrorKeys.ERROR_READ_FILE})
+     * @throws ({@link BasaltError}) If the file access is denied. ({@link ErrorKeys.NO_ACCESS_FILE})
+     * @throws ({@link BasaltError}) If the file read fails. ({@link ErrorKeys.ERROR_READ_FILE})
      * 
      * @returns The hash of the file.
      */
@@ -166,7 +165,7 @@ export class File extends Path {
      * 
      * @param hash - The hash to calculate.
      * 
-     * @throws ({@link BasaltError}) If the file access is denied. ({@link CommonErrorKeys.ERROR_ACCESS_FILE})
+     * @throws ({@link BasaltError}) If the file access is denied. ({@link ErrorKeys.NO_ACCESS_FILE})
      * 
      * @returns The hash of the file.
      */
@@ -182,7 +181,7 @@ export class File extends Path {
             });
         } catch (error) {
             throw new BasaltError({
-                messageKey: CommonErrorKeys.ERROR_CALCULATE_HASH,
+                messageKey: ErrorKeys.ERROR_CALCULATE_HASH,
                 detail: this._path
             });
         }

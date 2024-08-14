@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.2](https://github.com/Basalt-Lab/basalt-helper/compare/v1.7.1...v1.7.2) (2024-08-14)
+
+
+### Documentation
+
+* add comment on errors when interpolated.. ([a3202c4](https://github.com/Basalt-Lab/basalt-helper/commit/a3202c4a9d8611e371af375060138eeeace14530))
+
 ## [1.7.1](https://github.com/Basalt-Lab/basalt-helper/compare/v1.7.0...v1.7.1) (2024-08-14)
 
 

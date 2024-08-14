@@ -66,7 +66,8 @@ class SingletonManagerSingleton {
     public register<T>(name: string, instance: new(...args: unknown[]) => T): void {    
         if (this._classConstructor.has(name))
             throw new BasaltError({
-                messageKey: ErrorKeys.CLASS_CONSTRUCTOR_ALREADY_REGISTERED
+                messageKey: ErrorKeys.CLASS_CONSTRUCTOR_ALREADY_REGISTERED,
+                detail: { name }
             });
         this._classConstructor.set(name, instance);
     }
@@ -81,7 +82,8 @@ class SingletonManagerSingleton {
     public unregister(name: string): void {
         if (this._classConstructor.has(name))
             throw new BasaltError({
-                messageKey: ErrorKeys.CLASS_CONSTRUCTOR_NOT_REGISTERED
+                messageKey: ErrorKeys.CLASS_CONSTRUCTOR_NOT_REGISTERED,
+                detail: { name }
             });
         this._singletons.delete(name);
         this._classConstructor.delete(name);
@@ -100,7 +102,8 @@ class SingletonManagerSingleton {
     public get<T>(name: string): T {
         if (!this._classConstructor.has(name))
             throw new BasaltError({
-                messageKey: ErrorKeys.CLASS_CONSTRUCTOR_NOT_REGISTERED
+                messageKey: ErrorKeys.CLASS_CONSTRUCTOR_NOT_REGISTERED,
+                detail: { name }
             });
         if (!this._singletons.has(name))
             this._singletons.set(name, new (this._classConstructor.get(name) as new(...args: unknown[]) => T)());

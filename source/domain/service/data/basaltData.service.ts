@@ -42,12 +42,25 @@ export function deepClone<T>(data: T): T {
  * @typeParam T - The type of the data object to filter, must be an object.
  * 
  * @param data - The data object to be filtered.
- * @param keys - The array of keys to exclude from the data object.
+ * @param keys - The array of keys to exclude from the data object. (Can be empty)
  * @param excludeNullUndefined - Flag to determine if properties with null or undefined values should be excluded.
  * 
  * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link ErrorKeys.DATA_IS_NULL})
  * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT})
- * @throws ({@link BasaltError}) - Throws an error if the keys array is empty. ({@link ErrorKeys.ARRAY_KEYS_EMPTY})
+ * 
+ * @example
+ * ```typescript
+ * const object = { test: 'test', exclude: 'exclude' };
+ * const filtered = filterByKeyExclusion(object, ['exclude']);
+ * console.log(filtered); // { test: 'test' }
+ * ```
+ * 
+ * @example
+ * ```typescript
+ * const object = { test: 'test', exclude: null };
+ * const filtered = filterByKeyExclusion(object, [], true);
+ * console.log(filtered); // { test: 'test' }
+ * ```
  * 
  * @returns The filtered data object with the specified keys excluded. ({@link T})
  */
@@ -59,10 +72,6 @@ export function filterByKeyExclusion<T extends Readonly<object>>(data: Readonly<
     if (typeof data !== 'object')
         throw new BasaltError({
             messageKey: ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT
-        });
-    if (!keys || keys.length === 0)
-        throw new BasaltError({
-            messageKey: ErrorKeys.ARRAY_KEYS_EMPTY
         });
     const filteredData: T = {} as T;
     Object.keys(data).forEach((key: string): void => {
@@ -80,12 +89,25 @@ export function filterByKeyExclusion<T extends Readonly<object>>(data: Readonly<
  * @typeParam T - The type of the data object to filter, must be an object.
  * 
  * @param data - The data object to be filtered.
- * @param keys - The array of keys to include in the resulting data object.
+ * @param keys - The array of keys to include in the resulting data object. (Can be empty)
  * @param excludeNullUndefined - Flag to determine if properties with null or undefined values should be excluded.
  * 
  * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link ErrorKeys.DATA_IS_NULL})
  * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT})
- * @throws ({@link BasaltError}) - Throws an error if the keys array is empty. ({@link ErrorKeys.ARRAY_KEYS_EMPTY})
+ * 
+ * @example
+ * ```typescript
+ * const object = { test: 'test', exclude: 'exclude' };
+ * const filtered = filterByKeyInclusion(object, ['test']);
+ * console.log(filtered); // { test: 'test' }
+ * ```
+ * 
+ * @example
+ * ```typescript
+ * const object = { test: 'test', exclude: null };
+ * const filtered = filterByKeyInclusion(object, ['test'], true);
+ * console.log(filtered); // { test: 'test' }
+ * ```
  * 
  * @returns The filtered data object with only the specified keys included. ({@link T})
  */
@@ -98,15 +120,60 @@ export function filterByKeyInclusion<T extends Readonly<object>>(data: Readonly<
         throw new BasaltError({
             messageKey: ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT
         });
-    if (!keys || keys.length === 0)
-        throw new BasaltError({
-            messageKey: ErrorKeys.ARRAY_KEYS_EMPTY
-        });
     const filteredData: T = {} as T;
     keys.forEach((key: keyof T): void => {
         if (key in data && (!excludeNullUndefined || (data[key] !== null && data[key] !== undefined)))
             filteredData[key] = data[key];
     });
+    return filteredData;
+}
+
+/**
+ * Filters the provided data based on a predicate applied to its values. The resulting object
+ * will only include properties whose values satisfy the predicate function. Properties with
+ * null or undefined values can be optionally excluded based on the 'excludeNullUndefined' flag.
+ * @typeParam T - The type of the data to be filtered, constrained to an object type.
+ * 
+ * @param data - The data object to be filtered.
+ * @param predicate - The predicate function to apply to the values.
+ * @param excludeNullUndefined - Flag to determine if properties with null or undefined values should be excluded. Default is false.
+ * 
+ * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link ErrorKeys.DATA_IS_NULL})
+ * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT})
+ * 
+ * @example
+ * ```typescript
+ * const object = { test: 'test', exclude: 'exclude' };
+ * const filtered = filterByValue(object, (value: unknown): boolean => value === 'test');
+ * console.log(filtered); // { test: 'test' }
+ * ```
+ * 
+ * @example
+ * ```typescript
+ * const object = { test: 'test', exclude: null };
+ * const filtered = filterByValue(object, (value: unknown): boolean => value === 'test', true);
+ * console.log(filtered); // { test: 'test' }
+ * ```
+ * 
+ * @returns The filtered data object with properties satisfying the predicate. ({@link T})
+ */
+export function filterByValue<T extends Readonly<object>> (data: Readonly<T>, predicate: (value: T[keyof T]) => boolean, excludeNullUndefined: boolean = false): T {
+    if (data === null || data === undefined)
+        throw new BasaltError({
+            messageKey: ErrorKeys.DATA_IS_NULL
+        });
+    if (typeof data !== 'object')
+        throw new BasaltError({
+            messageKey: ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT
+        });
+
+    const filteredData: T = {} as T;
+    for (const key in data)
+        if (Object.hasOwn(data, key)) {
+            const typedKey: keyof T = key as keyof T;
+            if (predicate(data[typedKey]) && (!excludeNullUndefined || (data[typedKey] !== null && data[typedKey] !== undefined)))
+                filteredData[typedKey] = data[typedKey];
+        }
     return filteredData;
 }
 
@@ -142,39 +209,4 @@ export function transformKeys<T extends Readonly<object>>(data: Readonly<T>, tra
             result[transformedKey as keyof T] = data[key as keyof T];
         }
     return result;
-}
-
-/**
- * Filters the provided data based on a predicate applied to its values. The resulting object
- * will only include properties whose values satisfy the predicate function. Properties with
- * null or undefined values can be optionally excluded based on the 'excludeNullUndefined' flag.
- * @typeParam T - The type of the data to be filtered, constrained to an object type.
- * 
- * @param data - The data object to be filtered.
- * @param predicate - The predicate function to apply to the values.
- * @param excludeNullUndefined - Flag to determine if properties with null or undefined values should be excluded. Default is false.
- * 
- * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link ErrorKeys.DATA_IS_NULL})
- * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT})
- * 
- * @returns The filtered data object with properties satisfying the predicate. ({@link T})
- */
-export function filterByValue<T extends Readonly<object>> (data: Readonly<T>, predicate: (value: T[keyof T]) => boolean, excludeNullUndefined: boolean = false): T {
-    if (data === null || data === undefined)
-        throw new BasaltError({
-            messageKey: ErrorKeys.DATA_IS_NULL
-        });
-    if (typeof data !== 'object')
-        throw new BasaltError({
-            messageKey: ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT
-        });
-
-    const filteredData: T = {} as T;
-    for (const key in data)
-        if (Object.hasOwn(data, key)) {
-            const typedKey: keyof T = key as keyof T;
-            if (predicate(data[typedKey]) && (!excludeNullUndefined || (data[typedKey] !== null && data[typedKey] !== undefined)))
-                filteredData[typedKey] = data[typedKey];
-        }
-    return filteredData;
 }

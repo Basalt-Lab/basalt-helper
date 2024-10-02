@@ -14,14 +14,14 @@ export class BasaltCamelCaseTransformer implements BasaltKeyTransformer {
      * @returns The key string transformed into camelCase.
      *
      * @example
-     * Returns "myKeyName"
      * transformKey('MyKeyName');
-     * @example
      * Returns "myKeyName"
+     * @example
      * transformKey('my-key-name');
-     * @example
      * Returns "myKeyName"
+     * @example
      * transformKey('my_key_name');
+     * Returns "myKeyName"
      */
     public transformKey(key: string): string {
         return key

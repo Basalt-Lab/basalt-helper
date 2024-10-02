@@ -14,14 +14,14 @@ export class BasaltKebabCaseTransformer implements BasaltKeyTransformer {
      * @returns The key string transformed into kebab-case, with all letters in lower case and words separated by hyphens.
      *
      * @example
-     * Returns "my-key-name"
      * transformKey('myKeyName');
-     * @example
      * Returns "my-key-name"
-     * transformKey('MyKeyName');
      * @example
+     * transformKey('MyKeyName');
+     * Returns "my-key-name"
+     * @example
+     * transformKey('my_long_key_name');
      * Returns "my-long-key-name"
-     * transformKey('myLongKeyName');
      */
     public transformKey(key: string): string {
         return key

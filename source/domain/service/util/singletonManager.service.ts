@@ -81,7 +81,7 @@ class SingletonManagerSingleton {
      * @throws ({@link BasaltError}) If the class constructor is not registered, it throws an error. ({@link ErrorKeys.CLASS_CONSTRUCTOR_NOT_REGISTERED})
      */
     public unregister(name: string): void {
-        if (this._classConstructor.has(name))
+        if (!this._classConstructor.has(name))
             throw new BasaltError({
                 messageKey: ErrorKeys.CLASS_CONSTRUCTOR_NOT_REGISTERED,
                 detail: { name }
@@ -109,6 +109,17 @@ class SingletonManagerSingleton {
         if (!this._singletons.has(name))
             this._singletons.set(name, new (this._classConstructor.get(name) as new(...args: unknown[]) => T)());
         return this._singletons.get(name) as T;
+    }
+
+    /**
+     * Checks if the class is registered in the SingletonManagerSingleton.
+     * 
+     * @param name - The name of the class to check if it is registered.
+     *
+     * @returns True if the class is registered, otherwise false.
+     */
+    public has(name: string): boolean {
+        return this._classConstructor.has(name);
     }
 }
 

@@ -14,17 +14,14 @@ export class BasaltSnakeCaseTransformer implements BasaltKeyTransformer {
      * @returns The key string transformed into snake_case, with underscores between words.
      *
      * @example
-     * Returns "my_key_name"
      * transformKey('myKeyName');
-     * @example
      * Returns "my_key_name"
+     * @example
      * transformKey('MyKeyName');
-     * @example
      * Returns "my_key_name"
+     * @example
      * transformKey('My-Key-Name');
-     * @example
      * Returns "my_key_name"
-     * transformKey('my key name');
      */
     public transformKey(key: string): string {
         return key

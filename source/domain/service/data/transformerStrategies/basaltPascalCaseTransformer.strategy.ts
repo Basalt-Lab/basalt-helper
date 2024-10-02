@@ -14,14 +14,14 @@ export class BasaltPascalCaseTransformer implements BasaltKeyTransformer {
      * @returns The key string transformed into PascalCase, with the first letter of each word capitalized.
      *
      * @example
-     * Returns "MyKeyName"
      * transformKey('my_key_name');
-     * @example
      * Returns "MyKeyName"
-     * transformKey('my-key-name');
      * @example
-     * Returns "MyLongKeyName"
+     * transformKey('my-key-name');
+     * Returns "MyKeyName"
+     * @example
      * transformKey('myLongKeyName');
+     * Returns "MyLongKeyName"
      */
     public transformKey(key: string): string {
         const camelCaseKey: string = key.replace(/(?:[-_][a-z])/giu, (group: string) =>

@@ -13,7 +13,7 @@ import { BasaltError, ErrorKeys } from '#/common/error/index.ts';
  * @returns A promise that resolves with the hashed password.
  */
 export function hashPassword(password: string): Promise<string> {
-    if (password === '')
+    if (!password)
         return Promise.reject(new BasaltError({
             messageKey: ErrorKeys.PASSWORD_EMPTY
         }));
@@ -39,7 +39,7 @@ export function hashPassword(password: string): Promise<string> {
  * @returns A promise that resolves with a boolean indicating if the password is correct.
  */
 export function verifyPassword(password: string, hashedPassword: string): Promise<boolean> {
-    if (password === '')
+    if (!password)
         throw new BasaltError({
             messageKey: ErrorKeys.PASSWORD_EMPTY
         });

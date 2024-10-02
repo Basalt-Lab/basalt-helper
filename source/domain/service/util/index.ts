@@ -1,1 +1,1 @@
-export * from './singletonManager.ts';
+export * from './singletonManager.service.ts';

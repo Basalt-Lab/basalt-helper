@@ -1,5 +1,30 @@
 # Changelog
 
+## [1.8.0](https://github.com/Basalt-Lab/basalt-helper/compare/v1.7.2...v1.8.0) (2024-10-03)
+
+
+### Features
+
+* add has method to singleton manager and little refacto ([aada43f](https://github.com/Basalt-Lab/basalt-helper/commit/aada43f82baacf924cd0e867db06d637397be37d))
+* change structure and nomenclature ... ([5c76e2a](https://github.com/Basalt-Lab/basalt-helper/commit/5c76e2afde119d9ed5a085e961298aaa9b0f2a1d))
+* remove useless utils ([03162d4](https://github.com/Basalt-Lab/basalt-helper/commit/03162d4c460162a72a7ee8edf5e8bf978660ba1c))
+
+
+### Build System
+
+* change build system ([5452161](https://github.com/Basalt-Lab/basalt-helper/commit/5452161903bd2387fc6bf7d3cd125962984a8748))
+* update dependencies ([c368408](https://github.com/Basalt-Lab/basalt-helper/commit/c36840825aa85518988875f783f78efd6f4ca18d))
+
+
+### Tests
+
+* add units tests ([fb8a9ff](https://github.com/Basalt-Lab/basalt-helper/commit/fb8a9ff8a50b8e94935833c841fec6afeaa40018))
+
+
+### Continuous Integration
+
+* refacto to support bun ([f04c8d8](https://github.com/Basalt-Lab/basalt-helper/commit/f04c8d8f7e666331a82c3f1d0479cffe605391a6))
+
 ## [1.7.2](https://github.com/Basalt-Lab/basalt-helper/compare/v1.7.1...v1.7.2) (2024-08-14)
 
 

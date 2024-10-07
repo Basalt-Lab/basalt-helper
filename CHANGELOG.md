@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/Basalt-Lab/basalt-helper/compare/v1.8.0...v1.8.1) (2024-10-07)
+
+
+### Bug Fixes
+
+* correction name (because bun bundler has no keepName like esbuild) ([a9aa429](https://github.com/Basalt-Lab/basalt-helper/commit/a9aa429822d3835deadf79cf96b33f090d4936ac))
+
 ## [1.8.0](https://github.com/Basalt-Lab/basalt-helper/compare/v1.7.2...v1.8.0) (2024-10-03)
 
 

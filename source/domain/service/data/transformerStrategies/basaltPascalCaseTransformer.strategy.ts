@@ -5,7 +5,6 @@ import type { BasaltKeyTransformer } from '#/common/types/data/index.ts';
  * Implements ({@link BasaltKeyTransformer}).
  */
 export class BasaltPascalCaseTransformer implements BasaltKeyTransformer {
-
     /**
      * Transforms a single key from any case to PascalCase.
      *
@@ -24,9 +23,7 @@ export class BasaltPascalCaseTransformer implements BasaltKeyTransformer {
      * Returns "MyLongKeyName"
      */
     public transformKey(key: string): string {
-        const camelCaseKey: string = key.replace(/(?:[-_][a-z])/giu, (group: string) =>
-            (group[1] as string).toUpperCase()
-        );
+        const camelCaseKey: string = key.replace(/(?:[-_][a-z])/giu, (group: string) => (group[1] as string).toUpperCase());
         return camelCaseKey.charAt(0).toUpperCase() + camelCaseKey.slice(1);
     }
 }

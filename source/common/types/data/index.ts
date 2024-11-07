@@ -1,1 +1,1 @@
-export * from './basaltKeyTransformer.data.ts';
+export type * from './basaltKeyTransformer.data.ts';

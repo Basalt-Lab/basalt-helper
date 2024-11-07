@@ -5,12 +5,11 @@ import type { BasaltKeyTransformer } from '#/common/types/data/index.ts';
  * Implements ({@link BasaltKeyTransformer}).
  */
 export class BasaltKebabCaseTransformer implements BasaltKeyTransformer {
-
     /**
      * Transforms a single key from any case to kebab-case.
      *
      * @param key - The key string to transform into kebab-case.
-     * 
+     *
      * @returns The key string transformed into kebab-case, with all letters in lower case and words separated by hyphens.
      *
      * @example

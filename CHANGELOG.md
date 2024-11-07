@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.3](https://github.com/Basalt-Lab/basalt-helper/compare/v1.8.2...v1.8.3) (2024-11-07)
+
+
+### Build System
+
+* reduce package size ([569dda5](https://github.com/Basalt-Lab/basalt-helper/commit/569dda5154fceb188829f6d81754d8af28e5cbe8))
+
 ## [1.8.2](https://github.com/Basalt-Lab/basalt-helper/compare/v1.8.1...v1.8.2) (2024-11-07)
 
 

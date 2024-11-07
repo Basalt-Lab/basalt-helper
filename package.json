@@ -1,6 +1,6 @@
 {
   "name": "@basalt-lab/basalt-helper",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "description": "Helper of Basalt Framework",
   "main": "build/index.js",
   "types": "build/index.d.ts",

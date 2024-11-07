@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.8.2](https://github.com/Basalt-Lab/basalt-helper/compare/v1.8.1...v1.8.2) (2024-11-07)
+
+
+### Build System
+
+* updates packages + script ([4082b89](https://github.com/Basalt-Lab/basalt-helper/commit/4082b89ea38a9933eb14412e343b284f4880bee7))
+
+
+### Styles
+
+* update eslint ([f57ddea](https://github.com/Basalt-Lab/basalt-helper/commit/f57ddea7353b733bb63a123950737f9c5cd8100e))
+
 ## [1.8.1](https://github.com/Basalt-Lab/basalt-helper/compare/v1.8.0...v1.8.1) (2024-10-07)
 
 

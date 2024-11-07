@@ -5,6 +5,8 @@
  *
  * @returns A promise that resolves after the specified time.
  */
-export function sleep(ms: number = 0): Promise<void> {
-    return new Promise(resolve => {setTimeout(resolve, ms);});
+export function sleep(ms = 0): Promise<void> {
+    return new Promise((resolve) => {
+        setTimeout(resolve, ms);
+    });
 }

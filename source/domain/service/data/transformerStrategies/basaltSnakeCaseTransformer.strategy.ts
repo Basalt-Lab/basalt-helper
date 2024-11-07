@@ -5,7 +5,6 @@ import type { BasaltKeyTransformer } from '#/common/types/data/index.ts';
  * Implements ({@link BasaltKeyTransformer}).
  */
 export class BasaltSnakeCaseTransformer implements BasaltKeyTransformer {
-
     /**
      * Transforms a single key from any case to snake_case.
      *

@@ -1,2 +1,2 @@
-export * from './hash.util.ts';
-export * from './sleep.util.ts';
+export * from './hash.ts';
+export * from './sleep.ts';

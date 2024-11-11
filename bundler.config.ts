@@ -18,6 +18,7 @@ await Bun.build({
         './source/domain/service/security/index.ts'
     ],
     outdir: './build',
+    splitting: true,
     format: 'esm',
     minify: true,
     sourcemap: process.env.NODE_ENV === 'development' ? 'external' : 'none',

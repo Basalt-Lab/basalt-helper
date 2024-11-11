@@ -1,5 +1,25 @@
 # Changelog
 
+## [1.9.0](https://github.com/Basalt-Lab/basalt-helper/compare/v1.8.3...v1.9.0) (2024-11-11)
+
+
+### Features
+
+* Don't use Barrel File in code base only to export ([0d634cb](https://github.com/Basalt-Lab/basalt-helper/commit/0d634cb7b96d019d90b2638ceca449c9aea578ad))
+
+
+### Code Refactoring
+
+* rename all files with extension ([be7d710](https://github.com/Basalt-Lab/basalt-helper/commit/be7d7100f6d9c3a9bd57f583c491a7077d8f12e4))
+* rename file and change index ([8e1b7bc](https://github.com/Basalt-Lab/basalt-helper/commit/8e1b7bc02260797cad20489338a8f51d453c01fe))
+
+
+### Build System
+
+* add exports multiple entry point ([febcf04](https://github.com/Basalt-Lab/basalt-helper/commit/febcf04d0f5b9a53a7fe18e45bf718a7d8b6aa9f))
+* add splitting ([992ae57](https://github.com/Basalt-Lab/basalt-helper/commit/992ae57daf2147d1a1559c9c88d6e1620652f874))
+* change export (simplify) ([d8aeb19](https://github.com/Basalt-Lab/basalt-helper/commit/d8aeb1963a19fb278d6dd21b72a50edf63215ea2))
+
 ## [1.8.3](https://github.com/Basalt-Lab/basalt-helper/compare/v1.8.2...v1.8.3) (2024-11-07)
 
 

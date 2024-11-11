@@ -1,4 +1,4 @@
-import type { BasaltKeyTransformer } from '#/common/type/data/basaltKeyTransformer.data.ts';
+import type { BasaltKeyTransformer } from '#/common/type/data/basaltKeyTransformer.ts';
 
 /**
  * Transforms string keys into kebab-case format.

@@ -1,1 +1,1 @@
-export * from './basaltPassword.service.ts';
+export * from './basaltPassword.ts';

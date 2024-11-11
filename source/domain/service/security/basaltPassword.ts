@@ -1,7 +1,7 @@
 import { hash, verify, argon2id } from 'argon2';
 
-import { BasaltError } from '#/common/error/basalt.error.ts';
-import { ErrorKeys } from '#/common/error/keys.error.ts';
+import { BasaltError } from '#/common/error/basaltError.ts';
+import { ErrorKeys } from '#/common/error/errorKeys.ts';
 
 /**
  * Hashes a password using Argon2id algorithm.

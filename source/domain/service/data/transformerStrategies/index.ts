@@ -1,5 +1,5 @@
-export * from './basaltCamelCaseTransformer.strategy.ts';
-export * from './basaltKebabCaseTransformer.strategy.ts';
-export * from './basaltPascalCaseTransformer.strategy.ts';
-export * from './basaltSnakeCaseTransformer.strategy.ts';
+export * from './basaltCamelCaseTransformer.ts';
+export * from './basaltKebabCaseTransformer.ts';
+export * from './basaltPascalCaseTransformer.ts';
+export * from './basaltSnakeCaseTransformer.ts';
 

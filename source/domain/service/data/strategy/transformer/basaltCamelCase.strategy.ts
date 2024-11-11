@@ -1,4 +1,4 @@
-import type { BasaltKeyTransformer } from '#/common/types/data/index.ts';
+import type { BasaltKeyTransformer } from '#/common/type/data/basaltKeyTransformer.ts';
 
 /**
  * Transforms string keys into camelCase format.

@@ -1,5 +1,6 @@
-import { BasaltError, ErrorKeys } from '#/common/error/index.ts';
-import type { BasaltKeyTransformer } from '#/common/types/data/index.ts';
+import { BasaltError } from '#/common/error/basaltError.ts';
+import { ErrorKeys } from '#/common/error/errorKeys.ts';
+import type { BasaltKeyTransformer } from '#/common/type/data/basaltKeyTransformer.ts';
 
 /**
  * Creates a deep clone of the provided data object.

@@ -1,4 +1,5 @@
-import { BasaltError, ErrorKeys } from '#/common/error/index.ts';
+import { BasaltError } from '#/common/error/basaltError.ts';
+import { ErrorKeys } from '#/common/error/errorKeys.ts';
 
 /**
  * SingletonManagerSingleton is a singleton class that manages the singletons in the application.

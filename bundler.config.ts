@@ -13,7 +13,7 @@ await Bun.build({
         './source/common/type/data/index.ts',
         './source/common/util/index.ts',
         './source/domain/service/data/index.ts',
-        './source/domain/service/data/transformerStrategies/index.ts',
+        './source/domain/service/data/strategy/transformer/index.ts',
         './source/domain/service/global/index.ts',
         './source/domain/service/security/index.ts'
     ],

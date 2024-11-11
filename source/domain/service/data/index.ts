@@ -1,2 +1,2 @@
-export * from './basaltData.ts';
+export * from './basaltData.service.ts';
 

@@ -10,10 +10,12 @@ await Bun.build({
     entrypoints: [
         './source/index.ts',
         './source/common/error/index.ts',
-        './source/common/type/index.ts',
         './source/common/type/data/index.ts',
         './source/common/util/index.ts',
-        './source/domain/service/index.ts',
+        './source/domain/service/data/index.ts',
+        './source/domain/service/data/transformerStrategies/index.ts',
+        './source/domain/service/global/index.ts',
+        './source/domain/service/security/index.ts'
     ],
     outdir: './build',
     format: 'esm',

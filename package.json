@@ -44,6 +44,11 @@
       "types": "./build/domain/service/security/index.d.js",
       "import": "./build/domain/service/security/index.js",
       "require": "./build/domain/service/security/index.js"
+    },
+    "./translation": {
+      "types": "./build/common/i18n/index.d.js",
+      "import": "./build/common/i18n/index.js",
+      "require": "./build/common/i18n/index.js"
     }
   },
   "scripts": {

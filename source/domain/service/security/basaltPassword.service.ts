@@ -13,13 +13,13 @@ import { GLOBAL_ERRORS } from '#/common/error/global.error.ts';
  *
  * @returns A promise that resolves with the hashed password.
  */
-export function hashPassword(password: string): Promise<string> {
+export async function hashPassword(password: string): Promise<string> {
     if (!password)
         return Promise.reject(new BasaltError({
             key: GLOBAL_ERRORS.PASSWORD_EMPTY
         }));
     try {
-        return hash(password, { type: argon2id });
+        return await hash(password, { type: argon2id });
     } catch {
         throw new BasaltError({
             key: GLOBAL_ERRORS.PASSWORD_HASHING_FAILED
@@ -39,13 +39,13 @@ export function hashPassword(password: string): Promise<string> {
  *
  * @returns A promise that resolves with a boolean indicating if the password is correct.
  */
-export function verifyPassword(password: string, hashedPassword: string): Promise<boolean> {
+export async function verifyPassword(password: string, hashedPassword: string): Promise<boolean> {
     if (!password)
         throw new BasaltError({
             key: GLOBAL_ERRORS.PASSWORD_EMPTY
         });
     try {
-        return verify(hashedPassword, password);
+        return await verify(hashedPassword, password);
     } catch {
         throw new BasaltError({
             key: GLOBAL_ERRORS.PASSWORD_VERIFICATION_FAILED

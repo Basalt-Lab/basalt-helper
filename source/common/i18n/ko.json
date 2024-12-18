@@ -1,0 +1,13 @@
+{
+  "error": {
+    "basalt-helper": {
+      "class_constructor_already_registered": "클래스 생성자가 이미 등록되었습니다",
+      "class_constructor_not_registered": "클래스 생성자가 등록되지 않았습니다",
+      "data_is_null": "데이터가 널입니다",
+      "data_must_be_object": "데이터는 객체 여야합니다",
+      "password_empty": "비밀번호가 비어 있습니다",
+      "password_hashing_failed": "비밀번호 해싱 실패",
+      "password_verification_failed": "비밀번호 확인 실패"
+    }
+  }
+}

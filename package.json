@@ -1,6 +1,6 @@
 {
   "name": "@basalt-lab/basalt-helper",
-  "version": "1.9.0",
+  "version": "1.10.0-canary-20241218-cb8b7d3",
   "description": "Helper of Basalt Framework",
   "type": "module",
   "types": "build/index.d.ts",
@@ -44,6 +44,11 @@
       "types": "./build/domain/service/security/index.d.js",
       "import": "./build/domain/service/security/index.js",
       "require": "./build/domain/service/security/index.js"
+    },
+    "./translation": {
+      "types": "./build/common/i18n/index.d.js",
+      "import": "./build/common/i18n/index.js",
+      "require": "./build/common/i18n/index.js"
     }
   },
   "scripts": {
@@ -71,18 +76,18 @@
     "url": "https://github.com/Basalt-Lab/basalt-helper/issues"
   },
   "devDependencies": {
-    "@types/bun": "^1.1.13",
-    "@types/node": "^22.9.0",
-    "@eslint/js": "^9.14.0",
-    "@stylistic/eslint-plugin": "^2.10.1",
-    "eslint": "^9.14.0",
-    "eslint-plugin-tsdoc": "^0.3.0",
-    "globals": "^15.12.0",
-    "typescript-eslint": "^8.13.0",
+    "@types/bun": "^1.1.14",
+    "@types/node": "^22.10.2",
+    "@eslint/js": "^9.17.0",
+    "@stylistic/eslint-plugin": "^2.12.1",
+    "eslint": "^9.17.0",
+    "eslint-plugin-tsdoc": "^0.4.0",
+    "globals": "^15.13.0",
+    "typescript-eslint": "^8.18.1",
     "tsc-alias": "^1.8.10",
     "tslib": "^2.8.1",
-    "typedoc": "^0.26.11",
-    "typescript": "^5.6.3"
+    "typedoc": "^0.27.5",
+    "typescript": "^5.7.2"
   },
   "dependencies": {
     "argon2": "^0.41.1"

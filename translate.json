@@ -1,0 +1,86 @@
+{
+  "dealerI18n:lang": [
+    "ar",
+    "de",
+    "en",
+    "es",
+    "fr",
+    "it",
+    "ja",
+    "ko"
+  ],
+  "error": {
+    "basalt-helper": {
+      "class_constructor_already_registered": {
+        "lang:ar": "تم تسجيل بناء الفئة بالفعل",
+        "lang:de": "Klassenkonstruktor bereits registriert",
+        "lang:en": "Class constructor already registered",
+        "lang:es": "Constructor de clase ya registrado",
+        "lang:fr": "Constructeur de classe déjà enregistré",
+        "lang:it": "Costruttore di classe già registrato",
+        "lang:ja": "クラスコンストラクタはすでに登録されています",
+        "lang:ko": "클래스 생성자가 이미 등록되었습니다"
+      },
+      "class_constructor_not_registered": {
+        "lang:ar": "لم يتم تسجيل بناء الفئة",
+        "lang:de": "Klassenkonstruktor nicht registriert",
+        "lang:en": "Class constructor not registered",
+        "lang:es": "Constructor de clase no registrado",
+        "lang:fr": "Constructeur de classe non enregistré",
+        "lang:it": "Costruttore di classe non registrato",
+        "lang:ja": "クラスコンストラクタは登録されていません",
+        "lang:ko": "클래스 생성자가 등록되지 않았습니다"
+      },
+      "data_is_null": {
+        "lang:ar": "البيانات فارغة",
+        "lang:de": "Daten sind leer",
+        "lang:en": "Data is null",
+        "lang:es": "Los datos son nulos",
+        "lang:fr": "Les données sont nulles",
+        "lang:it": "I dati sono nulli",
+        "lang:ja": "データはヌルです",
+        "lang:ko": "데이터가 널입니다"
+      },
+      "data_must_be_object": {
+        "lang:ar": "يجب أن تكون البيانات كائنًا",
+        "lang:de": "Daten müssen ein Objekt sein",
+        "lang:en": "Data must be an object",
+        "lang:es": "Los datos deben ser un objeto",
+        "lang:fr": "Data doit être un objet",
+        "lang:it": "I dati devono essere un oggetto",
+        "lang:ja": "データはオブジェクトである必要があります",
+        "lang:ko": "데이터는 객체 여야합니다"
+      },
+      "password_empty": {
+        "lang:ar": "كلمة المرور فارغة",
+        "lang:de": "Passwort leer",
+        "lang:en": "Password empty",
+        "lang:es": "Contraseña vacía",
+        "lang:fr": "Mot de passe vide",
+        "lang:it": "Password vuota",
+        "lang:ja": "パスワードが空です",
+        "lang:ko": "비밀번호가 비어 있습니다"
+      },
+      "password_hashing_failed": {
+        "lang:ar": "فشل تجزئة كلمة المرور",
+        "lang:de": "Passwort-Hashing fehlgeschlagen",
+        "lang:en": "Password hashing failed",
+        "lang:es": "Error al cifrar la contraseña",
+        "lang:fr": "Le hachage du mot de passe a échoué",
+        "lang:it": "Hashing della password non riuscito",
+        "lang:ja": "パスワードのハッシュ化に失敗しました",
+        "lang:ko": "비밀번호 해싱 실패"
+      },
+      "password_verification_failed": {
+        "lang:ar": "فشل التحقق من كلمة المرور",
+        "lang:de": "Passwortüberprüfung fehlgeschlagen",
+        "lang:en": "Password verification failed",
+        "lang:es": "Error al verificar la contraseña",
+        "lang:fr": "La vérification du mot de passe a échoué",
+        "lang:it": "Verifica della password non riuscita",
+        "lang:ja": "パスワードの検証に失敗しました",
+        "lang:ko": "비밀번호 확인 실패"
+      }
+    }
+  }
+}

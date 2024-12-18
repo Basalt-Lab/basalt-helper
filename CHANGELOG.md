@@ -1,5 +1,37 @@
 # Changelog
 
+## v1.10.0-canary-20241218-cb8b7d3
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.9.0...v1.10.0-canary-20241218-cb8b7d3)
+
+### 🚀 Enhancements
+
+- **🚀:** Integrate translation ([905283d](https://github.com/Basalt-Lab/basalt-helper/commit/905283d))
+
+### 💅 Refactors
+
+- **🧹:** Refacto Error Systems ([08f58e2](https://github.com/Basalt-Lab/basalt-helper/commit/08f58e2))
+
+### 📦 Build
+
+- **📦:** Update npm ignore ([d82b6ef](https://github.com/Basalt-Lab/basalt-helper/commit/d82b6ef))
+- **📦:** Bump node version to 23.4 and update dependencies ([bfb0198](https://github.com/Basalt-Lab/basalt-helper/commit/bfb0198))
+- **📦:** Export translation ([9d5483f](https://github.com/Basalt-Lab/basalt-helper/commit/9d5483f))
+
+### ✅ Tests
+
+- **🧪:** Refactor and improvements tests ([b2b8324](https://github.com/Basalt-Lab/basalt-helper/commit/b2b8324))
+
+### 🤖 CI
+
+- **🤖:** Add workflow Pull Request Checker ([49ba6fc](https://github.com/Basalt-Lab/basalt-helper/commit/49ba6fc))
+- **🤖:** Add workflow merge dev and main ([9bc561f](https://github.com/Basalt-Lab/basalt-helper/commit/9bc561f))
+- **🤖:** Add SSH key to workflow for push in protected branches ([78eec44](https://github.com/Basalt-Lab/basalt-helper/commit/78eec44))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## [1.9.0](https://github.com/Basalt-Lab/basalt-helper/compare/v1.8.3...v1.9.0) (2024-11-11)
 
 

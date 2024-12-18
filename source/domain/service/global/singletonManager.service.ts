@@ -1,5 +1,5 @@
-import { BasaltError } from '#/common/error/basaltError.ts';
-import { ErrorKeys } from '#/common/error/errorKeys.ts';
+import { BasaltError } from '#/common/error/basalt.error.ts';
+import { GLOBAL_ERRORS } from '#/common/error/global.error.ts';
 
 /**
  * SingletonManagerSingleton is a singleton class that manages the singletons in the application.
@@ -63,13 +63,13 @@ class SingletonManagerSingleton {
      * @typeParam T - The type of the class.
      * @param instance - The constructor of the class.
      *
-     * @throws ({@link BasaltError}) If the class constructor is already registered, it throws an error. ({@link ErrorKeys.CLASS_CONSTRUCTOR_ALREADY_REGISTERED})
+     * @throws ({@link BasaltError}) If the class constructor is already registered, it throws an error. ({@link GLOBAL_ERRORS.CLASS_CONSTRUCTOR_ALREADY_REGISTERED})
      */
     public register<T>(name: string, instance: new(...args: unknown[]) => T): void {
         if (this._classConstructor.has(name))
             throw new BasaltError({
-                messageKey: ErrorKeys.CLASS_CONSTRUCTOR_ALREADY_REGISTERED,
-                detail: { name }
+                key: GLOBAL_ERRORS.CLASS_CONSTRUCTOR_ALREADY_REGISTERED,
+                cause: { name }
             });
         this._classConstructor.set(name, instance);
     }
@@ -79,13 +79,13 @@ class SingletonManagerSingleton {
      *
      * @param name - The name of the class to unregister.
      *
-     * @throws ({@link BasaltError}) If the class constructor is not registered, it throws an error. ({@link ErrorKeys.CLASS_CONSTRUCTOR_NOT_REGISTERED})
+     * @throws ({@link BasaltError}) If the class constructor is not registered, it throws an error. ({@link GLOBAL_ERRORS.CLASS_CONSTRUCTOR_NOT_REGISTERED})
      */
     public unregister(name: string): void {
         if (!this._classConstructor.has(name))
             throw new BasaltError({
-                messageKey: ErrorKeys.CLASS_CONSTRUCTOR_NOT_REGISTERED,
-                detail: { name }
+                key: GLOBAL_ERRORS.CLASS_CONSTRUCTOR_NOT_REGISTERED,
+                cause: { name }
             });
         this._singletons.delete(name);
         this._classConstructor.delete(name);
@@ -97,15 +97,15 @@ class SingletonManagerSingleton {
      * @typeParam T - The type of the class.
      * @param name - The name of the class to get the singleton instance.
      *
-     * @throws ({@link BasaltError}) If the class is not registered, it throws an error. ({@link ErrorKeys.CLASS_CONSTRUCTOR_NOT_REGISTERED})
+     * @throws ({@link BasaltError}) If the class is not registered, it throws an error. ({@link GLOBAL_ERRORS.CLASS_CONSTRUCTOR_NOT_REGISTERED})
      *
      * @returns The singleton instance of the class. ({@link T})
      */
     public get<T>(name: string): T {
         if (!this._classConstructor.has(name))
             throw new BasaltError({
-                messageKey: ErrorKeys.CLASS_CONSTRUCTOR_NOT_REGISTERED,
-                detail: { name }
+                key: GLOBAL_ERRORS.CLASS_CONSTRUCTOR_NOT_REGISTERED,
+                cause: { name }
             });
         if (!this._singletons.has(name))
             this._singletons.set(name, new (this._classConstructor.get(name) as new(...args: unknown[]) => T)());

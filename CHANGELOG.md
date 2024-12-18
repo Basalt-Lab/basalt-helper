@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.10.1-canary-20241218-d0dd4fa
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.10.0...v1.10.1-canary-20241218-d0dd4fa)
+
+### 🤖 CI
+
+- **🤖:** Update changelog extract to compare against previous main commit ([91a2386](https://github.com/Basalt-Lab/basalt-helper/commit/91a2386))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.10.0
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.10.0-canary-20241218-cb8b7d3...v1.10.0)

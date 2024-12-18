@@ -1,20 +1,19 @@
 import { describe, expect, test } from 'bun:test';
 
 import {
+    GLOBAL_ERRORS
+} from '../../../../source/common/error/global.error';
+import {
     deepClone,
     filterByKeyExclusion,
     filterByKeyInclusion,
     filterByValue,
     transformKeys,
-    BasaltCamelCaseTransformer,
-    BasaltKebabCaseTransformer,
-    BasaltPascalCaseTransformer,
-    BasaltSnakeCaseTransformer
-} from '../../../../source/domain/service/data';
-
-import {
-    ErrorKeys
-} from '../../../../source/common/error';
+} from '../../../../source/domain/service/data/basaltData.service';
+import { BasaltCamelCaseTransformer } from '../../../../source/domain/service/data/strategy/transformer/basaltCamelCase.strategy';
+import { BasaltKebabCaseTransformer } from '../../../../source/domain/service/data/strategy/transformer/basaltKebabCase.strategy';
+import { BasaltPascalCaseTransformer } from '../../../../source/domain/service/data/strategy/transformer/basaltPascalCase.strategy';
+import { BasaltSnakeCaseTransformer } from '../../../../source/domain/service/data/strategy/transformer/basaltSnakeCase.strategy';
 
 
 describe('Deep Clone', () => {
@@ -56,7 +55,7 @@ describe('Deep Clone', () => {
     });
 
     test('shoud throw an error when data is null', () => {
-        expect(() => deepClone(null)).toThrowError(ErrorKeys.DATA_IS_NULL);
+        expect(() => deepClone(null)).toThrowError(GLOBAL_ERRORS.DATA_IS_NULL[0]);
     });
 });
 
@@ -75,12 +74,12 @@ describe('Filter By Key Exclusion', () => {
 
     test('should throw an error when data is null', () => {
         const object = null as unknown as Record<string, unknown>;
-        expect(() => filterByKeyExclusion(object, [])).toThrowError(ErrorKeys.DATA_IS_NULL);
+        expect(() => filterByKeyExclusion(object, [])).toThrowError(GLOBAL_ERRORS.DATA_IS_NULL[0]);
     });
 
     test('should throw an error when data is not a plain object', () => {
         const object = 2 as unknown as Record<string, unknown>;
-        expect(() => filterByKeyExclusion(object, [])).toThrowError(ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT);
+        expect(() => filterByKeyExclusion(object, [])).toThrowError(GLOBAL_ERRORS.DATA_MUST_BE_OBJECT[0]);
     });
 
     test('should return original object when keys are empty', () => {
@@ -123,12 +122,12 @@ describe('Filter By Key Inclusion', () => {
 
     test('should throw an error when data is null', () => {
         const object = null as unknown as Record<string, unknown>;
-        expect(() => filterByKeyInclusion(object, [])).toThrowError(ErrorKeys.DATA_IS_NULL);
+        expect(() => filterByKeyInclusion(object, [])).toThrowError(GLOBAL_ERRORS.DATA_IS_NULL[0]);
     });
 
     test('should throw an error when data is not a plain object', () => {
         const object = 2 as unknown as Record<string, unknown>;
-        expect(() => filterByKeyInclusion(object, [])).toThrowError(ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT);
+        expect(() => filterByKeyInclusion(object, [])).toThrowError(GLOBAL_ERRORS.DATA_MUST_BE_OBJECT[0]);
     });
 
     test('should return empty object when keys are empty', () => {
@@ -159,12 +158,12 @@ describe('Filter By Value', () => {
 
     test('should throw an error when data is null', () => {
         const object = null as unknown as Record<string, unknown>;
-        expect(() => filterByValue(object, () => true)).toThrowError(ErrorKeys.DATA_IS_NULL);
+        expect(() => filterByValue(object, () => true)).toThrowError(GLOBAL_ERRORS.DATA_IS_NULL[0]);
     });
 
     test('should throw an error when data is not a plain object', () => {
         const object = 2 as unknown as Record<string, unknown>;
-        expect(() => filterByValue(object, () => true)).toThrowError(ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT);
+        expect(() => filterByValue(object, () => true)).toThrowError(GLOBAL_ERRORS.DATA_MUST_BE_OBJECT[0]);
     });
 
     test('should return empty object when predicate does not match', () => {
@@ -201,12 +200,12 @@ describe('Transform Keys', () => {
 
     test('should throw an error when data is null', () => {
         const object = null as unknown as Record<string, unknown>;
-        expect(() => transformKeys(object, new BasaltCamelCaseTransformer())).toThrowError(ErrorKeys.DATA_IS_NULL);
+        expect(() => transformKeys(object, new BasaltCamelCaseTransformer())).toThrowError(GLOBAL_ERRORS.DATA_IS_NULL[0]);
     });
 
     test('should throw an error when data is not a plain object', () => {
         const object = 2 as unknown as Record<string, unknown>;
-        expect(() => transformKeys(object, new BasaltCamelCaseTransformer())).toThrowError(ErrorKeys.DATA_MUST_BE_PLAIN_OBJECT);
+        expect(() => transformKeys(object, new BasaltCamelCaseTransformer())).toThrowError(GLOBAL_ERRORS.DATA_MUST_BE_OBJECT[0]);
     });
 });
 

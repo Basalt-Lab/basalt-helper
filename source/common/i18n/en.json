@@ -1,0 +1,13 @@
+{
+  "error": {
+    "basalt-helper": {
+      "class_constructor_already_registered": "Class constructor already registered",
+      "class_constructor_not_registered": "Class constructor not registered",
+      "data_is_null": "Data is null",
+      "data_must_be_object": "Data must be an object",
+      "password_empty": "Password empty",
+      "password_hashing_failed": "Password hashing failed",
+      "password_verification_failed": "Password verification failed"
+    }
+  }
+}

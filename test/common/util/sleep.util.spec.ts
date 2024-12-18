@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { sleep } from '../../../source/common/util';
+import { sleep } from '../../../source/common/util/sleep';
 
 describe('sleep', () => {
     test('should return a promise', async () => {

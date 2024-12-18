@@ -1,6 +1,6 @@
 import { describe, expect, test } from 'bun:test';
 
-import { md5, sha256, sha512 } from '../../../source/common/util';
+import { md5, sha256, sha512 } from '../../../source/common/util/hash';
 
 describe('md5', () => {
     test('should return a hash md5', () => {

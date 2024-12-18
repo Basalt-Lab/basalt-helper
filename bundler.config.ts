@@ -15,7 +15,8 @@ await Bun.build({
         './source/domain/service/data/index.ts',
         './source/domain/service/data/strategy/transformer/index.ts',
         './source/domain/service/global/index.ts',
-        './source/domain/service/security/index.ts'
+        './source/domain/service/security/index.ts',
+        './source/common/i18n/index.ts'
     ],
     outdir: './build',
     splitting: true,

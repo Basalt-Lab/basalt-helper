@@ -1,12 +1,11 @@
 import { describe, expect, test } from 'bun:test';
 
 import {
-    SingletonManager    
-} from '../../../../source/domain/service/util';
-
+    GLOBAL_ERRORS
+} from '../../../../source/common/error/global.error';
 import {
-    ErrorKeys
-} from '../../../../source/common/error';
+    SingletonManager
+} from '../../../../source/domain/service/global/singletonManager.service';
 
 class ExampleSingleton {
     public sayHello(): void {
@@ -27,20 +26,12 @@ describe('SingletonManager', () => {
     });
 
     test('should throw an error when class constructor is not registered', () => {
-        try {
-            SingletonManager.get('ExampleSingleton3');
-        } catch (error) {
-            expect(error.message).toBe(ErrorKeys.CLASS_CONSTRUCTOR_NOT_REGISTERED);
-        }
+        expect(() => SingletonManager.get('ExampleSingleton3')).toThrowError(GLOBAL_ERRORS.CLASS_CONSTRUCTOR_NOT_REGISTERED[0]);
     });
 
     test('should throw an error when class constructor is already registered', () => {
         SingletonManager.register('ExampleSingleton4', ExampleSingleton);
-        try {
-            SingletonManager.register('ExampleSingleton4', ExampleSingleton);
-        } catch (error) {
-            expect(error.message).toBe(ErrorKeys.CLASS_CONSTRUCTOR_ALREADY_REGISTERED);
-        }
+        expect(() => SingletonManager.register('ExampleSingleton4', ExampleSingleton)).toThrowError(GLOBAL_ERRORS.CLASS_CONSTRUCTOR_ALREADY_REGISTERED[0]);
     });
 
     test('should unregister a class constructor', async () => {
@@ -50,11 +41,7 @@ describe('SingletonManager', () => {
     });
 
     test('should throw an error when class constructor is not registered', () => {
-        try {
-            SingletonManager.unregister('ExampleSingleton6');
-        } catch (error) {
-            expect(error.message).toBe(ErrorKeys.CLASS_CONSTRUCTOR_NOT_REGISTERED);
-        }
+        expect(() => SingletonManager.unregister('ExampleSingleton6')).toThrowError(GLOBAL_ERRORS.CLASS_CONSTRUCTOR_NOT_REGISTERED[0]);
     });
 
     test('should have a class constructor', () => {

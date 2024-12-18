@@ -1,5 +1,22 @@
 # Changelog
 
+## v1.10.2-canary-20241218-990fc2e
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.10.1-canary-20241218-d0dd4fa...v1.10.2-canary-20241218-990fc2e)
+
+### 🦉 Chore
+
+- **release:** V1.10.1 ([2e16f03](https://github.com/Basalt-Lab/basalt-helper/commit/2e16f03))
+
+### 🤖 CI
+
+- **🤖:** Import GPG and autosign commit ([4da5765](https://github.com/Basalt-Lab/basalt-helper/commit/4da5765))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+- Github-actions <necrelox@proton.me>
+
 ## v1.10.1
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.10.1-canary-20241218-d0dd4fa...v1.10.1)

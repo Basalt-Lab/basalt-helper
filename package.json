@@ -1,6 +1,6 @@
 {
   "name": "@basalt-lab/basalt-helper",
-  "version": "1.10.2",
+  "version": "1.10.3-canary-20241220-8ffa5b5",
   "description": "Helper of Basalt Framework",
   "type": "module",
   "types": "build/index.d.ts",

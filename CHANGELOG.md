@@ -1,5 +1,63 @@
 # Changelog
 
+## v1.11.0-canary-20250107-f1de4fe
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.10.4-canary-20250107-f743ff5...v1.11.0-canary-20250107-f1de4fe)
+
+### 🚀 Enhancements
+
+- **🚀:** Update register & get methods to take class with c'tor args ([4f6990f](https://github.com/Basalt-Lab/basalt-helper/commit/4f6990f))
+
+### 🧹 Refactors
+
+- **🔧:** Singleton storage into a single registry + args in register ([6d168cb](https://github.com/Basalt-Lab/basalt-helper/commit/6d168cb))
+
+### 🦉 Chore
+
+- **🦉:** Update copyright year to 2025 in LICENSE file ([dd85d63](https://github.com/Basalt-Lab/basalt-helper/commit/dd85d63))
+- **🦉:** V1.11.0-canary-20250107-eaefc28 ([b46fcfb](https://github.com/Basalt-Lab/basalt-helper/commit/b46fcfb))
+
+### 🧪 Tests
+
+- **🧪:** Enhance SingletonManager tests with add class and arg handling ([6f3a88c](https://github.com/Basalt-Lab/basalt-helper/commit/6f3a88c))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+- Github-actions <necrelox@proton.me>
+
+## v1.11.0-canary-20250107-eaefc28
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.10.4-canary-20250107-f743ff5...v1.11.0-canary-20250107-eaefc28)
+
+### 🚀 Enhancements
+
+- **🚀:** Update register & get methods to take class with c'tor args ([4f6990f](https://github.com/Basalt-Lab/basalt-helper/commit/4f6990f))
+
+### 🦉 Chore
+
+- **🦉:** Update copyright year to 2025 in LICENSE file ([dd85d63](https://github.com/Basalt-Lab/basalt-helper/commit/dd85d63))
+
+### 🧪 Tests
+
+- **🧪:** Enhance SingletonManager tests with add class and arg handling ([6f3a88c](https://github.com/Basalt-Lab/basalt-helper/commit/6f3a88c))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
+## v1.10.4-canary-20250107-f743ff5
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.10.3...v1.10.4-canary-20250107-f743ff5)
+
+### 🧹 Refactors
+
+- **🧹:** Architecture + code + tests ([59d1c9f](https://github.com/Basalt-Lab/basalt-helper/commit/59d1c9f))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.10.3
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.10.2...v1.10.3)

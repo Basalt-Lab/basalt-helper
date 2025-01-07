@@ -1,60 +1,24 @@
 {
   "name": "@basalt-lab/basalt-helper",
-  "version": "1.10.3",
+  "version": "1.11.0-canary-20250107-f1de4fe",
   "description": "Helper of Basalt Framework",
   "type": "module",
   "types": "build/index.d.ts",
   "exports": {
-    ".": {
-      "types": "./build/index.d.ts",
-      "import": "./build/index.js",
-      "require": "./build/index.js"
-    },
-    "./error": {
-      "types": "./build/common/error/index.d.js",
-      "import": "./build/common/error/index.js",
-      "require": "./build/common/error/index.js"
-    },
-    "./type": {
-      "types": "./build/common/type/data/index.d.js",
-      "import": "./build/common/type/data/index.js",
-      "require": "./build/common/type/data/index.js"
-    },
-    "./util": {
-      "types": "./build/common/util/index.d.js",
-      "import": "./build/common/util/index.js",
-      "require": "./build/common/util/index.js"
-    },
-    "./data": {
-      "types": "./build/domain/service/data/index.d.js",
-      "import": "./build/domain/service/data/index.js",
-      "require": "./build/domain/service/data/index.js"
-    },
-    "./transformerStrategies": {
-      "types": "./build/domain/service/data/transformerStrategies/index.d.js",
-      "import": "./build/domain/service/data/transformerStrategies/index.js",
-      "require": "./build/domain/service/data/transformerStrategies/index.js"
-    },
-    "./global": {
-      "types": "./build/domain/service/global/index.d.js",
-      "import": "./build/domain/service/global/index.js",
-      "require": "./build/domain/service/global/index.js"
-    },
-    "./security": {
-      "types": "./build/domain/service/security/index.d.js",
-      "import": "./build/domain/service/security/index.js",
-      "require": "./build/domain/service/security/index.js"
-    },
-    "./translation": {
-      "types": "./build/common/i18n/index.d.js",
-      "import": "./build/common/i18n/index.js",
-      "require": "./build/common/i18n/index.js"
-    }
+    "./data": "./build/core/data/index.js",
+    "./data/transformer": "./build/core/data/transformer",
+    "./security": "./build/core/security/index.js",
+    "./util": "./build/core/util/index.js",
+    "./error": "./build/error/index.js",
+    "./error/key": "./build/error/key/index.js",
+    "./i18n": "./build/i18n/index.js",
+    "./types": "./build/types/index.js",
+    ".": "./build/index.js"
   },
   "scripts": {
     "dev": "bun --watch source/index.ts",
-    "build": "tsc && tsc-alias && NODE_ENV=production bun bundler.config.ts",
-    "start": "NODE_ENV=production bun build/index.js",
+    "build": "bun bundler.ts",
+    "start": "bun build/index.js",
     "test": "bun test --coverage",
     "docs": "typedoc",
     "fix-lint": "eslint --fix ./source",
@@ -76,15 +40,17 @@
     "url": "https://github.com/Basalt-Lab/basalt-helper/issues"
   },
   "devDependencies": {
-    "@types/bun": "^1.1.14",
-    "@types/node": "^22.10.2",
     "@eslint/js": "^9.17.0",
     "@stylistic/eslint-plugin": "^2.12.1",
-    "eslint": "^9.17.0",
+    "@types/bun": "^1.1.15",
+    "@types/node": "^22.10.5",
+    "bun-plugin-dts": "^0.3.0",
     "eslint-plugin-tsdoc": "^0.4.0",
-    "typescript-eslint": "^8.18.1",
-    "tsc-alias": "^1.8.10",
-    "typedoc": "^0.27.5",
+    "eslint": "^9.17.0",
+    "typescript-eslint": "^8.19.1",
+    "typedoc": "^0.27.6"
+  },
+  "peerDependencies": {
     "typescript": "^5.7.2"
   },
   "dependencies": {

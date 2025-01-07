@@ -5,4 +5,4 @@ export const CORE_SECURITY_KEY_ERROR: Record<string, [string, number]> = {
     PASSWORD_EMPTY: ['error.basalt-helper.password_empty', 500],
     PASSWORD_HASHING_FAILED: ['error.basalt-helper.password_hashing_failed', 500],
     PASSWORD_VERIFICATION_FAILED: ['error.basalt-helper.password_verification_failed', 500]
-};
+} as const;

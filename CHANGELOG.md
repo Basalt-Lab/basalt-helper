@@ -1,5 +1,25 @@
 # Changelog
 
+## v1.11.0-canary-20250107-eaefc28
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.10.4-canary-20250107-f743ff5...v1.11.0-canary-20250107-eaefc28)
+
+### 🚀 Enhancements
+
+- **🚀:** Update register & get methods to take class with c'tor args ([4f6990f](https://github.com/Basalt-Lab/basalt-helper/commit/4f6990f))
+
+### 🦉 Chore
+
+- **🦉:** Update copyright year to 2025 in LICENSE file ([dd85d63](https://github.com/Basalt-Lab/basalt-helper/commit/dd85d63))
+
+### 🧪 Tests
+
+- **🧪:** Enhance SingletonManager tests with add class and arg handling ([6f3a88c](https://github.com/Basalt-Lab/basalt-helper/commit/6f3a88c))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.10.4-canary-20250107-f743ff5
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.10.3...v1.10.4-canary-20250107-f743ff5)

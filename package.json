@@ -1,24 +1,18 @@
 {
   "name": "@basalt-lab/basalt-helper",
-  "version": "1.10.3",
+  "version": "1.10.4-canary-20250107-f743ff5",
   "description": "Helper of Basalt Framework",
   "type": "module",
   "types": "build/index.d.ts",
   "exports": {
     "./data": "./build/core/data/index.js",
     "./data/transformer": "./build/core/data/transformer",
-    
     "./security": "./build/core/security/index.js",
-    
     "./util": "./build/core/util/index.js",
-    
     "./error": "./build/error/index.js",
     "./error/key": "./build/error/key/index.js",
-    
     "./i18n": "./build/i18n/index.js",
-    
     "./types": "./build/types/index.js",
-
     ".": "./build/index.js"
   },
   "scripts": {

@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.10.4-canary-20250107-f743ff5
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.10.3...v1.10.4-canary-20250107-f743ff5)
+
+### 🧹 Refactors
+
+- **🧹:** Architecture + code + tests ([59d1c9f](https://github.com/Basalt-Lab/basalt-helper/commit/59d1c9f))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.10.3
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.10.2...v1.10.3)

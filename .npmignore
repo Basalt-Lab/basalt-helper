@@ -9,7 +9,6 @@
 *.tgz
 bun.lockb
 pnpm-lock.yaml
-tsconfig.tsbuildinfo
 
 # === Bundler configuration files ===
 bundler.config.ts

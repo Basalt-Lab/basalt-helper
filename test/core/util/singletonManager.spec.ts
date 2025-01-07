@@ -1,5 +1,5 @@
 /* eslint-disable max-classes-per-file */
-import { afterAll, afterEach, describe, expect, test } from 'bun:test';
+import { afterEach, describe, expect, test } from 'bun:test';
 
 import {
     SingletonManager
@@ -18,8 +18,8 @@ class ExampleSingleton2 {
         this._name = name;
     }
 
-    public sayHello(): void {
-        console.log(`Hello, ${this._name}!`);
+    public get name(): string {
+        return this._name;
     }
 }
 
@@ -33,12 +33,12 @@ class ExampleSingleton3 {
         this._age = age;
     }
 
-    public sayHello(): void {
-        console.log(`Hello, ${this._name}, you are ${this._age} years old!`);
-    }
-
     public get age(): number {
         return this._age;
+    }
+
+    public get name(): string {
+        return this._name;
     }
 }
 
@@ -47,14 +47,29 @@ describe('SingletonManager', () => {
         afterEach(() => {
             if (SingletonManager.has('ExampleSingleton'))
                 SingletonManager.unregister('ExampleSingleton');
+            if (SingletonManager.has('ExampleSingleton2'))
+                SingletonManager.unregister('ExampleSingleton2');
+            if (SingletonManager.has('ExampleSingleton3'))
+                SingletonManager.unregister('ExampleSingleton3');
         });
         test('should register a class constructor', () => {
             SingletonManager.register('ExampleSingleton', ExampleSingleton);
             expect(SingletonManager.get('ExampleSingleton')).toBeDefined();
         });
 
+        test('should register a class constructor with arguments', () => {
+            SingletonManager.register('ExampleSingleton2', ExampleSingleton2, 'John');
+            SingletonManager.register('ExampleSingleton3', ExampleSingleton3, 'John', 25);
+
+            const example = SingletonManager.get<ExampleSingleton2>('ExampleSingleton2');
+            const example2 = SingletonManager.get<ExampleSingleton3>('ExampleSingleton3');
+            expect(example.name).toBe('John');
+            expect(example2.name).toBe('John');
+            expect(example2.age).toBe(25);
+        });
+
         test('should throw an error when class constructor is not registered', () => {
-            expect(() => SingletonManager.get('ExampleSingleton3')).toThrow('error.basalt-helper.class_constructor_not_registered');
+            expect(() => SingletonManager.get('ExampleSingleton4')).toThrow('error.basalt-helper.class_constructor_not_registered');
         });
 
         test('should throw an error when class constructor is already registered', () => {
@@ -83,25 +98,10 @@ describe('SingletonManager', () => {
         afterEach(() => {
             if (SingletonManager.has('ExampleSingleton'))
                 SingletonManager.unregister('ExampleSingleton');
-            if (SingletonManager.has('ExampleSingleton2'))
-                SingletonManager.unregister('ExampleSingleton2');
-            if (SingletonManager.has('ExampleSingleton3'))
-                SingletonManager.unregister('ExampleSingleton3');
         });
         test('should return a class constructor', () => {
             SingletonManager.register('ExampleSingleton', ExampleSingleton);
             expect(SingletonManager.get('ExampleSingleton')).toBeDefined();
-        });
-
-        test('should return a class constructor with arguments', () => {
-            SingletonManager.register('ExampleSingleton2', ExampleSingleton2);
-            SingletonManager.register('ExampleSingleton3', ExampleSingleton3);
-
-            const example = SingletonManager.get<ExampleSingleton2>('ExampleSingleton2', 'John');
-            const example2 = SingletonManager.get<ExampleSingleton3>('ExampleSingleton3', 'John', 25);
-            example.sayHello();
-            example2.sayHello();
-            expect(SingletonManager.get('ExampleSingleton2', 'John')).toBeDefined();
         });
     });
 

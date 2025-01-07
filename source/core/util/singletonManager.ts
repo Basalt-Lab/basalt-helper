@@ -38,12 +38,7 @@ class SingletonManagerSingleton {
      * _classConstructor is a private property that holds the class constructors that are registered
      * in the SingletonManagerSingleton. The key is the name of the class and the value is the constructor of the class.
      */
-    private readonly _classConstructor = new Map<string, new(...args: unknown[]) => unknown>();
-
-    /**
-     * _singletons is a private property that holds the singletons that are created in the SingletonManagerSingleton.
-     */
-    private readonly _singletons = new Map<string, unknown>();
+    private readonly _registry = new Map<string, unknown>();
 
     /**
      * Constructor of the SingletonManagerSingleton class.
@@ -61,18 +56,19 @@ class SingletonManagerSingleton {
      *
      * @param name - The name of the class.
      * @typeParam T - The type of the class.
-     * @param instance - The constructor of the class.
+     * @param constructor - The constructor of the class.
+     * @param args - The arguments to pass to the constructor of the class.
      *
      * @throws ({@link BasaltError}) If the class constructor is already registered, it throws an error. ({@link CORE_UTIL_KEY_ERROR}.CLASS_CONSTRUCTOR_ALREADY_REGISTERED)
      */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    public register<T>(name: string, instance: new(...args: any[]) => T): void {
-        if (this._classConstructor.has(name))
+    public register<T>(name: string, constructor: new(...args: any[]) => T, ...args: unknown[]): void {
+        if (this._registry.has(name))
             throw new BasaltError({
                 key: CORE_UTIL_KEY_ERROR.CLASS_CONSTRUCTOR_ALREADY_REGISTERED,
                 cause: { name }
             });
-        this._classConstructor.set(name, instance);
+        this._registry.set(name, new constructor(...args));
     }
 
     /**
@@ -83,13 +79,12 @@ class SingletonManagerSingleton {
      * @throws ({@link BasaltError}) If the class constructor is not registered, it throws an error. ({@link CORE_UTIL_KEY_ERROR}.CLASS_CONSTRUCTOR_NOT_REGISTERED)
      */
     public unregister(name: string): void {
-        if (!this._classConstructor.has(name))
+        if (!this._registry.has(name))
             throw new BasaltError({
                 key: CORE_UTIL_KEY_ERROR.CLASS_CONSTRUCTOR_NOT_REGISTERED,
                 cause: { name }
             });
-        this._singletons.delete(name);
-        this._classConstructor.delete(name);
+        this._registry.delete(name);
     }
 
     /**
@@ -97,21 +92,18 @@ class SingletonManagerSingleton {
      *
      * @typeParam T - The type of the class.
      * @param name - The name of the class to get the singleton instance.
-     * @param args - The arguments to pass to the constructor of the class.
      *
      * @throws ({@link BasaltError}) If the class is not registered, it throws an error. ({@link CORE_UTIL_KEY_ERROR}.CLASS_CONSTRUCTOR_NOT_REGISTERED)
      *
      * @returns The singleton instance of the class. ({@link T})
      */
-    public get<T>(name: string, ...args: unknown[]): T {
-        if (!this._classConstructor.has(name))
+    public get<T>(name: string): T {
+        if (!this._registry.has(name))
             throw new BasaltError({
                 key: CORE_UTIL_KEY_ERROR.CLASS_CONSTRUCTOR_NOT_REGISTERED,
                 cause: { name }
             });
-        if (!this._singletons.has(name))
-            this._singletons.set(name, new (this._classConstructor.get(name) as new(...args: unknown[]) => T)(...args));
-        return this._singletons.get(name) as T;
+        return this._registry.get(name) as T;
     }
 
     /**
@@ -122,7 +114,7 @@ class SingletonManagerSingleton {
      * @returns True if the class is registered, otherwise false.
      */
     public has(name: string): boolean {
-        return this._classConstructor.has(name);
+        return this._registry.has(name);
     }
 }
 

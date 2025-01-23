@@ -59,7 +59,7 @@ class SingletonManagerSingleton {
      * @param constructor - The constructor of the class.
      * @param args - The arguments to pass to the constructor of the class.
      *
-     * @throws ({@link BasaltError}) If the class constructor is already registered, it throws an error. ({@link CORE_UTIL_KEY_ERROR}.CLASS_CONSTRUCTOR_ALREADY_REGISTERED)
+     * @throws ({@link BasaltError}) If the class constructor is already registered, it throws an error. ({@link CORE_UTIL_KEY_ERROR.CLASS_CONSTRUCTOR_ALREADY_REGISTERED})
      */
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     public register<T>(name: string, constructor: new(...args: any[]) => T, ...args: unknown[]): void {
@@ -76,7 +76,7 @@ class SingletonManagerSingleton {
      *
      * @param name - The name of the class to unregister.
      *
-     * @throws ({@link BasaltError}) If the class constructor is not registered, it throws an error. ({@link CORE_UTIL_KEY_ERROR}.CLASS_CONSTRUCTOR_NOT_REGISTERED)
+     * @throws ({@link BasaltError}) If the class constructor is not registered, it throws an error. ({@link CORE_UTIL_KEY_ERROR.CLASS_CONSTRUCTOR_NOT_REGISTERED})
      */
     public unregister(name: string): void {
         if (!this._registry.has(name))
@@ -93,7 +93,7 @@ class SingletonManagerSingleton {
      * @typeParam T - The type of the class.
      * @param name - The name of the class to get the singleton instance.
      *
-     * @throws ({@link BasaltError}) If the class is not registered, it throws an error. ({@link CORE_UTIL_KEY_ERROR}.CLASS_CONSTRUCTOR_NOT_REGISTERED)
+     * @throws ({@link BasaltError}) If the class is not registered, it throws an error. ({@link CORE_UTIL_KEY_ERROR.CLASS_CONSTRUCTOR_NOT_REGISTERED})
      *
      * @returns The singleton instance of the class. ({@link T})
      */
@@ -118,4 +118,31 @@ class SingletonManagerSingleton {
     }
 }
 
+/**
+ * SingletonManager is an instance of the SingletonManagerSingleton class that manages the singletons in the application.
+ * When a class is registered, the SingletonManagerSingleton creates a new instance of the class when it is requested.
+ *
+ * @example
+ * ```typescript
+ * class ExampleSingleton {
+ *    private static _count = 0;
+ *    private readonly _id: number;
+ *
+ *    public constructor() {
+ *       ExampleSingleton._count += 1;
+ *      this._id = ExampleSingleton._count;
+ *      console.log(`ExampleSingleton created with ID: ${this._id}`);
+ *    }
+ *
+ *    public sayHello(): void {
+ *      console.log(`Hello from instance ${this._id}!`);
+ *    }
+ * }
+ *
+ * SingletonManager.register('ExampleSingleton', ExampleSingleton);
+ *
+ * SingletonManager.get<ExampleSingleton>('ExampleSingleton').sayHello(); // Output: ExampleSingleton created with ID: 1 /n Hello from instance 1!
+ * SingletonManager.get<ExampleSingleton>('ExampleSingleton').sayHello(); // Output: Hello from instance 1!
+ * ```
+ */
 export const SingletonManager = SingletonManagerSingleton.instance;

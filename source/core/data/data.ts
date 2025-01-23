@@ -9,7 +9,7 @@ import type { BasaltKeyTransformer } from '#/types/data/basaltKeyTransformer';
  *
  * @param data - The data to be validated.
  *
- * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link CORE_DATA_KEY_ERROR}.DATA_IS_NULL)
+ * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link CORE_DATA_KEY_ERROR.DATA_IS_NULL})
  */
 function _validateDataNull<T>(data: T): void {
     if (data === null || data === undefined)
@@ -25,7 +25,7 @@ function _validateDataNull<T>(data: T): void {
  *
  * @param data - The data to be validated.
  *
- * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link CORE_DATA_KEY_ERROR}.DATA_MUST_BE_OBJECT)
+ * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link CORE_DATA_KEY_ERROR.DATA_MUST_BE_OBJECT})
  */
 function _validateDataIsObject<T>(data: T): void {
     if (typeof data !== 'object')
@@ -46,8 +46,8 @@ function _validateDataIsObject<T>(data: T): void {
  * @param keys - The array of keys to exclude from the data object. (Can be empty)
  * @param excludeNullUndefined - Flag to determine if properties with null or undefined values should be excluded.
  *
- * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link CORE_DATA_KEY_ERROR}.DATA_IS_NULL)
- * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link CORE_DATA_KEY_ERROR}.DATA_MUST_BE_OBJECT)
+ * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link CORE_DATA_KEY_ERROR.DATA_IS_NULL})
+ * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link CORE_DATA_KEY_ERROR.DATA_MUST_BE_OBJECT})
  *
  * @example
  * ```typescript
@@ -87,8 +87,8 @@ export function filterByKeyExclusion<T extends Readonly<object>>(data: Readonly<
  * @param keys - The array of keys to include in the resulting data object. (Can be empty)
  * @param excludeNullUndefined - Flag to determine if properties with null or undefined values should be excluded.
  *
- * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link CORE_DATA_KEY_ERROR}.DATA_IS_NULL)
- * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link CORE_DATA_KEY_ERROR}.DATA_MUST_BE_OBJECT)
+ * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link CORE_DATA_KEY_ERROR.DATA_IS_NULL})
+ * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link CORE_DATA_KEY_ERROR.DATA_MUST_BE_OBJECT})
  *
  * @example
  * ```typescript
@@ -127,8 +127,8 @@ export function filterByKeyInclusion<T extends Readonly<object>>(data: Readonly<
  * @param predicate - The predicate function to apply to the values.
  * @param excludeNullUndefined - Flag to determine if properties with null or undefined values should be excluded. Default is false.
  *
- * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link CORE_DATA_KEY_ERROR}.DATA_IS_NULL)
- * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link CORE_DATA_KEY_ERROR}.DATA_MUST_BE_OBJECT)
+ * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link CORE_DATA_KEY_ERROR.DATA_IS_NULL})
+ * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link CORE_DATA_KEY_ERROR.DATA_MUST_BE_OBJECT})
  *
  * @example
  * ```typescript
@@ -165,8 +165,8 @@ export function filterByValue<T extends Readonly<object>> (data: Readonly<T>, pr
  * @param data - The object whose keys are to be transformed.
  * @param transformer - The key transformation strategy to use.
  *
- * @throws ({@link BasaltError}) - If the provided data object is null or undefined. ({@link CORE_DATA_KEY_ERROR}.DATA_IS_NULL)
- * @throws ({@link BasaltError}) - If the provided data object is not a plain object. ({@link CORE_DATA_KEY_ERROR}.DATA_MUST_BE_OBJECT)
+ * @throws ({@link BasaltError}) - If the provided data object is null or undefined. ({@link CORE_DATA_KEY_ERROR.DATA_IS_NULL})
+ * @throws ({@link BasaltError}) - If the provided data object is not a plain object. ({@link CORE_DATA_KEY_ERROR.DATA_MUST_BE_OBJECT})
 *
  * @example
  * ```typescript

@@ -12,6 +12,8 @@
 
 ## 📝 Description
 
+> ONLY FOR BUN
+
 **Basalt-helper** is a utility library with no dependencies and aims to be very lightweight (although comments may increase the bundle size, sorry).
 
 ## 🌟 Documentation

@@ -1,7 +1,7 @@
 /**
  * Core util key error is a list of errors in the util context.
  */
-export const CORE_UTIL_KEY_ERROR: Record<string, [string, number]> = {
+export const CORE_UTIL_KEY_ERROR = {
     /**
      * Interpolation :
      * - name: The name of the class.

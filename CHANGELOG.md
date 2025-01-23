@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.11.1-canary-20250123-a71e203
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.1-canary-20250123-82ae5f6...v1.11.1-canary-20250123-a71e203)
+
+### 📦 Build
+
+- **📦:** Update devDependencies to latest versions ([58973b0](https://github.com/Basalt-Lab/basalt-helper/commit/58973b0))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.11.1-canary-20250123-82ae5f6
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.0...v1.11.1-canary-20250123-82ae5f6)

@@ -1,13 +1,12 @@
 {
   "name": "@basalt-lab/basalt-helper",
   "version": "1.11.0",
-  "description": "Helper of Basalt Framework",
+  "description": "A helper library providing utilities.",
   "type": "module",
   "types": "build/index.d.ts",
   "exports": {
     "./data": "./build/core/data/index.js",
     "./data/transformer": "./build/core/data/transformer",
-    "./security": "./build/core/security/index.js",
     "./util": "./build/core/util/index.js",
     "./error": "./build/error/index.js",
     "./error/key": "./build/error/key/index.js",
@@ -29,9 +28,12 @@
     "url": "git+https://github.com/Basalt-Lab/basalt-helper.git"
   },
   "keywords": [
+    "bun",
     "basalt-helper",
     "basalt",
-    "helper"
+    "helper",
+    "utilities",
+    "tools"
   ],
   "author": "Ruby",
   "license": "MIT",
@@ -43,18 +45,15 @@
     "@eslint/js": "^9.17.0",
     "@stylistic/eslint-plugin": "^2.12.1",
     "@types/bun": "^1.1.15",
-    "@types/node": "^22.10.5",
     "bun-plugin-dts": "^0.3.0",
-    "eslint-plugin-tsdoc": "^0.4.0",
     "eslint": "^9.17.0",
-    "typescript-eslint": "^8.19.1",
-    "typedoc": "^0.27.6"
+    "eslint-plugin-tsdoc": "^0.4.0",
+    "globals": "^15.14.0",
+    "typedoc": "^0.27.6",
+    "typescript-eslint": "^8.19.1"
   },
   "peerDependencies": {
     "typescript": "^5.7.2"
-  },
-  "dependencies": {
-    "argon2": "^0.41.1"
   },
   "changelog": {
     "types": {

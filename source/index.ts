@@ -8,9 +8,6 @@ export * from './core/data/transformer/basaltSnakeCase';
 // Exports of general utilities
 export * from './core/util/singletonManager';
 
-// Exports of security tools
-export * from './core/security/password';
-
 // Exports of error classes
 export * from './error/basaltError';
 export * from './error/key/coreDataKeyError';

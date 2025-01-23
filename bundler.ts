@@ -7,14 +7,12 @@ const devDependencies = 'devDependencies' in pkg ? Object.keys(pkg.devDependenci
 const peerDependencies = 'peerDependencies' in pkg ? Object.keys(pkg.peerDependencies ?? {}) : [];
 
 await Bun.build({
-    target: 'node',
+    target: 'bun',
     external: [...dependencies, ...devDependencies, ...peerDependencies],
     root: './source',
     entrypoints: [
         './source/core/data/index.ts',
         './source/core/data/transformer/index.ts',
-
-        './source/core/security/index.ts',
 
         './source/core/util/index.ts',
 

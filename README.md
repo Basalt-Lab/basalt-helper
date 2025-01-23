@@ -12,10 +12,7 @@
 
 ## 📝 Description
 
-**Basalt-helper** aims to provide tools to facilitate development.
-This can range from object transformation to password hashing.
-
-Other tools will be added over time.
+**Basalt-helper** is a utility library with no dependencies and aims to be very lightweight (although comments may increase the bundle size, sorry).
 
 ## 🌟 Documentation
 
@@ -24,14 +21,8 @@ Other tools will be added over time.
 
 ## 🔧 Installation
 
-NPM:
 ```bash
-npm i @basalt-lab/basalt-helper
-```
-
-PNPM:
-```bash
-pnpm i @basalt-lab/basalt-helper
+bun add @basalt-lab/basalt-helper
 ```
 
 ## ⚖️ License

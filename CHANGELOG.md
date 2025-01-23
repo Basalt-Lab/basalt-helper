@@ -1,5 +1,18 @@
 # Changelog
 
+## v1.11.1-canary-20250123-82ae5f6
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.0...v1.11.1-canary-20250123-82ae5f6)
+
+### 🧹 Refactors
+
+- **🧹:** Remove security module & tests; update README and pkg json ([4c913fc](https://github.com/Basalt-Lab/basalt-helper/commit/4c913fc))
+- **🧹:** Simplify error constants, tsdoc, basalt error ([9d98820](https://github.com/Basalt-Lab/basalt-helper/commit/9d98820))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.11.0
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.0-canary-20250107-f1de4fe...v1.11.0)

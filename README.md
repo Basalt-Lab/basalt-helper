@@ -29,7 +29,7 @@ bun add @basalt-lab/basalt-helper
 
 ## ⚖️ License
 
-  Distributed under the MIT License. See LICENSE for more information.
+Distributed under the MIT License. See LICENSE for more information.
 
 ## 📧 Contact
 

@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.11.1-canary-20250124-7413452
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.1-canary-20250123-a71e203...v1.11.1-canary-20250124-7413452)
+
+### 📦 Build
+
+- **📦:** Disable minify identifiers ([193ae6c](https://github.com/Basalt-Lab/basalt-helper/commit/193ae6c))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.11.1-canary-20250123-a71e203
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.1-canary-20250123-82ae5f6...v1.11.1-canary-20250123-a71e203)

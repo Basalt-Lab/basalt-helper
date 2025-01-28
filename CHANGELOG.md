@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.11.1-canary-20250128-cccbd77
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.1-canary-20250124-0b227e1...v1.11.1-canary-20250128-cccbd77)
+
+### 📦 Build
+
+- **📦:** Use tsc to generate .d.ts and tsc alias for relative path ([a0ba016](https://github.com/Basalt-Lab/basalt-helper/commit/a0ba016))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.11.1-canary-20250124-0b227e1
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.1-canary-20250124-7413452...v1.11.1-canary-20250124-0b227e1)

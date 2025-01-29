@@ -1,5 +1,22 @@
 # Changelog
 
+## v1.11.1-canary-20250129-d817900
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.1-canary-20250128-cccbd77...v1.11.1-canary-20250129-d817900)
+
+### 🧹 Refactors
+
+- **🧹:** Update error message keys for basalt-helper localization ([d476b62](https://github.com/Basalt-Lab/basalt-helper/commit/d476b62))
+
+### 📦 Build
+
+- **📦:** Add tsconfig.dts.json to .npmignore ([c1f1afa](https://github.com/Basalt-Lab/basalt-helper/commit/c1f1afa))
+- **📦:** Update dependencies ([eacabde](https://github.com/Basalt-Lab/basalt-helper/commit/eacabde))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.11.1-canary-20250128-cccbd77
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.1-canary-20250124-0b227e1...v1.11.1-canary-20250128-cccbd77)

@@ -1,6 +1,6 @@
 {
   "name": "@basalt-lab/basalt-helper",
-  "version": "1.11.1-canary-20250128-cccbd77",
+  "version": "1.11.1-canary-20250129-d817900",
   "description": "A helper library providing utilities.",
   "type": "module",
   "types": "build/index.d.ts",

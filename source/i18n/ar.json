@@ -1,6 +1,6 @@
 {
-  "error": {
-    "basalt-helper": {
+  "basalt-helper": {
+    "error": {
       "class_constructor_already_registered": "تم تسجيل بناء الفئة بالفعل",
       "class_constructor_not_registered": "لم يتم تسجيل بناء الفئة",
       "data_is_null": "البيانات فارغة",

@@ -1,6 +1,6 @@
 {
-  "error": {
-    "basalt-helper": {
+  "basalt-helper": {
+    "error": {
       "class_constructor_already_registered": "Constructeur de classe déjà enregistré",
       "class_constructor_not_registered": "Constructeur de classe non enregistré",
       "data_is_null": "Les données sont nulles",

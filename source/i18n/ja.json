@@ -1,6 +1,6 @@
 {
-  "error": {
-    "basalt-helper": {
+  "basalt-helper": {
+    "error": {
       "class_constructor_already_registered": "クラスコンストラクタはすでに登録されています",
       "class_constructor_not_registered": "クラスコンストラクタは登録されていません",
       "data_is_null": "データはヌルです",

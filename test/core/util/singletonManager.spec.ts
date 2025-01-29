@@ -69,14 +69,14 @@ describe('SingletonManager', () => {
         });
 
         test('should throw an error when class constructor is not registered', () => {
-            expect(() => SingletonManager.get('ExampleSingleton4')).toThrow('error.basalt-helper.class_constructor_not_registered');
+            expect(() => SingletonManager.get('ExampleSingleton4')).toThrow('basalt-helper.error.class_constructor_not_registered');
         });
 
         test('should throw an error when class constructor is already registered', () => {
             SingletonManager.register('ExampleSingleton', ExampleSingleton);
             expect(
                 () => SingletonManager.register('ExampleSingleton', ExampleSingleton)
-            ).toThrow('error.basalt-helper.class_constructor_already_registered');
+            ).toThrow('basalt-helper.error.class_constructor_already_registered');
         });
     });
 
@@ -90,7 +90,7 @@ describe('SingletonManager', () => {
         test('should throw an error when class constructor is not registered', () => {
             expect(() => {
                 SingletonManager.unregister('ExampleSingleton');
-            }).toThrow('error.basalt-helper.class_constructor_not_registered');
+            }).toThrow('basalt-helper.error.class_constructor_not_registered');
         });
     });
 

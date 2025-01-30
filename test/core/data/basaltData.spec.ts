@@ -26,12 +26,12 @@ describe('Filter By Key Exclusion', () => {
 
     test('should throw an error when data is null', () => {
         const object = null as unknown as Record<string, unknown>;
-        expect(() => filterByKeyExclusion(object, [])).toThrowError('basalt-helper.error.data_is_null');
+        expect(() => filterByKeyExclusion(object, [])).toThrow('Data cannot be null or undefined.');
     });
 
     test('should throw an error when data is not a plain object', () => {
         const object = 2 as unknown as Record<string, unknown>;
-        expect(() => filterByKeyExclusion(object, [])).toThrowError('basalt-helper.error.data_must_be_object');
+        expect(() => filterByKeyExclusion(object, [])).toThrow('Data must be a plain object.');
     });
 
     test('should return original object when keys are empty', () => {
@@ -74,12 +74,12 @@ describe('Filter By Key Inclusion', () => {
 
     test('should throw an error when data is null', () => {
         const object = null as unknown as Record<string, unknown>;
-        expect(() => filterByKeyInclusion(object, [])).toThrowError('basalt-helper.error.data_is_null');
+        expect(() => filterByKeyInclusion(object, [])).toThrow('Data cannot be null or undefined.');
     });
 
     test('should throw an error when data is not a plain object', () => {
         const object = 2 as unknown as Record<string, unknown>;
-        expect(() => filterByKeyInclusion(object, [])).toThrowError('basalt-helper.error.data_must_be_object');
+        expect(() => filterByKeyInclusion(object, [])).toThrow('Data must be a plain object.');
     });
 
     test('should return empty object when keys are empty', () => {
@@ -110,12 +110,12 @@ describe('Filter By Value', () => {
 
     test('should throw an error when data is null', () => {
         const object = null as unknown as Record<string, unknown>;
-        expect(() => filterByValue(object, () => true)).toThrowError('basalt-helper.error.data_is_null');
+        expect(() => filterByValue(object, () => true)).toThrow('Data cannot be null or undefined.');
     });
 
     test('should throw an error when data is not a plain object', () => {
         const object = 2 as unknown as Record<string, unknown>;
-        expect(() => filterByValue(object, () => true)).toThrowError('basalt-helper.error.data_must_be_object');
+        expect(() => filterByValue(object, () => true)).toThrow('Data must be a plain object.');
     });
 
     test('should return empty object when predicate does not match', () => {
@@ -152,12 +152,12 @@ describe('Transform Keys', () => {
 
     test('should throw an error when data is null', () => {
         const object = null as unknown as Record<string, unknown>;
-        expect(() => transformKeys(object, new BasaltCamelCaseTransformer())).toThrowError('basalt-helper.error.data_is_null');
+        expect(() => transformKeys(object, new BasaltCamelCaseTransformer())).toThrow('Data cannot be null or undefined.');
     });
 
     test('should throw an error when data is not a plain object', () => {
         const object = 2 as unknown as Record<string, unknown>;
-        expect(() => transformKeys(object, new BasaltCamelCaseTransformer())).toThrowError('basalt-helper.error.data_must_be_object');
+        expect(() => transformKeys(object, new BasaltCamelCaseTransformer())).toThrow('Data must be a plain object.');
     });
 });
 

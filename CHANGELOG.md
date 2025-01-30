@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.11.1-canary-20250130-0e2ae99
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.1-canary-20250129-d817900...v1.11.1-canary-20250130-0e2ae99)
+
+### 🧹 Refactors
+
+- **🧹:** Refactor error system and remove translation ([82f74a4](https://github.com/Basalt-Lab/basalt-helper/commit/82f74a4))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.11.1-canary-20250129-d817900
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.1-canary-20250128-cccbd77...v1.11.1-canary-20250129-d817900)

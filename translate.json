@@ -9,8 +9,8 @@
     "ja",
     "ko"
   ],
-  "error": {
-    "basalt-helper": {
+  "basalt-helper": {
+    "error": {
       "class_constructor_already_registered": {
         "lang:ar": "تم تسجيل بناء الفئة بالفعل",
         "lang:de": "Klassenkonstruktor bereits registriert",

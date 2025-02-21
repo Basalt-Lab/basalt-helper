@@ -1,5 +1,95 @@
 # Changelog
 
+## v1.11.1-canary-20250130-0e2ae99
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.1-canary-20250129-d817900...v1.11.1-canary-20250130-0e2ae99)
+
+### 🧹 Refactors
+
+- **🧹:** Refactor error system and remove translation ([82f74a4](https://github.com/Basalt-Lab/basalt-helper/commit/82f74a4))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
+## v1.11.1-canary-20250129-d817900
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.1-canary-20250128-cccbd77...v1.11.1-canary-20250129-d817900)
+
+### 🧹 Refactors
+
+- **🧹:** Update error message keys for basalt-helper localization ([d476b62](https://github.com/Basalt-Lab/basalt-helper/commit/d476b62))
+
+### 📦 Build
+
+- **📦:** Add tsconfig.dts.json to .npmignore ([c1f1afa](https://github.com/Basalt-Lab/basalt-helper/commit/c1f1afa))
+- **📦:** Update dependencies ([eacabde](https://github.com/Basalt-Lab/basalt-helper/commit/eacabde))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
+## v1.11.1-canary-20250128-cccbd77
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.1-canary-20250124-0b227e1...v1.11.1-canary-20250128-cccbd77)
+
+### 📦 Build
+
+- **📦:** Use tsc to generate .d.ts and tsc alias for relative path ([a0ba016](https://github.com/Basalt-Lab/basalt-helper/commit/a0ba016))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
+## v1.11.1-canary-20250124-0b227e1
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.1-canary-20250124-7413452...v1.11.1-canary-20250124-0b227e1)
+
+### 🧹 Refactors
+
+- **🧹:** Rename error code to statusCode for clarity ([75fdb68](https://github.com/Basalt-Lab/basalt-helper/commit/75fdb68))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
+## v1.11.1-canary-20250124-7413452
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.1-canary-20250123-a71e203...v1.11.1-canary-20250124-7413452)
+
+### 📦 Build
+
+- **📦:** Disable minify identifiers ([193ae6c](https://github.com/Basalt-Lab/basalt-helper/commit/193ae6c))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
+## v1.11.1-canary-20250123-a71e203
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.1-canary-20250123-82ae5f6...v1.11.1-canary-20250123-a71e203)
+
+### 📦 Build
+
+- **📦:** Update devDependencies to latest versions ([58973b0](https://github.com/Basalt-Lab/basalt-helper/commit/58973b0))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
+## v1.11.1-canary-20250123-82ae5f6
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.0...v1.11.1-canary-20250123-82ae5f6)
+
+### 🧹 Refactors
+
+- **🧹:** Remove security module & tests; update README and pkg json ([4c913fc](https://github.com/Basalt-Lab/basalt-helper/commit/4c913fc))
+- **🧹:** Simplify error constants, tsdoc, basalt error ([9d98820](https://github.com/Basalt-Lab/basalt-helper/commit/9d98820))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.11.0
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.0-canary-20250107-f1de4fe...v1.11.0)

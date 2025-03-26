@@ -5,7 +5,7 @@ import type { BasaltKeyTransformer } from '#/types/data/basaltKeyTransformer';
 /**
  * Checks if the provided data is null or undefined and throws an error if it is.
  *
- * @typeParam T - The type of the data to be validated.
+ * @template T - The type of the data to be validated.
  *
  * @param data - The data to be validated.
  *
@@ -22,7 +22,7 @@ function _validateDataNull<T>(data: T): void {
 /**
  * Checks if the provided data is an object and throws an error if it is not.
  *
- * @typeParam T - The type of the data to be validated.
+ * @template T - The type of the data to be validated.
  *
  * @param data - The data to be validated.
  *
@@ -42,7 +42,7 @@ function _validateDataIsObject<T>(data: T): void {
  * those keys that are provided to be excluded. Additionally, it can also exclude
  * properties with values of null or undefined if 'excludeNullUndefined' is set to true.
  *
- * @typeParam T - The type of the data object to filter, must be an object.
+ * @template T - The type of the data object to filter, must be an object.
  *
  * @param data - The data object to be filtered.
  * @param keys - The array of keys to exclude from the data object. (Can be empty)
@@ -83,7 +83,7 @@ export function filterByKeyExclusion<T extends Readonly<object>>(data: Readonly<
  * Filters the provided data by including only the specified keys. The resulting object
  * will only have properties that match the keys provided. Properties with null or undefined
  * values can optionally be excluded based on the 'excludeNullUndefined' flag.
- * @typeParam T - The type of the data object to filter, must be an object.
+ * @template T - The type of the data object to filter, must be an object.
  *
  * @param data - The data object to be filtered.
  * @param keys - The array of keys to include in the resulting data object. (Can be empty)
@@ -123,7 +123,7 @@ export function filterByKeyInclusion<T extends Readonly<object>>(data: Readonly<
  * Filters the provided data based on a predicate applied to its values. The resulting object
  * will only include properties whose values satisfy the predicate function. Properties with
  * null or undefined values can be optionally excluded based on the 'excludeNullUndefined' flag.
- * @typeParam T - The type of the data to be filtered, constrained to an object type.
+ * @template T - The type of the data to be filtered, constrained to an object type.
  *
  * @param data - The data object to be filtered.
  * @param predicate - The predicate function to apply to the values.
@@ -163,7 +163,7 @@ export function filterByValue<T extends Readonly<object>> (data: Readonly<T>, pr
 
 /**
  * Transforms the keys of the given object using the current transformation strategy.
- * @typeParam T - The type of the object.
+ * @template T - The type of the object.
  * @param data - The object whose keys are to be transformed.
  * @param transformer - The key transformation strategy to use.
  *

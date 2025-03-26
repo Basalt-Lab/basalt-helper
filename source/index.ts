@@ -7,6 +7,7 @@ export * from './core/data/transformer/basaltSnakeCase';
 
 // Exports of general utilities
 export * from './core/util/singletonManager';
+export * from './core/util/typedEventEmitter';
 
 // Exports of error classes
 export * from './error/basaltError';

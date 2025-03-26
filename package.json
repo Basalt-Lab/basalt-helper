@@ -1,9 +1,20 @@
 {
   "name": "@basalt-lab/basalt-helper",
   "version": "1.11.1",
-  "description": "A helper library providing utilities.",
-  "type": "module",
-  "types": "build/index.d.ts",
+  "author": "Ruby",
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "@stylistic/eslint-plugin": "^4.2.0",
+    "@types/bun": "^1.2.6",
+    "eslint": "^9.23.0",
+    "globals": "^16.0.0",
+    "tsc-alias": "^1.8.11",
+    "typedoc": "^0.28.1",
+    "typescript-eslint": "^8.28.0"
+  },
+  "peerDependencies": {
+    "typescript": "^5.8.2"
+  },
   "exports": {
     "./data": "./build/core/data/index.js",
     "./data/transformer": "./build/core/data/transformer",
@@ -12,47 +23,6 @@
     "./error/key": "./build/error/key/index.js",
     "./types": "./build/types/index.js",
     ".": "./build/index.js"
-  },
-  "scripts": {
-    "dev": "bun --watch source/index.ts",
-    "build": "bun bundler.ts && tsc --project tsconfig.dts.json && tsc-alias -p tsconfig.dts.json",
-    "start": "bun build/index.js",
-    "test": "bun test --coverage",
-    "docs": "typedoc",
-    "fix-lint": "eslint --fix ./source",
-    "lint": "eslint ./source"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Basalt-Lab/basalt-helper.git"
-  },
-  "keywords": [
-    "bun",
-    "basalt-helper",
-    "basalt",
-    "helper",
-    "utilities",
-    "tools"
-  ],
-  "author": "Ruby",
-  "license": "MIT",
-  "homepage": "https://github.com/Basalt-Lab/basalt-helper#readme",
-  "bugs": {
-    "url": "https://github.com/Basalt-Lab/basalt-helper/issues"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.19.0",
-    "@stylistic/eslint-plugin": "^3.0.1",
-    "@types/bun": "^1.2.1",
-    "eslint": "^9.19.0",
-    "eslint-plugin-tsdoc": "^0.4.0",
-    "globals": "^15.14.0",
-    "tsc-alias": "^1.8.10",
-    "typedoc": "^0.27.6",
-    "typescript-eslint": "^8.22.0"
-  },
-  "peerDependencies": {
-    "typescript": "^5.7.3"
   },
   "changelog": {
     "types": {
@@ -105,5 +75,26 @@
       "tagMessage": "v{{newVersion}}",
       "tagBody": "v{{newVersion}}"
     }
-  }
+  },
+  "description": "A helper library providing utilities.",
+  "keywords": [
+    "bun",
+    "basalt-helper",
+    "basalt",
+    "helper",
+    "utilities",
+    "tools"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "dev": "bun --watch source/index.ts",
+    "build": "bun bundler.ts && tsc --project tsconfig.dts.json && tsc-alias -p tsconfig.dts.json",
+    "start": "bun build/index.js",
+    "test": "bun test --coverage",
+    "docs": "typedoc",
+    "fix-lint": "eslint --fix ./source",
+    "lint": "eslint ./source"
+  },
+  "type": "module",
+  "types": "build/index.d.ts"
 }

@@ -1,6 +1,6 @@
 {
   "name": "@basalt-lab/basalt-helper",
-  "version": "1.12.0",
+  "version": "1.12.1-canary-20250326-e7f5dd4",
   "author": "Ruby",
   "devDependencies": {
     "@eslint/js": "^9.23.0",
@@ -17,7 +17,7 @@
   },
   "exports": {
     "./data": "./build/core/data/index.js",
-    "./data/transformer": "./build/core/data/transformer",
+    "./data/transformer": "./build/core/data/transformer/index.js",
     "./util": "./build/core/util/index.js",
     "./error": "./build/error/index.js",
     "./error/key": "./build/error/key/index.js",

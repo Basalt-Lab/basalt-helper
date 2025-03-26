@@ -1,5 +1,37 @@
 # Changelog
 
+## v1.12.0-canary-20250326-b3b916a
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.1...v1.12.0-canary-20250326-b3b916a)
+
+### 🚀 Enhancements
+
+- **🚀:** [add TypedEventEmitter for type-safe event handling] ([32a0588](https://github.com/Basalt-Lab/basalt-helper/commit/32a0588))
+
+### 📖 Documentation
+
+- **📖:** [update JSDoc from @typeParam to @template for type definitions] ## Type Changes - Changed JSDoc annotations from `@typeParam` to `@template` for better clarity and consistency in type definitions across multiple files. ([4643f13](https://github.com/Basalt-Lab/basalt-helper/commit/4643f13))
+
+### 🦉 Chore
+
+- **🦉:** [remove .nvmrc file] Remove Node version configuration file ([56b78fe](https://github.com/Basalt-Lab/basalt-helper/commit/56b78fe))
+- **🦉:** [add bunfig.toml configuration file] ([e7366e5](https://github.com/Basalt-Lab/basalt-helper/commit/e7366e5))
+- **🦉:** [update ESLint configuration] ([befbda0](https://github.com/Basalt-Lab/basalt-helper/commit/befbda0))
+- **🦉:** [update package.json with new dependencies and scripts] ([b6290d5](https://github.com/Basalt-Lab/basalt-helper/commit/b6290d5))
+
+### 🧪 Tests
+
+- **🧪:** [add unit tests for TypedEventEmitter functionality] ([f60293c](https://github.com/Basalt-Lab/basalt-helper/commit/f60293c))
+
+### 🤖 CI
+
+- **🤖:** [update merge workflows to handle pull requests] ## CI Changes - Updated conditions in `merge-dev.yml` and `merge-main.yml` workflows. - Added support for handling 'Merge pull request' messages in lint, test, canary, and publish jobs. ([2f68b9c](https://github.com/Basalt-Lab/basalt-helper/commit/2f68b9c))
+- **🤖:** [update CI workflows to use Bun for publishing] ([009b497](https://github.com/Basalt-Lab/basalt-helper/commit/009b497))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.11.1
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.11.1-canary-20250130-0e2ae99...v1.11.1)

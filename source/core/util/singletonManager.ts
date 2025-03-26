@@ -55,7 +55,7 @@ class SingletonManagerSingleton {
      * Registers a class constructor in the SingletonManagerSingleton.
      *
      * @param name - The name of the class.
-     * @typeParam T - The type of the class.
+     * @template T - The type of the class.
      * @param constructor - The constructor of the class.
      * @param args - The arguments to pass to the constructor of the class.
      *
@@ -92,7 +92,7 @@ class SingletonManagerSingleton {
     /**
      * Gets the singleton instance of the class. If the class is not registered, it throws an error.
      *
-     * @typeParam T - The type of the class.
+     * @template T - The type of the class.
      * @param name - The name of the class to get the singleton instance.
      *
      * @throws ({@link BasaltError}) If the class is not registered, it throws an error. ({@link UTIL_KEY_ERROR.CLASS_CONSTRUCTOR_NOT_REGISTERED})

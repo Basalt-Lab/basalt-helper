@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.12.1
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.12.1-canary-20250326-e7f5dd4...v1.12.1)
+
 ## v1.12.1-canary-20250326-e7f5dd4
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.12.0...v1.12.1-canary-20250326-e7f5dd4)

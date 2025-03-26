@@ -179,16 +179,16 @@ jobs:
           fetch-depth: 0
           ssh-key: ${{ secrets.BASALT_SSH }}
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          node-version-file: '.nvmrc'
+          bun-version: latest
 
       - name: Install Dependencies
-        run: npm install
+        run: bun install
 
       - name: Generate Docs
-        run: npm run docs
+        run: bun run docs
 
       - name: Upload Coverage
         uses: peaceiris/actions-gh-pages@v3

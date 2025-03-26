@@ -17,7 +17,7 @@
   },
   "exports": {
     "./data": "./build/core/data/index.js",
-    "./data/transformer": "./build/core/data/transformer",
+    "./data/transformer": "./build/core/data/transformer/index.js",
     "./util": "./build/core/util/index.js",
     "./error": "./build/error/index.js",
     "./error/key": "./build/error/key/index.js",

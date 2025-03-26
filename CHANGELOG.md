@@ -1,5 +1,22 @@
 # Changelog
 
+## v1.12.1-canary-20250326-e7f5dd4
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.12.0...v1.12.1-canary-20250326-e7f5dd4)
+
+### 🔧 Fixes
+
+- **🔧:** [correct transformer path in package.json exports] Updated the path for the transformer export in package.json to include the correct index.js file, ensuring proper module resolution. ([c56dc0b](https://github.com/Basalt-Lab/basalt-helper/commit/c56dc0b))
+
+### 🤖 CI
+
+- **🤖:** [update CI to use Bun for dependency management] ([474b6f6](https://github.com/Basalt-Lab/basalt-helper/commit/474b6f6))
+- **🤖:** [simplify merge condition checks in CI workflows] ([7879a61](https://github.com/Basalt-Lab/basalt-helper/commit/7879a61))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.12.0
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.12.0-canary-20250326-b3b916a...v1.12.0)

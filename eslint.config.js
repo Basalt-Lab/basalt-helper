@@ -9,7 +9,7 @@ export default [
     ...tseslint.configs.stylistic,
     {
         plugins: {
-            '@stylistic': stylistic,
+            '@stylistic': stylistic
         },    
         languageOptions: {
             globals: {
@@ -19,11 +19,6 @@ export default [
         },
         // Stylistic rules
         rules: {
-            /**
-             * TsDoc rules
-             */
-            'tsdoc/syntax': 'warn',
-
             /**
              * Stylistic rules
              * @see https://eslint.style/packages/default#rules

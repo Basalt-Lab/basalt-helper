@@ -1,5 +1,26 @@
 # Changelog
 
+## v1.13.0-canary-20250408-c04cd0b
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.12.1...v1.13.0-canary-20250408-c04cd0b)
+
+### 🚀 Enhancements
+
+- **🚀:** [add builder script for project compilation and output] ## Features - Introduced a new builder script to automate project compilation. - Integrated TypeScript compilation with `tsc` and `tsc-alias`. - Configured Bun for building the project with specified entry points and output directory. ([5fa4747](https://github.com/Basalt-Lab/basalt-helper/commit/5fa4747))
+
+### 📦 Build
+
+- **📦:** Update package.json with new scripts, dependencies, and exports structure ([e25dac6](https://github.com/Basalt-Lab/basalt-helper/commit/e25dac6))
+
+### 🦉 Chore
+
+- **🦉:** [update .gitignore for improved file exclusions] ([893eef5](https://github.com/Basalt-Lab/basalt-helper/commit/893eef5))
+- **🦉:** [update tsconfig files for improved configuration] ([16b03a9](https://github.com/Basalt-Lab/basalt-helper/commit/16b03a9))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.12.1
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.12.1-canary-20250326-e7f5dd4...v1.12.1)

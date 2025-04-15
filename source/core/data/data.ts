@@ -5,13 +5,13 @@ import type { BasaltKeyTransformer } from '#/types/data/basaltKeyTransformer';
 /**
  * Checks if the provided data is null or undefined and throws an error if it is.
  *
- * @template T - The type of the data to be validated.
+ * @template TObject - The type of the data to be validated.
  *
  * @param data - The data to be validated.
  *
  * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link DATA_KEY_ERROR.DATA_IS_NULL})
  */
-function _validateDataNull<T>(data: T): void {
+function _validateDataNull<TObject>(data: TObject): void {
     if (data === null || data === undefined)
         throw new BasaltError({
             key: DATA_KEY_ERROR.DATA_IS_NULL,
@@ -22,13 +22,13 @@ function _validateDataNull<T>(data: T): void {
 /**
  * Checks if the provided data is an object and throws an error if it is not.
  *
- * @template T - The type of the data to be validated.
+ * @template TObject - The type of the data to be validated.
  *
  * @param data - The data to be validated.
  *
  * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link DATA_KEY_ERROR.DATA_MUST_BE_OBJECT})
  */
-function _validateDataIsObject<T>(data: T): void {
+function _validateDataIsObject<TObject>(data: TObject): void {
     if (typeof data !== 'object')
         throw new BasaltError({
             key: DATA_KEY_ERROR.DATA_MUST_BE_OBJECT,
@@ -42,7 +42,7 @@ function _validateDataIsObject<T>(data: T): void {
  * those keys that are provided to be excluded. Additionally, it can also exclude
  * properties with values of null or undefined if 'excludeNullUndefined' is set to true.
  *
- * @template T - The type of the data object to filter, must be an object.
+ * @template TObject - The type of the data object to filter, must be an object.
  *
  * @param data - The data object to be filtered.
  * @param keys - The array of keys to exclude from the data object. (Can be empty)
@@ -65,14 +65,18 @@ function _validateDataIsObject<T>(data: T): void {
  * console.log(filtered); // { test: 'test' }
  * ```
  *
- * @returns The filtered data object with the specified keys excluded. ({@link T})
+ * @returns The filtered data object with the specified keys excluded. ({@link TObject})
  */
-export function filterByKeyExclusion<T extends Readonly<object>>(data: Readonly<T>, keys: readonly (keyof T)[], excludeNullUndefined = false): T {
+export function filterByKeyExclusion<TObject extends Readonly<object>>(
+    data: Readonly<TObject>,
+    keys: readonly (keyof TObject)[],
+    excludeNullUndefined = false
+): TObject {
     _validateDataNull(data);
     _validateDataIsObject(data);
-    const filteredData: T = {} as T;
+    const filteredData = {} as TObject;
     Object.keys(data).forEach((key: string): void => {
-        const typedKey: keyof T = key as keyof T;
+        const typedKey = key as keyof TObject;
         if (!keys.includes(typedKey) && (!excludeNullUndefined || (data[typedKey] !== null && data[typedKey] !== undefined)))
             filteredData[typedKey] = data[typedKey];
     });
@@ -83,7 +87,7 @@ export function filterByKeyExclusion<T extends Readonly<object>>(data: Readonly<
  * Filters the provided data by including only the specified keys. The resulting object
  * will only have properties that match the keys provided. Properties with null or undefined
  * values can optionally be excluded based on the 'excludeNullUndefined' flag.
- * @template T - The type of the data object to filter, must be an object.
+ * @template TObject - The type of the data object to filter, must be an object.
  *
  * @param data - The data object to be filtered.
  * @param keys - The array of keys to include in the resulting data object. (Can be empty)
@@ -106,13 +110,17 @@ export function filterByKeyExclusion<T extends Readonly<object>>(data: Readonly<
  * console.log(filtered); // { test: 'test' }
  * ```
  *
- * @returns The filtered data object with only the specified keys included. ({@link T})
+ * @returns The filtered data object with only the specified keys included. ({@link TObject})
  */
-export function filterByKeyInclusion<T extends Readonly<object>>(data: Readonly<T>, keys: readonly (keyof T)[], excludeNullUndefined = false): T {
+export function filterByKeyInclusion<TObject extends Readonly<object>>(
+    data: Readonly<TObject>,
+    keys: readonly (keyof TObject)[],
+    excludeNullUndefined = false
+): TObject {
     _validateDataNull(data);
     _validateDataIsObject(data);
-    const filteredData: T = {} as T;
-    keys.forEach((key: keyof T): void => {
+    const filteredData = {} as TObject;
+    keys.forEach((key: keyof TObject): void => {
         if (key in data && (!excludeNullUndefined || (data[key] !== null && data[key] !== undefined)))
             filteredData[key] = data[key];
     });
@@ -123,7 +131,7 @@ export function filterByKeyInclusion<T extends Readonly<object>>(data: Readonly<
  * Filters the provided data based on a predicate applied to its values. The resulting object
  * will only include properties whose values satisfy the predicate function. Properties with
  * null or undefined values can be optionally excluded based on the 'excludeNullUndefined' flag.
- * @template T - The type of the data to be filtered, constrained to an object type.
+ * @template TObject - The type of the data to be filtered, constrained to an object type.
  *
  * @param data - The data object to be filtered.
  * @param predicate - The predicate function to apply to the values.
@@ -146,15 +154,19 @@ export function filterByKeyInclusion<T extends Readonly<object>>(data: Readonly<
  * console.log(filtered); // { test: 'test' }
  * ```
  *
- * @returns The filtered data object with properties satisfying the predicate. ({@link T})
+ * @returns The filtered data object with properties satisfying the predicate. ({@link TObject})
  */
-export function filterByValue<T extends Readonly<object>> (data: Readonly<T>, predicate: (value: T[keyof T]) => boolean, excludeNullUndefined = false): T {
+export function filterByValue<TObject extends Readonly<object>> (
+    data: Readonly<TObject>,
+    predicate: (value: TObject[keyof TObject]) => boolean,
+    excludeNullUndefined = false
+): TObject {
     _validateDataNull(data);
     _validateDataIsObject(data);
-    const filteredData: T = {} as T;
+    const filteredData = {} as TObject;
     for (const key in data)
         if (Object.hasOwn(data, key)) {
-            const typedKey: keyof T = key as keyof T;
+            const typedKey = key as keyof TObject;
             if (predicate(data[typedKey]) && (!excludeNullUndefined || (data[typedKey] !== null && data[typedKey] !== undefined)))
                 filteredData[typedKey] = data[typedKey];
         }
@@ -163,7 +175,7 @@ export function filterByValue<T extends Readonly<object>> (data: Readonly<T>, pr
 
 /**
  * Transforms the keys of the given object using the current transformation strategy.
- * @template T - The type of the object.
+ * @template TObject - The type of the object.
  * @param data - The object whose keys are to be transformed.
  * @param transformer - The key transformation strategy to use.
  *
@@ -176,17 +188,20 @@ export function filterByValue<T extends Readonly<object>> (data: Readonly<T>, pr
  * transformKeys(\{ "my-key": "value" \}, new BasaltCamelCaseTransformer());
  * ```
  *
- * @returns A new object with transformed keys. ({@link T})
+ * @returns A new object with transformed keys. ({@link TObject})
  */
-export function transformKeys<T extends Readonly<object>>(data: Readonly<T>, transformer: Readonly<BasaltKeyTransformer>): T {
+export function transformKeys<TObject extends Readonly<object>>(
+    data: Readonly<TObject>,
+    transformer: Readonly<BasaltKeyTransformer>
+): TObject {
     _validateDataNull(data);
     _validateDataIsObject(data);
-    const result: T = {} as T;
+    const result = {} as TObject;
 
     for (const key in data)
         if (Object.hasOwn(data, key)) {
             const transformedKey: string = transformer.transformKey(key);
-            result[transformedKey as keyof T] = data[key as keyof T];
+            result[transformedKey as keyof TObject] = data[key as keyof TObject];
         }
     return result;
 }

@@ -1,5 +1,30 @@
 # Changelog
 
+## v1.13.1-canary-20250415-e9f0851
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.13.0...v1.13.1-canary-20250415-e9f0851)
+
+### 📦 Build
+
+- **📦:** [update devDependencies in package.json] Updated @types/bun, tsc-alias, and typescript-eslint to their latest versions for improved compatibility and features. ([e83ef87](https://github.com/Basalt-Lab/basalt-helper/commit/e83ef87))
+
+### 🌊 Types
+
+- **🌊:** [update type parameters for data validation functions] ## Refactoring - Changed type parameter names from `T` to `TObject` for clarity in data validation functions. - Updated type definitions in `filterByKeyExclusion`, `filterByKeyInclusion`, `filterByValue`, and `transformKeys` functions to use `TObject`. ([5153690](https://github.com/Basalt-Lab/basalt-helper/commit/5153690))
+- **🌊:** [update type parameters in SingletonManager methods] ([b2d9418](https://github.com/Basalt-Lab/basalt-helper/commit/b2d9418))
+
+### 🦉 Chore
+
+- **🦉:** [remove translate.json] Deleted the translation file to streamline the project. ([6aac9b2](https://github.com/Basalt-Lab/basalt-helper/commit/6aac9b2))
+
+### 🧪 Tests
+
+- **🧪:** [refactor tests for TypedEventEmitter] Refactored the test cases for the TypedEventEmitter to improve readability and maintainability. Removed unnecessary blank lines and ensured consistent formatting throughout the test suite. ([cb8210f](https://github.com/Basalt-Lab/basalt-helper/commit/cb8210f))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.13.0
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.13.0-canary-20250408-c04cd0b...v1.13.0)

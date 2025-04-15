@@ -1,3 +1,4 @@
+// eslint-disable-next-line max-classes-per-file
 import { BasaltError } from '#/error/basaltError';
 import { UTIL_KEY_ERROR } from '#/error/key/utilKeyError';
 
@@ -54,15 +55,22 @@ class SingletonManagerSingleton {
     /**
      * Registers a class constructor in the SingletonManagerSingleton.
      *
+     * @template TClass - The type of the class.
+     * @template TArgs - The tuple type of the constructor arguments.
      * @param name - The name of the class.
-     * @template T - The type of the class.
      * @param constructor - The constructor of the class.
      * @param args - The arguments to pass to the constructor of the class.
      *
      * @throws ({@link BasaltError}) If the class constructor is already registered, it throws an error. ({@link UTIL_KEY_ERROR.CLASS_CONSTRUCTOR_ALREADY_REGISTERED})
      */
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    public register<T>(name: string, constructor: new(...args: any[]) => T, ...args: unknown[]): void {
+    public register<
+        TClass extends object,
+        TArgs extends unknown[]
+    >(
+        name: string,
+        constructor: new (...args: TArgs) => TClass,
+        ...args: TArgs
+    ): void {
         if (this._registry.has(name))
             throw new BasaltError({
                 key: UTIL_KEY_ERROR.CLASS_CONSTRUCTOR_ALREADY_REGISTERED,
@@ -92,21 +100,21 @@ class SingletonManagerSingleton {
     /**
      * Gets the singleton instance of the class. If the class is not registered, it throws an error.
      *
-     * @template T - The type of the class.
+     * @template TClass - The type of the class.
      * @param name - The name of the class to get the singleton instance.
      *
      * @throws ({@link BasaltError}) If the class is not registered, it throws an error. ({@link UTIL_KEY_ERROR.CLASS_CONSTRUCTOR_NOT_REGISTERED})
      *
-     * @returns The singleton instance of the class. ({@link T})
+     * @returns The singleton instance of the class. ({@link TClass})
      */
-    public get<T>(name: string): T {
+    public get<TClass>(name: string): TClass {
         if (!this._registry.has(name))
             throw new BasaltError({
                 key: UTIL_KEY_ERROR.CLASS_CONSTRUCTOR_NOT_REGISTERED,
                 message: 'Class constructor is not registered.',
                 cause: { name }
             });
-        return this._registry.get(name) as T;
+        return this._registry.get(name) as TClass;
     }
 
     /**

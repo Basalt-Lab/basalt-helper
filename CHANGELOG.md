@@ -1,5 +1,25 @@
 # Changelog
 
+## v1.13.2-canary-20250417-9df26cc
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.13.1...v1.13.2-canary-20250417-9df26cc)
+
+### 🧹 Refactors
+
+- **🧹:** [Refactor TypedEventEmitter for improved type safety] ([b934408](https://github.com/Basalt-Lab/basalt-helper/commit/b934408))
+
+### 📦 Build
+
+- **📦:** [Update @types/bun to version 1.2.10] Updated the @types/bun dependency from version 1.2.9 to 1.2.10 to ensure compatibility with the latest features and improvements. ([91c06b6](https://github.com/Basalt-Lab/basalt-helper/commit/91c06b6))
+
+### 🧪 Tests
+
+- **🧪:** [Refactor TypedEventEmitter tests for clarity and structure] ([c962ee2](https://github.com/Basalt-Lab/basalt-helper/commit/c962ee2))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.13.1
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.13.1-canary-20250415-e9f0851...v1.13.1)

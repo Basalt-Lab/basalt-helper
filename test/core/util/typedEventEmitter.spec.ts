@@ -2,17 +2,12 @@ import { describe, expect, mock, test } from 'bun:test';
 
 import { TypedEventEmitter } from '#/core/util/typedEventEmitter';
 
-// Define test event interfaces
-interface TestEvents {
-    testEvent: string;
-    dataEvent: { id: number; value: string };
-    noPayloadEvent: void;
-}
-
 describe('TypedEventEmitter', () => {
     describe('emit and on', () => {
-        test('should emit and listen to an event with string payload', () => {
-            const emitter = new TypedEventEmitter<TestEvents>();
+        test('should emit an event with string payload', (): void => {
+            const emitter = new TypedEventEmitter<{
+                testEvent: string;
+            }>();
             const mockListener = mock();
 
             emitter.on('testEvent', mockListener);
@@ -21,9 +16,10 @@ describe('TypedEventEmitter', () => {
             expect(mockListener).toHaveBeenCalledTimes(1);
             expect(mockListener).toHaveBeenCalledWith('test payload');
         });
-
-        test('should emit and listen to an event with object payload', () => {
-            const emitter = new TypedEventEmitter<TestEvents>();
+        test('should emit an event with object payload', (): void => {
+            const emitter = new TypedEventEmitter<{
+                dataEvent: { id: number; value: string };
+            }>();
             const mockListener = mock();
             const testData = { id: 123, value: 'test value' };
 
@@ -33,92 +29,249 @@ describe('TypedEventEmitter', () => {
             expect(mockListener).toHaveBeenCalledTimes(1);
             expect(mockListener).toHaveBeenCalledWith(testData);
         });
-
-        test('should handle multiple listeners for the same event', () => {
-            const emitter = new TypedEventEmitter<TestEvents>();
-            const mockListener1 = mock();
-            const mockListener2 = mock();
-
-            emitter.on('testEvent', mockListener1);
-            emitter.on('testEvent', mockListener2);
-            emitter.emit('testEvent', 'test payload');
-
-            expect(mockListener1).toHaveBeenCalledTimes(1);
-            expect(mockListener2).toHaveBeenCalledTimes(1);
-        });
-
-        test('should not call listeners for different events', () => {
-            const emitter = new TypedEventEmitter<TestEvents>();
-            const mockListener1 = mock();
-            const mockListener2 = mock();
-
-            emitter.on('testEvent', mockListener1);
-            emitter.on('dataEvent', mockListener2);
-            emitter.emit('testEvent', 'test payload');
-
-            expect(mockListener1).toHaveBeenCalledTimes(1);
-            expect(mockListener2).not.toHaveBeenCalled();
-        });
     });
 
     describe('once', () => {
-        test('should listen to an event only once', () => {
-            const emitter = new TypedEventEmitter<TestEvents>();
+        test('should listen to an event only once', (): void => {
+            const emitter = new TypedEventEmitter<{
+                testEvent: string;
+            }>();
             const mockListener = mock();
-
             emitter.once('testEvent', mockListener);
             emitter.emit('testEvent', 'first emission');
             emitter.emit('testEvent', 'second emission');
-
             expect(mockListener).toHaveBeenCalledTimes(1);
             expect(mockListener).toHaveBeenCalledWith('first emission');
         });
     });
 
-    describe('removeListener and removeAllListeners', () => {
-        test('should remove a specific listener', () => {
-            const emitter = new TypedEventEmitter<TestEvents>();
-            const mockListener1 = mock();
-            const mockListener2 = mock();
-
-            emitter.on('testEvent', mockListener1);
-            emitter.on('testEvent', mockListener2);
-
-            emitter.removeListener('testEvent', mockListener1);
+    describe('addListener', () => {
+        test('should add a listener for an event', (): void => {
+            const emitter = new TypedEventEmitter<{
+                testEvent: string;
+            }>();
+            const mockListener = mock();
+            emitter.addListener('testEvent', mockListener);
             emitter.emit('testEvent', 'test payload');
-
-            expect(mockListener1).not.toHaveBeenCalled();
-            expect(mockListener2).toHaveBeenCalledTimes(1);
+            expect(mockListener).toHaveBeenCalledTimes(1);
+            expect(mockListener).toHaveBeenCalledWith('test payload');
         });
-
-        test('should remove all listeners for an event', () => {
-            const emitter = new TypedEventEmitter<TestEvents>();
+        test('should add multiple listeners for the same event', (): void => {
+            const emitter = new TypedEventEmitter<{
+                testEvent: string;
+            }>();
             const mockListener1 = mock();
             const mockListener2 = mock();
-
-            emitter.on('testEvent', mockListener1);
-            emitter.on('testEvent', mockListener2);
-
-            emitter.removeAllListeners('testEvent');
+            emitter.addListener('testEvent', mockListener1);
+            emitter.addListener('testEvent', mockListener2);
             emitter.emit('testEvent', 'test payload');
-
-            expect(mockListener1).not.toHaveBeenCalled();
-            expect(mockListener2).not.toHaveBeenCalled();
+            expect(mockListener1).toHaveBeenCalledTimes(1);
+            expect(mockListener1).toHaveBeenCalledWith('test payload');
+            expect(mockListener2).toHaveBeenCalledTimes(1);
+            expect(mockListener2).toHaveBeenCalledWith('test payload');
         });
     });
 
-    describe('type safety', () => {
-        test('should maintain type safety for event payloads', () => {
-            const emitter = new TypedEventEmitter<TestEvents>();
+    describe('removeListener', () => {
+        test('should remove a specific listener', (): void => {
+            const emitter = new TypedEventEmitter<{
+                testEvent: string;
+            }>();
+            const mockListener1 = mock();
+            const mockListener2 = mock();
+            emitter.addListener('testEvent', mockListener1);
+            emitter.addListener('testEvent', mockListener2);
+            emitter.removeListener('testEvent', mockListener1);
+            emitter.emit('testEvent', 'test payload');
+            expect(mockListener1).not.toHaveBeenCalled();
+            expect(mockListener2).toHaveBeenCalledTimes(1);
+            expect(mockListener2).toHaveBeenCalledWith('test payload');
+        });
+    });
 
-            // This is primarily a compile-time check, but we can test runtime behavior
-            const mockListener = mock();
-            emitter.on('dataEvent', mockListener);
+    describe('off', () => {
+        test('should remove a specific listener (alias for removeListener)', (): void => {
+            const emitter = new TypedEventEmitter<{
+                testEvent: string;
+            }>();
+            const mockListener1 = mock();
+            const mockListener2 = mock();
+            emitter.addListener('testEvent', mockListener1);
+            emitter.addListener('testEvent', mockListener2);
+            emitter.off('testEvent', mockListener1);
+            emitter.emit('testEvent', 'test payload');
+            expect(mockListener1).not.toHaveBeenCalled();
+            expect(mockListener2).toHaveBeenCalledTimes(1);
+            expect(mockListener2).toHaveBeenCalledWith('test payload');
+        });
+    });
 
-            const payload = { id: 456, value: 'typed value' };
-            emitter.emit('dataEvent', payload);
+    describe('listenerCount', () => {
+        test('should return the number of listeners for an event', (): void => {
+            const emitter = new TypedEventEmitter<{
+                testEvent: string;
+            }>();
+            const mockListener1 = mock();
+            const mockListener2 = mock();
+            emitter.addListener('testEvent', mockListener1);
+            emitter.addListener('testEvent', mockListener2);
+            const count = emitter.listenerCount('testEvent');
+            expect(count).toBe(2);
+            emitter.removeListener('testEvent', mockListener1);
+            const newCount = emitter.listenerCount('testEvent');
+            expect(newCount).toBe(1);
+            emitter.removeListener('testEvent', mockListener2);
+            const finalCount = emitter.listenerCount('testEvent');
+            expect(finalCount).toBe(0);
+        });
+    });
 
-            expect(mockListener).toHaveBeenCalledWith(payload);
+    describe('listeners', () => {
+        test('should return the listeners for an event', (): void => {
+            const emitter = new TypedEventEmitter<{
+                testEvent: string;
+            }>();
+            const mockListener1 = mock();
+            const mockListener2 = mock();
+            emitter.addListener('testEvent', mockListener1);
+            emitter.addListener('testEvent', mockListener2);
+            const listeners = emitter.listeners('testEvent');
+            expect(listeners).toHaveLength(2);
+            expect(listeners).toContain(mockListener1);
+            expect(listeners).toContain(mockListener2);
+
+            emitter.removeListener('testEvent', mockListener1);
+            const newListeners = emitter.listeners('testEvent');
+            expect(newListeners).toHaveLength(1);
+            expect(newListeners).not.toContain(mockListener1);
+            expect(newListeners).toContain(mockListener2);
+
+            emitter.removeListener('testEvent', mockListener2);
+            const finalListeners = emitter.listeners('testEvent');
+            expect(finalListeners).toHaveLength(0);
+            expect(finalListeners).not.toContain(mockListener1);
+            expect(finalListeners).not.toContain(mockListener2);
+        });
+    });
+
+    describe('rawListeners', () => {
+        test('should return the raw listeners for an event', (): void => {
+            const emitter = new TypedEventEmitter<{
+                testEvent: string;
+            }>();
+            const mockListener1 = mock();
+            const mockListener2 = mock();
+            emitter.addListener('testEvent', mockListener1);
+            emitter.addListener('testEvent', mockListener2);
+            const rawListeners = emitter.rawListeners('testEvent');
+            expect(rawListeners).toHaveLength(2);
+            expect(rawListeners).toContain(mockListener1);
+            expect(rawListeners).toContain(mockListener2);
+            emitter.removeListener('testEvent', mockListener1);
+            const newRawListeners = emitter.rawListeners('testEvent');
+            expect(newRawListeners).toHaveLength(1);
+            expect(newRawListeners).not.toContain(mockListener1);
+            expect(newRawListeners).toContain(mockListener2);
+            emitter.removeListener('testEvent', mockListener2);
+            const finalRawListeners = emitter.rawListeners('testEvent');
+            expect(finalRawListeners).toHaveLength(0);
+            expect(finalRawListeners).not.toContain(mockListener1);
+            expect(finalRawListeners).not.toContain(mockListener2);
+        });
+    });
+
+    describe('prependListener', () => {
+        test('should add a listener to the beginning of the listeners array', (): void => {
+            const emitter = new TypedEventEmitter<{
+                testEvent: string;
+            }>();
+            const mockListener1 = mock();
+            const mockListener2 = mock();
+            emitter.addListener('testEvent', mockListener1);
+            emitter.prependListener('testEvent', mockListener2);
+            const listeners = emitter.listeners('testEvent');
+            expect(listeners).toHaveLength(2);
+            expect(listeners[0]).toBe(mockListener2);
+            expect(listeners[1]).toBe(mockListener1);
+            emitter.emit('testEvent', 'test payload');
+            expect(mockListener2).toHaveBeenCalledTimes(1);
+            expect(mockListener2).toHaveBeenCalledWith('test payload');
+            expect(mockListener1).toHaveBeenCalledTimes(1);
+            expect(mockListener1).toHaveBeenCalledWith('test payload');
+        });
+        test('should add multiple listeners to the beginning of the listeners array', (): void => {
+            const emitter = new TypedEventEmitter<{
+                testEvent: string;
+            }>();
+            const mockListener1 = mock();
+            const mockListener2 = mock();
+            const mockListener3 = mock();
+            emitter.addListener('testEvent', mockListener1);
+            emitter.prependListener('testEvent', mockListener2);
+            emitter.prependListener('testEvent', mockListener3);
+            const listeners = emitter.listeners('testEvent');
+            expect(listeners).toHaveLength(3);
+            expect(listeners[0]).toBe(mockListener3);
+            expect(listeners[1]).toBe(mockListener2);
+            expect(listeners[2]).toBe(mockListener1);
+            emitter.emit('testEvent', 'test payload');
+            expect(mockListener3).toHaveBeenCalledTimes(1);
+            expect(mockListener3).toHaveBeenCalledWith('test payload');
+            expect(mockListener2).toHaveBeenCalledTimes(1);
+            expect(mockListener2).toHaveBeenCalledWith('test payload');
+            expect(mockListener1).toHaveBeenCalledTimes(1);
+            expect(mockListener1).toHaveBeenCalledWith('test payload');
+        });
+    });
+
+    describe('prependOnceListener', () => {
+        test('should add a one-time listener to the beginning of the listeners array', (): void => {
+            const emitter = new TypedEventEmitter<{
+                testEvent: string;
+            }>();
+            const mockListener1 = mock();
+            const mockListener2 = mock();
+            emitter.addListener('testEvent', mockListener1);
+            emitter.prependOnceListener('testEvent', mockListener2);
+            const listeners = emitter.listeners('testEvent');
+            expect(listeners).toHaveLength(2);
+            expect(listeners[0]).toBe(mockListener2);
+            expect(listeners[1]).toBe(mockListener1);
+            emitter.emit('testEvent', 'test payload');
+            expect(mockListener2).toHaveBeenCalledTimes(1);
+            expect(mockListener2).toHaveBeenCalledWith('test payload');
+            expect(mockListener1).toHaveBeenCalledTimes(1);
+            expect(mockListener1).toHaveBeenCalledWith('test payload');
+            emitter.emit('testEvent', 'test payload again');
+            expect(mockListener2).toHaveBeenCalledTimes(1); // Should not be called again
+            expect(mockListener1).toHaveBeenCalledTimes(2); // Should be called again
+        });
+        test('should add multiple one-time listeners to the beginning of the listeners array', (): void => {
+            const emitter = new TypedEventEmitter<{
+                testEvent: string;
+            }>();
+            const mockListener1 = mock();
+            const mockListener2 = mock();
+            const mockListener3 = mock();
+            emitter.addListener('testEvent', mockListener1);
+            emitter.prependOnceListener('testEvent', mockListener2);
+            emitter.prependOnceListener('testEvent', mockListener3);
+            const listeners = emitter.listeners('testEvent');
+            expect(listeners).toHaveLength(3);
+            expect(listeners[0]).toBe(mockListener3);
+            expect(listeners[1]).toBe(mockListener2);
+            expect(listeners[2]).toBe(mockListener1);
+            emitter.emit('testEvent', 'test payload');
+            expect(mockListener3).toHaveBeenCalledTimes(1);
+            expect(mockListener3).toHaveBeenCalledWith('test payload');
+            expect(mockListener2).toHaveBeenCalledTimes(1);
+            expect(mockListener2).toHaveBeenCalledWith('test payload');
+            expect(mockListener1).toHaveBeenCalledTimes(1);
+            expect(mockListener1).toHaveBeenCalledWith('test payload');
+            emitter.emit('testEvent', 'test payload again');
+            expect(mockListener3).toHaveBeenCalledTimes(1); // Should not be called again
+            expect(mockListener2).toHaveBeenCalledTimes(1); // Should not be called again
+            expect(mockListener1).toHaveBeenCalledTimes(2); // Should be called again
         });
     });
 });

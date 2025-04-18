@@ -6,7 +6,7 @@ describe('TypedEventEmitter', () => {
     describe('emit and on', () => {
         test('should emit an event with string payload', (): void => {
             const emitter = new TypedEventEmitter<{
-                testEvent: string;
+                testEvent: [string];
             }>();
             const mockListener = mock();
 
@@ -18,7 +18,7 @@ describe('TypedEventEmitter', () => {
         });
         test('should emit an event with object payload', (): void => {
             const emitter = new TypedEventEmitter<{
-                dataEvent: { id: number; value: string };
+                dataEvent: [{ id: number; value: string }];
             }>();
             const mockListener = mock();
             const testData = { id: 123, value: 'test value' };
@@ -34,7 +34,7 @@ describe('TypedEventEmitter', () => {
     describe('once', () => {
         test('should listen to an event only once', (): void => {
             const emitter = new TypedEventEmitter<{
-                testEvent: string;
+                testEvent: [string];
             }>();
             const mockListener = mock();
             emitter.once('testEvent', mockListener);
@@ -48,7 +48,7 @@ describe('TypedEventEmitter', () => {
     describe('addListener', () => {
         test('should add a listener for an event', (): void => {
             const emitter = new TypedEventEmitter<{
-                testEvent: string;
+                testEvent: [string];
             }>();
             const mockListener = mock();
             emitter.addListener('testEvent', mockListener);
@@ -58,7 +58,7 @@ describe('TypedEventEmitter', () => {
         });
         test('should add multiple listeners for the same event', (): void => {
             const emitter = new TypedEventEmitter<{
-                testEvent: string;
+                testEvent: [string];
             }>();
             const mockListener1 = mock();
             const mockListener2 = mock();
@@ -75,7 +75,7 @@ describe('TypedEventEmitter', () => {
     describe('removeListener', () => {
         test('should remove a specific listener', (): void => {
             const emitter = new TypedEventEmitter<{
-                testEvent: string;
+                testEvent: [string];
             }>();
             const mockListener1 = mock();
             const mockListener2 = mock();
@@ -92,7 +92,7 @@ describe('TypedEventEmitter', () => {
     describe('off', () => {
         test('should remove a specific listener (alias for removeListener)', (): void => {
             const emitter = new TypedEventEmitter<{
-                testEvent: string;
+                testEvent: [string];
             }>();
             const mockListener1 = mock();
             const mockListener2 = mock();
@@ -109,7 +109,7 @@ describe('TypedEventEmitter', () => {
     describe('listenerCount', () => {
         test('should return the number of listeners for an event', (): void => {
             const emitter = new TypedEventEmitter<{
-                testEvent: string;
+                testEvent: [string];
             }>();
             const mockListener1 = mock();
             const mockListener2 = mock();
@@ -129,7 +129,7 @@ describe('TypedEventEmitter', () => {
     describe('listeners', () => {
         test('should return the listeners for an event', (): void => {
             const emitter = new TypedEventEmitter<{
-                testEvent: string;
+                testEvent: [string];
             }>();
             const mockListener1 = mock();
             const mockListener2 = mock();
@@ -157,7 +157,7 @@ describe('TypedEventEmitter', () => {
     describe('rawListeners', () => {
         test('should return the raw listeners for an event', (): void => {
             const emitter = new TypedEventEmitter<{
-                testEvent: string;
+                testEvent: [string];
             }>();
             const mockListener1 = mock();
             const mockListener2 = mock();
@@ -183,7 +183,7 @@ describe('TypedEventEmitter', () => {
     describe('prependListener', () => {
         test('should add a listener to the beginning of the listeners array', (): void => {
             const emitter = new TypedEventEmitter<{
-                testEvent: string;
+                testEvent: [string];
             }>();
             const mockListener1 = mock();
             const mockListener2 = mock();
@@ -201,7 +201,7 @@ describe('TypedEventEmitter', () => {
         });
         test('should add multiple listeners to the beginning of the listeners array', (): void => {
             const emitter = new TypedEventEmitter<{
-                testEvent: string;
+                testEvent: [string];
             }>();
             const mockListener1 = mock();
             const mockListener2 = mock();
@@ -227,7 +227,7 @@ describe('TypedEventEmitter', () => {
     describe('prependOnceListener', () => {
         test('should add a one-time listener to the beginning of the listeners array', (): void => {
             const emitter = new TypedEventEmitter<{
-                testEvent: string;
+                testEvent: [string];
             }>();
             const mockListener1 = mock();
             const mockListener2 = mock();
@@ -248,7 +248,7 @@ describe('TypedEventEmitter', () => {
         });
         test('should add multiple one-time listeners to the beginning of the listeners array', (): void => {
             const emitter = new TypedEventEmitter<{
-                testEvent: string;
+                testEvent: [string];
             }>();
             const mockListener1 = mock();
             const mockListener2 = mock();

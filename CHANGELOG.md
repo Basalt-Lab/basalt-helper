@@ -1,5 +1,21 @@
 # Changelog
 
+## v1.13.3-canary-20250418-7eff733
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.13.3-canary-20250418-9c22f53...v1.13.3-canary-20250418-7eff733)
+
+### 🧹 Refactors
+
+- **🧹:** [Fix typo in .npmignore for bundler file name] ([01e800a](https://github.com/Basalt-Lab/basalt-helper/commit/01e800a))
+
+### 🦉 Chore
+
+- **🦉:** [Remove outdated changelog entries] ([eef03e6](https://github.com/Basalt-Lab/basalt-helper/commit/eef03e6))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+
 ## v1.13.3-canary-20250418-9c22f53
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.13.2...v1.13.3-canary-20250418-9c22f53)

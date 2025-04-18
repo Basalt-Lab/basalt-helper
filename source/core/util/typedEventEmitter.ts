@@ -24,13 +24,13 @@ export class TypedEventEmitter<TEvents extends EventMap> extends EventEmitter {
      *
      * @example
      * ```typescript
-     * class MyEmitter extends TypedEventEmitter<{ foo: string }> {}
+     * class MyEmitter extends TypedEventEmitter<{ foo: [string] }> {}
      * const emitter = new MyEmitter();
      * emitter.emit('foo', 'hello');
      * ```
      */
-    public override emit<KEvent extends keyof TEvents>(event: KEvent, payload: TEvents[KEvent]): boolean {
-        return super.emit(event as string, payload);
+    public override emit<KEvent extends keyof TEvents>(event: KEvent, ...args: TEvents[KEvent]): boolean {
+        return super.emit(event as string, ...args as unknown[]);
     }
 
     /**
@@ -43,14 +43,14 @@ export class TypedEventEmitter<TEvents extends EventMap> extends EventEmitter {
      *
      * @example
      * ```typescript
-     * class MyEmitter extends TypedEventEmitter<{ foo: string }> {}
+     * class MyEmitter extends TypedEventEmitter<{ foo: [string] }> {}
      * const emitter = new MyEmitter();
      * emitter.on('foo', payload => {
      *   console.log(payload); // payload is string
      * });
      * ```
      */
-    public override on<KEvent extends keyof TEvents>(event: KEvent, listener: (payload: TEvents[KEvent]) => void): this {
+    public override on<KEvent extends keyof TEvents>(event: KEvent, listener: (...args: TEvents[KEvent]) => void): this {
         return super.on(event as string, listener);
     }
 
@@ -64,14 +64,14 @@ export class TypedEventEmitter<TEvents extends EventMap> extends EventEmitter {
      *
      * @example
      * ```typescript
-     * class MyEmitter extends TypedEventEmitter<{ bar: number }> {}
+     * class MyEmitter extends TypedEventEmitter<{ bar: [number] }> {}
      * const emitter = new MyEmitter();
      * emitter.once('bar', payload => {
      *   console.log(payload); // payload is number
      * });
      * ```
      */
-    public override once<KEvent extends keyof TEvents>(event: KEvent, listener: (payload: TEvents[KEvent]) => void): this {
+    public override once<KEvent extends keyof TEvents>(event: KEvent, listener: (...args: TEvents[KEvent]) => void): this {
         return super.once(event as string, listener);
     }
 
@@ -85,14 +85,14 @@ export class TypedEventEmitter<TEvents extends EventMap> extends EventEmitter {
      *
      * @example
      * ```typescript
-     * class MyEmitter extends TypedEventEmitter<{ baz: boolean }> {}
+     * class MyEmitter extends TypedEventEmitter<{ baz: [boolean] }> {}
      * const emitter = new MyEmitter();
      * emitter.addListener('baz', payload => {
      *   console.log(payload); // payload is boolean
      * });
      * ```
      */
-    public override addListener<KEvent extends keyof TEvents>(event: KEvent, listener: (payload: TEvents[KEvent]) => void): this {
+    public override addListener<KEvent extends keyof TEvents>(event: KEvent, listener: (...args: TEvents[KEvent]) => void): this {
         return super.addListener(event as string, listener);
     }
 
@@ -113,7 +113,7 @@ export class TypedEventEmitter<TEvents extends EventMap> extends EventEmitter {
      * emitter.removeListener('foo', handler);
      * ```
      */
-    public override removeListener<KEvent extends keyof TEvents>(event: KEvent, listener: (payload: TEvents[KEvent]) => void): this {
+    public override removeListener<KEvent extends keyof TEvents>(event: KEvent, listener: (...args: TEvents[KEvent]) => void): this {
         return super.removeListener(event as string, listener);
     }
 
@@ -127,14 +127,14 @@ export class TypedEventEmitter<TEvents extends EventMap> extends EventEmitter {
      *
      * @example
      * ```typescript
-     * class MyEmitter extends TypedEventEmitter<{ foo: string }> {}
+     * class MyEmitter extends TypedEventEmitter<{ foo: [string] }> {}
      * const emitter = new MyEmitter();
      * const handler = (payload: string) => {};
      * emitter.on('foo', handler);
      * emitter.off('foo', handler);
      * ```
      */
-    public override off<KEvent extends keyof TEvents>(event: KEvent, listener: (payload: TEvents[KEvent]) => void): this {
+    public override off<KEvent extends keyof TEvents>(event: KEvent, listener: (...args: TEvents[KEvent]) => void): this {
         return super.off(event as string, listener);
     }
 
@@ -147,7 +147,7 @@ export class TypedEventEmitter<TEvents extends EventMap> extends EventEmitter {
      *
      * @example
      * ```typescript
-     * class MyEmitter extends TypedEventEmitter<{ foo: string }> {}
+     * class MyEmitter extends TypedEventEmitter<{ foo: [string] }> {}
      * const emitter = new MyEmitter();
      * emitter.on('foo', () => {});
      * const count = emitter.listenerCount('foo');
@@ -166,14 +166,14 @@ export class TypedEventEmitter<TEvents extends EventMap> extends EventEmitter {
      *
      * @example
      * ```typescript
-     * class MyEmitter extends TypedEventEmitter<{ foo: string }> {}
+     * class MyEmitter extends TypedEventEmitter<{ foo: [string] }> {}
      * const emitter = new MyEmitter();
      * emitter.on('foo', () => {});
      * const listeners = emitter.listeners('foo');
      * ```
      */
-    public override listeners<KEvent extends keyof TEvents>(event: KEvent): ((payload: TEvents[KEvent]) => void)[] {
-        return super.listeners(event as string) as ((payload: TEvents[KEvent]) => void)[];
+    public override listeners<KEvent extends keyof TEvents>(event: KEvent): ((...args: TEvents[KEvent]) => void)[] {
+        return super.listeners(event as string) as ((...args: TEvents[KEvent]) => void)[];
     }
 
     /**
@@ -185,14 +185,14 @@ export class TypedEventEmitter<TEvents extends EventMap> extends EventEmitter {
      *
      * @example
      * ```typescript
-     * class MyEmitter extends TypedEventEmitter<{ foo: string }> {}
+     * class MyEmitter extends TypedEventEmitter<{ foo: [string] }> {}
      * const emitter = new MyEmitter();
      * emitter.on('foo', () => {});
      * const rawListeners = emitter.rawListeners('foo');
      * ```
      */
-    public override rawListeners<KEvent extends keyof TEvents>(event: KEvent): ((payload: TEvents[KEvent]) => void)[] {
-        return super.rawListeners(event as string) as ((payload: TEvents[KEvent]) => void)[];
+    public override rawListeners<KEvent extends keyof TEvents>(event: KEvent): ((...args: TEvents[KEvent]) => void)[] {
+        return super.rawListeners(event as string) as ((...args: TEvents[KEvent]) => void)[];
     }
 
     /**
@@ -205,14 +205,14 @@ export class TypedEventEmitter<TEvents extends EventMap> extends EventEmitter {
      *
      * @example
      * ```typescript
-     * class MyEmitter extends TypedEventEmitter<{ foo: string }> {}
+     * class MyEmitter extends TypedEventEmitter<{ foo: [string] }> {}
      * const emitter = new MyEmitter();
      * emitter.prependListener('foo', payload => {
      *   console.log(payload);
      * });
      * ```
      */
-    public override prependListener<KEvent extends keyof TEvents>(event: KEvent, listener: (payload: TEvents[KEvent]) => void): this {
+    public override prependListener<KEvent extends keyof TEvents>(event: KEvent, listener: (...args: TEvents[KEvent]) => void): this {
         return super.prependListener(event as string, listener);
     }
 
@@ -226,14 +226,14 @@ export class TypedEventEmitter<TEvents extends EventMap> extends EventEmitter {
      *
      * @example
      * ```typescript
-     * class MyEmitter extends TypedEventEmitter<{ foo: string }> {}
+     * class MyEmitter extends TypedEventEmitter<{ foo: [string] }> {}
      * const emitter = new MyEmitter();
      * emitter.prependOnceListener('foo', payload => {
      *   console.log(payload);
      * });
      * ```
      */
-    public override prependOnceListener<KEvent extends keyof TEvents>(event: KEvent, listener: (payload: TEvents[KEvent]) => void): this {
+    public override prependOnceListener<KEvent extends keyof TEvents>(event: KEvent, listener: (...args: TEvents[KEvent]) => void): this {
         return super.prependOnceListener(event as string, listener);
     }
 }

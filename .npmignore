@@ -8,7 +8,7 @@
 # === Archives and build-related files ===
 *.tgz
 # === Bundler configuration files ===
-bundler.ts
+builder.ts
 CHANGELOG.md
 
 # === Documentation-related folders ===

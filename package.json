@@ -23,12 +23,16 @@
     "tools"
   ],
   "exports": {
-    "./data": "./dist/core/data/index.js",
-    "./data/transformer": "./dist/core/data/transformer/index.js",
-    "./util": "./dist/core/util/index.js",
+    "./data/enums": "./dist/data/enums/index.js",
+    "./data/transformer": "./dist/data/transformer/index.js",
+    "./data/types": "./dist/data/types/index.js",
+    "./data": "./dist/data/index.js",
     "./error": "./dist/error/index.js",
-    "./error/key": "./dist/error/key/index.js",
-    "./types": "./dist/types/index.js",
+    "./error/types": "./dist/error/types/index.js",
+    "./singletonManager/enums": "./dist/singletonManager/enums/index.js",
+    "./singletonManager": "./dist/singletonManager/index.js",
+    "./typedEventEmitter/types": "./dist/typedEventEmitter/types/index.js",
+    "./typedEventEmitter": "./dist/typedEventEmitter/index.js",
     ".": "./dist/index.js"
   },
   "devDependencies": {

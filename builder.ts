@@ -13,15 +13,19 @@ await Bun.build({
     external: [...dependencies, ...devDependencies, ...peerDependencies],
     root: './source',
     entrypoints: [
-        './source/core/data/index.ts',
-        './source/core/data/transformer/index.ts',
+        './source/data/enums/index.ts',
+        './source/data/transformer/index.ts',
+        './source/data/types/index.ts',
+        './source/data/index.ts',
 
-        './source/core/util/index.ts',
-
+        './source/error/types/index.ts',
         './source/error/index.ts',
-        './source/error/key/index.ts',
 
-        './source/types/index.ts',
+        './source/singletonManager/enums/index.ts',
+        './source/singletonManager/index.ts',
+
+        './source/typedEventEmitter/types/index.ts',
+        './source/typedEventEmitter/index.ts',
 
         './source/index.ts'
     ],

@@ -1,9 +1,21 @@
 import { describe, expect, mock, test } from 'bun:test';
 
-import { TypedEventEmitter } from '#/core/util/typedEventEmitter';
+import { TypedEventEmitter } from '#/typedEventEmitter/typedEventEmitter';
 
 describe('TypedEventEmitter', () => {
     describe('emit and on', () => {
+        test('should emit an event with no payload', (): void => {
+            const emitter = new TypedEventEmitter<{
+                testEvent: [];
+            }>();
+            const mockListener = mock();
+
+            emitter.on('testEvent', mockListener);
+            emitter.emit('testEvent');
+
+            expect(mockListener).toHaveBeenCalledTimes(1);
+            expect(mockListener).toHaveBeenCalledWith();
+        });
         test('should emit an event with string payload', (): void => {
             const emitter = new TypedEventEmitter<{
                 testEvent: [string];

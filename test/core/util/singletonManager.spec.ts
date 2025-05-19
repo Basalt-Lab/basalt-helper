@@ -3,7 +3,7 @@ import { afterEach, describe, expect, test } from 'bun:test';
 
 import {
     SingletonManager
-} from '#/core/util/singletonManager';
+} from '#/singletonManager/singletonManager';
 
 class ExampleSingleton {
     public sayHello(): void {

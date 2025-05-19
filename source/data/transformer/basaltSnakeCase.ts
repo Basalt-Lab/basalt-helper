@@ -1,4 +1,4 @@
-import type { BasaltKeyTransformer } from '#/types/data/basaltKeyTransformer';
+import type { BasaltKeyTransformer } from '#/data/types/basaltKeyTransformer';
 
 /**
  * Transforms string keys into snake_case format.

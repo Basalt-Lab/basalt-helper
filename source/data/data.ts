@@ -1,6 +1,6 @@
 import { BasaltError } from '#/error/basaltError';
-import { DATA_KEY_ERROR } from '#/error/key/dataKeyError';
-import type { BasaltKeyTransformer } from '#/types/data/basaltKeyTransformer';
+import { dataErrorKeys } from './enums/dataErrorKeys';
+import type { BasaltKeyTransformer } from './types/basaltKeyTransformer';
 
 /**
  * Checks if the provided data is null or undefined and throws an error if it is.
@@ -9,15 +9,15 @@ import type { BasaltKeyTransformer } from '#/types/data/basaltKeyTransformer';
  *
  * @param data - The data to be validated.
  *
- * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link DATA_KEY_ERROR.DATA_IS_NULL})
+ * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link dataErrorKeys.dataIsNull})
  */
-function _validateDataNull<TObject>(data: TObject): void {
+const _validateDataNull = <TObject>(data: TObject): void => {
     if (data === null || data === undefined)
         throw new BasaltError({
-            key: DATA_KEY_ERROR.DATA_IS_NULL,
+            key: dataErrorKeys.dataIsNull,
             message: 'Data cannot be null or undefined.'
         });
-}
+};
 
 /**
  * Checks if the provided data is an object and throws an error if it is not.
@@ -26,15 +26,15 @@ function _validateDataNull<TObject>(data: TObject): void {
  *
  * @param data - The data to be validated.
  *
- * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link DATA_KEY_ERROR.DATA_MUST_BE_OBJECT})
+ * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link dataErrorKeys.dataMustBeObject})
  */
-function _validateDataIsObject<TObject>(data: TObject): void {
+const _validateDataIsObject = <TObject>(data: TObject): void => {
     if (typeof data !== 'object')
         throw new BasaltError({
-            key: DATA_KEY_ERROR.DATA_MUST_BE_OBJECT,
+            key: dataErrorKeys.dataMustBeObject,
             message: 'Data must be a plain object.'
         });
-}
+};
 
 /**
  * Filters the provided data by excluding the specified keys. This method will create
@@ -48,8 +48,8 @@ function _validateDataIsObject<TObject>(data: TObject): void {
  * @param keys - The array of keys to exclude from the data object. (Can be empty)
  * @param excludeNullUndefined - Flag to determine if properties with null or undefined values should be excluded.
  *
- * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link DATA_KEY_ERROR.DATA_IS_NULL})
- * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link DATA_KEY_ERROR.DATA_MUST_BE_OBJECT})
+ * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link dataErrorKeys.dataIsNull})
+ * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link dataErrorKeys.dataMustBeObject})
  *
  * @example
  * ```typescript
@@ -67,11 +67,11 @@ function _validateDataIsObject<TObject>(data: TObject): void {
  *
  * @returns The filtered data object with the specified keys excluded. ({@link TObject})
  */
-export function filterByKeyExclusion<TObject extends Readonly<object>>(
+export const filterByKeyExclusion = <TObject extends Readonly<object>>(
     data: Readonly<TObject>,
     keys: readonly (keyof TObject)[],
     excludeNullUndefined = false
-): TObject {
+): TObject => {
     _validateDataNull(data);
     _validateDataIsObject(data);
     const filteredData = {} as TObject;
@@ -81,7 +81,7 @@ export function filterByKeyExclusion<TObject extends Readonly<object>>(
             filteredData[typedKey] = data[typedKey];
     });
     return filteredData;
-}
+};
 
 /**
  * Filters the provided data by including only the specified keys. The resulting object
@@ -93,8 +93,8 @@ export function filterByKeyExclusion<TObject extends Readonly<object>>(
  * @param keys - The array of keys to include in the resulting data object. (Can be empty)
  * @param excludeNullUndefined - Flag to determine if properties with null or undefined values should be excluded.
  *
- * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link DATA_KEY_ERROR.DATA_IS_NULL})
- * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link DATA_KEY_ERROR.DATA_MUST_BE_OBJECT})
+ * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link dataErrorKeys.dataIsNull})
+ * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link dataErrorKeys.dataMustBeObject})
  *
  * @example
  * ```typescript
@@ -112,11 +112,11 @@ export function filterByKeyExclusion<TObject extends Readonly<object>>(
  *
  * @returns The filtered data object with only the specified keys included. ({@link TObject})
  */
-export function filterByKeyInclusion<TObject extends Readonly<object>>(
+export const filterByKeyInclusion = <TObject extends Readonly<object>>(
     data: Readonly<TObject>,
     keys: readonly (keyof TObject)[],
     excludeNullUndefined = false
-): TObject {
+): TObject => {
     _validateDataNull(data);
     _validateDataIsObject(data);
     const filteredData = {} as TObject;
@@ -125,7 +125,7 @@ export function filterByKeyInclusion<TObject extends Readonly<object>>(
             filteredData[key] = data[key];
     });
     return filteredData;
-}
+};
 
 /**
  * Filters the provided data based on a predicate applied to its values. The resulting object
@@ -137,8 +137,8 @@ export function filterByKeyInclusion<TObject extends Readonly<object>>(
  * @param predicate - The predicate function to apply to the values.
  * @param excludeNullUndefined - Flag to determine if properties with null or undefined values should be excluded. Default is false.
  *
- * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link DATA_KEY_ERROR.DATA_IS_NULL})
- * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link DATA_KEY_ERROR.DATA_MUST_BE_OBJECT})
+ * @throws ({@link BasaltError}) - Throws an error if the data is null or undefined. ({@link dataErrorKeys.dataIsNull})
+ * @throws ({@link BasaltError}) - Throws an error if the data is not a plain object. ({@link dataErrorKeys.dataMustBeObject})
  *
  * @example
  * ```typescript
@@ -156,11 +156,11 @@ export function filterByKeyInclusion<TObject extends Readonly<object>>(
  *
  * @returns The filtered data object with properties satisfying the predicate. ({@link TObject})
  */
-export function filterByValue<TObject extends Readonly<object>> (
+export const filterByValue = <TObject extends Readonly<object>>(
     data: Readonly<TObject>,
     predicate: (value: TObject[keyof TObject]) => boolean,
     excludeNullUndefined = false
-): TObject {
+): TObject => {
     _validateDataNull(data);
     _validateDataIsObject(data);
     const filteredData = {} as TObject;
@@ -171,7 +171,7 @@ export function filterByValue<TObject extends Readonly<object>> (
                 filteredData[typedKey] = data[typedKey];
         }
     return filteredData;
-}
+};
 
 /**
  * Transforms the keys of the given object using the current transformation strategy.
@@ -179,8 +179,8 @@ export function filterByValue<TObject extends Readonly<object>> (
  * @param data - The object whose keys are to be transformed.
  * @param transformer - The key transformation strategy to use.
  *
- * @throws ({@link BasaltError}) - If the provided data object is null or undefined. ({@link DATA_KEY_ERROR.DATA_IS_NULL})
- * @throws ({@link BasaltError}) - If the provided data object is not a plain object. ({@link DATA_KEY_ERROR.DATA_MUST_BE_OBJECT})
+ * @throws ({@link BasaltError}) - If the provided data object is null or undefined. ({@link dataErrorKeys.dataIsNull})
+ * @throws ({@link BasaltError}) - If the provided data object is not a plain object. ({@link dataErrorKeys.dataMustBeObject})
 *
  * @example
  * ```typescript
@@ -190,10 +190,10 @@ export function filterByValue<TObject extends Readonly<object>> (
  *
  * @returns A new object with transformed keys. ({@link TObject})
  */
-export function transformKeys<TObject extends Readonly<object>>(
+export const transformKeys= <TObject extends Readonly<object>>(
     data: Readonly<TObject>,
     transformer: Readonly<BasaltKeyTransformer>
-): TObject {
+): TObject => {
     _validateDataNull(data);
     _validateDataIsObject(data);
     const result = {} as TObject;
@@ -204,4 +204,4 @@ export function transformKeys<TObject extends Readonly<object>>(
             result[transformedKey as keyof TObject] = data[key as keyof TObject];
         }
     return result;
-}
+};

@@ -1,6 +1,6 @@
 // eslint-disable-next-line max-classes-per-file
 import { BasaltError } from '#/error/basaltError';
-import { UTIL_KEY_ERROR } from '#/error/key/utilKeyError';
+import { singletonManagerErrorKeys } from './enums/singletonManagerErrorKeys';
 
 /**
  * SingletonManagerSingleton is a singleton class that manages the singletons in the application.
@@ -61,7 +61,7 @@ class SingletonManagerSingleton {
      * @param constructor - The constructor of the class.
      * @param args - The arguments to pass to the constructor of the class.
      *
-     * @throws ({@link BasaltError}) If the class constructor is already registered, it throws an error. ({@link UTIL_KEY_ERROR.CLASS_CONSTRUCTOR_ALREADY_REGISTERED})
+     * @throws ({@link BasaltError}) If the class constructor is already registered, it throws an error. ({@link singletonManagerErrorKeys.classConstructorAlreadyRegistered})
      */
     public register<
         TClass extends object,
@@ -73,7 +73,7 @@ class SingletonManagerSingleton {
     ): void {
         if (this._registry.has(name))
             throw new BasaltError({
-                key: UTIL_KEY_ERROR.CLASS_CONSTRUCTOR_ALREADY_REGISTERED,
+                key: singletonManagerErrorKeys.classConstructorAlreadyRegistered,
                 message: 'Class constructor is already registered.',
                 cause: { name }
             });
@@ -85,12 +85,12 @@ class SingletonManagerSingleton {
      *
      * @param name - The name of the class to unregister.
      *
-     * @throws ({@link BasaltError}) If the class constructor is not registered, it throws an error. ({@link UTIL_KEY_ERROR.CLASS_CONSTRUCTOR_NOT_REGISTERED})
+     * @throws ({@link BasaltError}) If the class constructor is not registered, it throws an error. ({@link singletonManagerErrorKeys.classConstructorNotRegistered})
      */
     public unregister(name: string): void {
         if (!this._registry.has(name))
             throw new BasaltError({
-                key: UTIL_KEY_ERROR.CLASS_CONSTRUCTOR_NOT_REGISTERED,
+                key: singletonManagerErrorKeys.classConstructorNotRegistered,
                 message: 'Class constructor is not registered.',
                 cause: { name }
             });
@@ -103,14 +103,14 @@ class SingletonManagerSingleton {
      * @template TClass - The type of the class.
      * @param name - The name of the class to get the singleton instance.
      *
-     * @throws ({@link BasaltError}) If the class is not registered, it throws an error. ({@link UTIL_KEY_ERROR.CLASS_CONSTRUCTOR_NOT_REGISTERED})
+     * @throws ({@link BasaltError}) If the class is not registered, it throws an error. ({@link singletonManagerErrorKeys.classConstructorNotRegistered})
      *
      * @returns The singleton instance of the class. ({@link TClass})
      */
     public get<TClass>(name: string): TClass {
         if (!this._registry.has(name))
             throw new BasaltError({
-                key: UTIL_KEY_ERROR.CLASS_CONSTRUCTOR_NOT_REGISTERED,
+                key: singletonManagerErrorKeys.classConstructorNotRegistered,
                 message: 'Class constructor is not registered.',
                 cause: { name }
             });

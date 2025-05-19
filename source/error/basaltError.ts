@@ -1,35 +1,12 @@
 import { randomUUIDv7 } from 'bun';
 
-/**
- * Represents the options for the Basalt error.
- */
-export interface BasaltErrorOptions<T = unknown> {
-    /**
-     * The error message describing what went wrong.
-     */
-    message?: string;
-
-    /**
-     * A unique key identifying the type of error, useful for localization or error handling.
-     */
-    key?: string;
-
-    /**
-     * The HTTP status code associated with the error, typically used in API responses.
-     */
-    httpStatusCode?: number;
-
-    /**
-     * The cause of the error, which can be an original error or additional context.
-     */
-    cause?: T;
-}
+import type { BasaltErrorOptions } from './types/basaltErrorOptions';
 
 /**
  * A custom error class that extends the native {@link Error} class, providing additional properties
  * such as a unique identifier, error key, HTTP status code, and cause.
  *
- * @template T - The type of the cause of the error, which can be any object or error.
+ * @typeParam T - The type of the cause of the error, which can be any object or error.
  *
  * @example
  * The following example demonstrates how to throw and catch a BasaltError.

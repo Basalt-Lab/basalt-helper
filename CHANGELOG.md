@@ -1,4 +1,8 @@
 
+## v1.13.5
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.13.5-canary-20250520-79b724b...v1.13.5)
+
 ## v1.13.5-canary-20250520-79b724b
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.13.4-canary-20250519-cba9bba...v1.13.5-canary-20250520-79b724b)

@@ -1,4 +1,25 @@
 
+## v1.13.6-canary-20250521-fdd53d3
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.13.5-canary-20250520-79b724b...v1.13.6-canary-20250521-fdd53d3)
+
+### 🧹 Refactors
+
+- **🧹:** [Enhance filter functions with generic type parameters] ## Refactoring - Updated `filterByKeyExclusion` and `filterByKeyInclusion` functions to use generic type parameters for better type safety and flexibility. - Improved documentation to clarify the functionality and usage of the `excludeNullUndefined` flag. ## Description The changes enhance the type definitions of the filtering functions, allowing for more precise control over the return types based on the `excludeNullUndefined` parameter. This refactor improves code maintainability and readability. ([e4ff5a9](https://github.com/Basalt-Lab/basalt-helper/commit/e4ff5a9))
+
+### 🦉 Chore
+
+- **🦉:** V1.13.5 ([999ba03](https://github.com/Basalt-Lab/basalt-helper/commit/999ba03))
+
+### 🧪 Tests
+
+- **🧪:** [refacto unit tests] ([ad1f312](https://github.com/Basalt-Lab/basalt-helper/commit/ad1f312))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+- Github-actions <necrelox@proton.me>
+
 ## v1.13.5
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.13.5-canary-20250520-79b724b...v1.13.5)

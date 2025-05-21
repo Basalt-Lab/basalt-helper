@@ -1,6 +1,6 @@
 {
   "name": "@basalt-lab/basalt-helper",
-  "version": "1.13.6-canary-20250521-fdd53d3",
+  "version": "1.13.6",
   "author": "Ruby",
   "description": "A helper library providing utilities.",
   "type": "module",

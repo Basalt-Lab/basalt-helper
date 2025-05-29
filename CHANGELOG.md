@@ -1,4 +1,28 @@
 
+## v1.13.8
+
+[compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.13.6-canary-20250521-fdd53d3...v1.13.8)
+
+### 🦉 Chore
+
+- **🦉:** V1.13.6 ([326701a](https://github.com/Basalt-Lab/basalt-helper/commit/326701a))
+- **🦉:** [update devDependencies] Update eslint and related packages ([3227965](https://github.com/Basalt-Lab/basalt-helper/commit/3227965))
+- **🦉:** V1.13.7 ([c6fb5ab](https://github.com/Basalt-Lab/basalt-helper/commit/c6fb5ab))
+
+### 🧪 Tests
+
+- **🧪:** [Improvement of tests] ([9865583](https://github.com/Basalt-Lab/basalt-helper/commit/9865583))
+
+### 🤖 CI
+
+- **🤖:** [Refactor GitHub Actions workflows] ([c662fcf](https://github.com/Basalt-Lab/basalt-helper/commit/c662fcf))
+- **🤖:** [Update deploy workflow for improved npm publishing] ([d369a4a](https://github.com/Basalt-Lab/basalt-helper/commit/d369a4a))
+
+### ❤️ Contributors
+
+- Ruby <necrelox@proton.me>
+- Github-actions <necrelox@proton.me>
+
 ## v1.13.7
 
 [compare changes](https://github.com/Basalt-Lab/basalt-helper/compare/v1.13.6-canary-20250521-fdd53d3...v1.13.7)
